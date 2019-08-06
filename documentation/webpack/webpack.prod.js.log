@@ -1,0 +1,80 @@
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const productionConfig = merge([
+
+  parts.clean(),
+
+  ...
+]);
+
+const productionConfig = merge([
+  ...
+  parts.minifyJavaScript(),
+
+  parts.minifyCSS({
+    options: {
+      discardComments: {
+        removeAll: true,
+      },
+      // Run cssnano in safe mode to avoid
+      // potentially unsafe transformations.
+      safe: true,
+    },
+  }),
+
+  ...
+]);
+module.exports = {
+  mode: 'production',
+  devtool: 'source-map',
+  module: {
+    rules: [
+      {
+        test: /\.m?js$/,
+        exclude: /(node_modules|bower_components)/,
+        use: {
+          loader: 'babel-loader',
+        }
+      }, {
+        test: /\.css$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here
+              // by default it use publicPath in webpackOptions.output
+              publicPath: '../'
+            }
+          },
+          "css-loader",
+        ]
+      }
+    ]
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "[name].css",
+      chunkFilename: "[id].css"
+    }),
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    })
+  ],
+
+
+}
+
+
+
+npm scripts as a Task Runner#
+Even though npm CLI wasn't primarily designed to be used as a task runner, it works as such thanks to package.json scripts field. Consider the example below:
+
+package.json
+
+"scripts": {
+  "start": "webpack-dev-server --env development",
+  "build": "webpack --env production",
+  "build:stats": "webpack --env production --json > stats.json"
+},
