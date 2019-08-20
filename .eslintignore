@@ -10,3 +10,5 @@ examples/**/server.js
 nodemon.json
 settinngs.json
 *.lock
+
+*/templates/*
