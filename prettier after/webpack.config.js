@@ -1,244 +1,212 @@
-const webpack = require('webpack');
-const path = require('path');
-const glob = require('glob');
-const fs = require('fs');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PurifyCSSPlugin = require("purifycss-webpack");
-const OptimizeCssAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const bootStrapEntryPoints = require('./webpack.bootstrap.config');
+const webpack = require('webpack');	
+const webpackDevServer = require('webpack-dev-server');	
+const path = require('path');	
+const glob = require('glob');	
+const fs = require('fs');	
 const dotenv = require('dotenv');
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
-const merge = require("webpack-merge");
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');		
+const HtmlWebpackPlugin = require('html-webpack-plugin');	
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');	
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');	
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const commonConfig = require('./webpack.common.js');
 
+const PATH_APP = path.resolve(__dirname, './portal-app/src/index.js');	
+const PATH_DIST = path.resolve(__dirname, './dist');
+const PATH_BUILD = path.resolve(__dirname, './build');
+const PATH_SOURCE= path.resolve(__dirname, './src');
+const PATH_TESTS = path.resolve(__dirname, './tests');
 
-const isProd = process.env.NODE_ENV === 'production';
-const cssDev = ['style-loader', 'css-loader', 'sass-loader'];
-const cssProd = ExtractTextPlugin.extract({
-    fallback: "style-loader",
-    use: ['css-loader', 'sass-loader'],
-    publicPath: '/dist'
-});
-
-const PATHS = {
-  dist: path.join(__dirname, 'src', 'bundle.js'),
-  build: path.join(__dirname, 'build')
-}
-
+// local: webpack --env.NODE_ENV=local --env.production --progress
+// console.log(NODE_ENV='production'); 
+console.log(NODE_ENV='development'); 
+    
 module.exports = {
-  mode: 'development',
-  devtool: ['inline-source-map'],
-  entry: path.resolve(__dirname, 'src', 'bundle.js'),
-  build: path.resolve(__dirname, 'build'),
-  vendor: [
-    'react',
-    'react-dom',
-    ],
-    app: "./src/metroapp.js"
-    }
-
-output: {
-  path: path.resolve(__dirname, 'dist'),
-  filename: "main.bundle.js",
-  publicPath: "./"
-},
-process.env.NODE_ENV || mode='development',
-resolve: {
-  modules: path.resolve(__dirname,'src'),'node_modules'
-},
-
-  module: {
-    rules: [
-      {
-        // Conditions
+    mode: 'development',
+    entry: path.resolve(__dirname, 'src', 'index.js'),
+    app: PATH_APP,
+    build: path.resolve(__dirname, 'build'), // 'build': 'webpack --config webpack.config.js'
+    output: {
+        path: path.resolve(__dirname+'./dist'),
+        filename: 'bundle.js',
+        publicPath:'./assets/',
+    },
+    module: {
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.js|jsx$/, 
+                include: path.resolve(__dirname, 'src'),
+                exclude: ['node_modules'], 
+                use: [
+                    'babel-loader',
+                    'eslint-loader'
+                ],
+                options: {
+                    presets: [
+                        '@babel/preset-env', {
+                            debug: true, 
+                            useBuiltIns: 'usage',	
+                            corejs: 3
+                        },
+                    ],
+                },
+            },
+        ],
+    },
+    {
         test: /\.(js|jsx)$/,
         exclude: path.resolve(__dirname, 'node_modules'),
-        use:'babel-loader'
-          options: {
+        use: ['babel-loader'],
+        options: {
             presets: ['env']
-          }, 
-      {
+        },
+    },
+    {
         test: /\.css$/,
-        use: "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: () => ([
-                require("autoprefixer"),
-                require("precss"),
-              ]),
+        use: ['css-loader'], {
+        loader: 'postcss-loader',
+        options: {
+            plugins: () => ([
+                require('autoprefixer'),
+                require('precss')
+                ]),
             },
-          },
-        ],
-      }, 
-      {
+        },
+    },
+    {
         test: /\.less$/,
-        use: ['css-loader, less-loader?name=[name].[ext]&outputPath=background/'],
-        'image-webpack-loader']
-      },
-      {
+        use: [
+            'css-loader',
+            'less-loader'
+        ]
+    },   // less-loader?name=[name].[ext]&outputPath=background/'
+    {
         test: /\.scss$/,
-        use: 'sass-loader'
-        },
-        {
+        use: ['sass-loader']
+    },
+    {
         test:/\.html$/,
-        use: ['html-loader?loadername=[name].[ext]&outputPath=html/'],
+        use: [
+            'html-loader',
+            'url-loader'
+        ] //?loadername=[name].[ext]&outputPath=html/']
         exclude:path.resolve(__dirname, 'src/index.html')
-        },
-        test:/\.html$/,
-        use: ['url-loader?loadername=[name].[ext]&outputPath=html/'],
+    },
+    {
+        test:/\.html$/,  
+        use: ['html-minify-loader'],
         exclude:path.resolve(__dirname, 'src/index.html')
+    },
+    {
+        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,  // [?name=[name].[ext]&outputPath=images/']
+        use: ['file-loader'],
+        options: {
+            limit: 20000,
+            mimetype: 'image/png'
         },
-        test:/\.html$/,
-        use: ['html-minify-loader?loadername=[name].[ext]&outputPath=html/'],
-        exclude:path.resolve(__dirname, 'src/index.html')
+    },
+    {
+        test: /\.(jpg|gif|svg)$/,  // [?name=[name].[ext]&outputPath=images/']
+        use: ['raw-loader'],
+        options: {
+            limit: 20000,
+            mimetype: 'image/png'
         },
-        {
-          test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-           use: ['file-loader?name=[name].[ext]&outputPath=images/'],
-             options: {
-               limit: 20000,
-               mimetype: 'image/png'
-             },
-           },
-           {
-          test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-           use: ['url-loader?name=[name].[ext]&outputPath=images/'],
-             options: {
-               limit: 20000,
-               mimetype: 'image/png'
-             },
-           },
-           {
-          test: /\.(jpg|gif|svg)$/,
-           use: ['raw-loader?name=[name].[ext]&outputPath=images/'],
-             options: {
-               limit: 20000,
-               mimetype: 'image/png'
-             },
-           },
-           {
+    },
+    {
         test: /\.scss$/,
-        use: 'style-loader',
-     },
-     {
+        use: ['style-loader']
+    },
+    {
         test: /\.css$/,
-        use: 'css-loader',
-        {
-          loader: "css-loader",
-          options: {
+        use: [
+            'css-loader',
+            'postcss-loader'
+        ],
+        options: {
             importLoaders: 1,
             modules: true
-            }
-          },
-          {
-        test: /\.css$/,
-        use: 'postcss-loader',
-            modules: true
-            }
-            {
-       test: /\.(woff|woff2|eot|ttf|otf)$/,
-       use: {
-         loader: 'file-loader?name=[name].[ext]&outputPath=fonts/'
-         options: {
-           limit:10000,
-        mimetype: "application/font-woff"
-      },
-      {
+        },
+    },
+    {                                  
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader'],  // [?name=[name].[ext]&outputPath=fonts/'
+        options: {
+            limit:10000,
+            mimetype: 'application/font-woff'
+        },
+    },
+    {
         test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
         loader: 'imports-loader?jQuery=jquery'
-    }, 
-  },
-            modules: [
-              path.resolve(__dirname, 'dist'), 'node_modules'
-              ]
-              },
-              {
-                mode: 'development',
-                devServer: {
-                  contentBase: path.join(__dirname, 'dist'),
-                  filename: 'main.bundle.js',
-                  compress: true,
-                  host: process.env.HOST=`localhost` "npm start",
-                  port: process.env.PORT=8080&&"npm start",
-                  stats: "errors-only",
-                  watchContentBase: true,
-                  liveReload: false,
-                  open: true,
-                  hot:true,
-                  overlay: {
-                    warnings: true,
-                    errors: true
-                    },
-                    proxy: {
-                      '/api': {
-                        target: 'http://localhost:8080',
-                        secure: false,
-                        bypass: function(req, res, proxyOptions) {
-                          if (req.headers.accept.indexOf('html') !== -1) {
-                            console.log('Skipping proxy for browser request.');
-                            return '/index.html';
-                            }
-                        }
-                    }
-                }
-              plugins: [
-  new HtmlWebpackPlugin({
-    minify: {
-                collapseWhitespace: true
-            },
-    inject: false,
-    hash: true,
-    title: 'index.html'
-    template: path.join(__dirname,'src','index.html'),
-  }),
-  new ExtractTextPlugin({
-            filename: 'css/[name].css',
-            disable: !isProd,
-            allChunks: true
+    },
+    optimition: {
+        ruimeChunk: 'single',
+        sptChunks: {
+    chunks: 'all',
+    maxSize: 0,
+    minChunks: 1,
+    maxAsyncRequests: 9,
+    maxInitialRequests: 7,
+    automaticNameDelimiter: '~',
+    automaticNameMaxLength: 30,
+    name: true,
+    cacheGroups: {
+        vendor: {
+        test: /[\\/]node_modules[\\/]/,
+        priority:-10,
+        }, 
+        default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true
+        },
+    },
+    performance: {
+    hints: 'warnings',
+    maxEntrypointSize: 400000,
+    maxAssetSize: 100000
+    assetFilter: function(assetFilename) {
+        return assetFilename.endsWith('.js', '.jsx', '.css', '.html', '.json', '.jpeg');
+        },
+    },
+    devtool: 'inline-source-map', // 'start': 'webpack-dev-server --open'
+    devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+        publicPath: '/assets/',
+        colors: {
+            green: '\u001b[32m'
+        },
+        compress: true,
+        disableHostCheck: true, // THIS IS NOT RECOMMENDED as apps that do not check the host are vulnerable to DNS rebinding attacks
+        historyApiFallback: true,
+        host: '127.0.0.1',
+        https: true,
+        port: 8080,	
+        overlay: {
+            errors: true,
+            warnings: true
+        },
+        stats: {
+            all: false,
+            modules: true,
+            maxModules: 0,
+            errors: true,
+            warnings: true,
+            moduleTrace: true,
+            errorDetails: true
+        },
+        useLocalIp: true
+    },
+    plugins: [
+        new Dotenv({
+        path: './.env.development',  // path: './.env.production'
         }),
-        new PurifyCSSPlugin({
-            // Give paths to parse for rules. These should be absolute!
-            paths: glob.sync(path.join(__dirname, 'src/*.html')),
+        new HtmlWebpackPlugin({
+            title: 'print_test'
         }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
-        new OptimizeCssAssetsPlugin(),
-        new webpack.ProvidePlugin({
-            react: "react",
-            "react-dom": "react-dom"
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "vendor",
-            minChunks: Infinity,
-        }),    
-        new DuplicatePackageCheckerPlugin({
-        // Also show module that is requiring each duplicate package (default: false)
-        verbose: true,
-        // Emit errors instead of warnings (default: false)
-        emitError: true,
-        // Show help message if duplicate packages are found (default: true)
-        showHelp: false,
-        // Warn also if major versions differ (default: true)
-        strict: true,
-        exclude(instance) {
-        return instance.name === "fbjs";
-        }),
-        }),
-        new webpack.LoaderOptionsPlugin({
-            test: /\.html$/,
-            options: {
-                'html-minify-loader': {
-                    empty: true,        // KEEP empty attributes
-                    cdata: true,        // KEEP CDATA from scripts
-                    comments: true,     // KEEP comments
-                    dom: {                            // options of !(htmlparser2)[https://github.com/fb55/htmlparser2]
-                        lowerCaseAttributeNames: false,      // do not call .toLowerCase for each attribute name (Angular2 use camelCase attributes)
-                    }
-                   
-            },
-        })
-    ]
-}
- 
+        new CleanWebpackPlugin(),
+    ],
+};
+

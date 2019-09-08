@@ -1,23 +1,44 @@
-os: windows
-
-language: node_js
+language: node_js	
 node_js:
-  - "10.16.0"
+	"stable"
+  - '10'	
+  
+script:	
+  - npm test
+  - echo \Error: no test specified\ && exit 1
+  - webpack --env.environment=production --config webpack.config.js
+  - webpack --env.environment=development --config webpack.config.js
+  - webpack-dev-server --env.environment=development --config webpack.config.js
+  - prettier  --write ./webpack.config.dev.js
+  - eslint --fix --fix-type suggestion ./webpack.config.dev.js
+  - npm buiild	
 
-before_install:
-  - npm i -g npm@version-number  
+env:	
+  - ESLINT_VERSION=6
 
- install: ./install-dependencies.sh
+cache: npm
 
-cache:
-  npm: false
+install: 
+  	  
+before_install:	
+  - npm i -g npm@^10.16.0	
+	
+before_script:	
+  - npm prune	
 
-deploy:
-  provider: pages
-  skip_cleanup: true
-  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep_history: true
-  on:
-    branch: master
+notifications:	
+  email: false	
 
-    
+  - npm run report-coverage && npm run semantic-release	
+branches:	
+
+deploy: 
+  provider: pages	
+  skip_cleanup: true	
+  github-token: 30cfe140b2fa5d958e3fbaf4eee49190c359c4a7
+  local_dir: "Metro-Desktop" 
+  on:	
+    branch:	greenkeeper/initial
+
+after_success: Succefull Build Approved by travis	ci
+npm run coveralls

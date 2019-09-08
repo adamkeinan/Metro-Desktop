@@ -1,34 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { "createHashHistory" } from "history";
-import { "Router, Route, Switch" } from "react-router-dom";
-import "./style.css";
-import { "samplebutton.js" } from "./src/components";
-import App from "./App";
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import "assets/css/material-dashboard-react.css?v=1.5.0";
-
-import indexRoutes from "routes/index.jsx";
-
-document.body.appendChild(component());
-
-const monorepoDefinitions = {
- 'prefix': [
-   'prefix-full-name',
-   'prefix-full-other'
- ]
+function Root() {
+  return <h1>Hello, world.</h1>;
 }
-console.log("Hello world");
 
-const history = createHashHistory();
-
+// Render the Root element into the DOM
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      {indexRoutes.map((prop, key) => {
-        return <Route path={prop.path} component={prop.component} key={key} />;
-      })}
-    </Switch>
-  </Router>,
-  document.getElementById("root")
+  <Root />,
+  document.getElementById('root'),
 );
+
+
+
