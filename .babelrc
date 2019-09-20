@@ -1,0 +1,30 @@
+// .babelrc
+{	{
+  "presets": [	  "presets": [
+    "@babel/preset-env",	      "@babel/preset-env",
+    "@babel/react"	      "@babel/preset-react",
+  ],	      "react",
+  "plugins": [	      "env",
+    "@babel/plugin-proposal-class-properties"	      "airbnb",
+    ]	      "flow"
+} 	      ],
+      "targets": {
+        "node": 8
+        },
+  "loose": true
+  {
+    "plugins": [
+      "transform-runtime",
+      "transform-async-to-generator"
+      "@babel/plugin-proposal-class-properties",
+      "module-resolver": [
+      "root": ["./prettier/webpack.config.dev.js"],
+      "alias": {
+        "test": "./test",
+        "underscore": "prettier"
+        }
+      ],
+    ],
+    "retainLines": true
+  },    
+}

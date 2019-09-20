@@ -1,0 +1,46 @@
+language: node_js	
+node_js:
+	"stable"
+  - '10'	
+  
+script:	
+  - npm test
+  - echo \Error: no test specified\ && exit 1
+  - webpack --env.environment=production --config webpack.config.js
+  - webpack --env.environment=development --config webpack.config.js
+  - webpack-dev-server --env.environment=development --config webpack.config.js
+  - prettier  --write ./webpack.config.dev.js
+  - eslint --fix --fix-type suggestion ./webpack.config.dev.js
+  - npm buiild	
+
+env:	
+  - ESLINT_VERSION=6
+
+cache: npm
+
+before_install:
+# package-lock.json was introduced in npm@5
+- '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
+- npm install -g greenkeeper-lockfile
+install: npm install
+before_script: greenkeeper-lockfile-update
+after_script: greenkeeper-lockfile-upload
+  	
+
+	
+before_script:	
+  - npm prune	
+
+  - npm run report-coverage && npm run semantic-release	
+branches:	
+
+deploy: 
+  provider: pages	
+  skip_cleanup: true	
+  github-token: 30cfe140b2fa5d958e3fbaf4eee49190c359c4a7
+  local_dir: "Metro-Desktop" 
+  on:	
+    branch:	greenkeeper/initial
+
+after_success: "Successfull Build Approved by travis ci"
+npm run coveralls
