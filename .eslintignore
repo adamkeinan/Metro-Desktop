@@ -1,0 +1,12 @@
+lib
+**/node_modules
+examples/**/server.js
+/dist
+/documentation
+/temp
+.env.development
+.env.staging
+*.log
+nodemon.json
+settinngs.json
+*.lock
