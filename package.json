@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "desktop, app, dev, webpack",
   "main": "./src/index.js",
+  "private": false,
   "dependencies": {
     "array-uniq": "2.1.0",
     "async": "3.1.0",
