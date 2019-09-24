@@ -1,46 +1,67 @@
-# travis.yaml #
-
 language: node_js	
-	"stable"
-  - '10'	
+node_js:	
+"stable"
+  - "8"
+  - "'10.16.0'"	
+  git:
+depth: 1
+dist: trusty
+notifications:
+  email: false
+cache: 
+  npm: false
   
-script:	
-  - npm test,
-  - echo \Error: no test specified\ && exit 1,
-  - webpack --env.environment=production --config webpack.config.js,
-  - webpack --env.environment=development --config webpack.config.js,
-  - webpack-dev-server --env.environment=development --config webpack.config.js,
-  - prettier  --write ./webpack.config.dev.js,
-  - eslint --fix --fix-type suggestion ./webpack.config.dev.js,
-  - npm buiild	
-
-env:	
-  - ESLINT_VERSION=6
-
-cache: npm
-
 before_install:
 - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
 - npm install -g greenkeeper-lockfile
-install: npm install
-before_script: greenkeeper-lockfile-update
-after_script: greenkeeper-lockfile-upload
+install: 
+- npm ci
+- ./install-dependencies.sh
 
 before_script:	
-  - npm prune	
+  - npm prune
+  - greenkeeper-lockfile-update
   - npm run report-coverage && npm run semantic-release	
+script:	
+  - 'if [ "$NODE8" = "true" ]; then npm run lint; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run coverage; fi'
+  - 'if [ "$FIREFOX" = "true" ]; then cd experimental/puppeteer-firefox && npm i && cd ../..; fi'
+  - 'if [ "$FIREFOX" = "true" ]; then npm run funit; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run test-doclint; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run test-types; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run bundle; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run unit-bundle; fi'
+  - 'if [ "$NODE6" = "true" ]; then npm run unit-node6; fi'
+  - npm run test
+  - webpack --env.environment=development --config webpack.config.js,
+  - webpack-dev-server --env.environment=development --config webpack.config.js,
+  - npm  run build
 
-branches:	
-greenkeeper/lock-file
-adamkeinan/mater
+  jobs:
+  include:
+    - node_js: "8.16.1"
+    env:
+        - NODE8=true
+        - FLAKINESS_DASHBOARD_NAME="Travis Chromium (node8 + linux)"
+        - FLAKINESS_DASHBOARD_BUILD_URL="${TRAVIS_JOB_WEB_URL}"
+    - node_js: "10.16.3"
+      env:
+        - FIREFOX=true
+        - FLAKINESS_DASHBOARD_NAME="Travis Firefox (node10 + linux)"
+        - FLAKINESS_DASHBOARD_BUILD_URL="${TRAVIS_JOB_WEB_URL}"
 
-deploy: 
-  provider: pages,
-  skip_cleanup: true,
-  github-token: 30cfe140b2fa5d958e3fbaf4eee49190c359c4a7
-  local_dir: "Metro-Desktop",
-  on:
-  branch:	greenkeeper/initial,
+after_success: "Successfull Build Approved by travis ci"
+after_failure: "Test Build failure,Please View Log Report"
+before_deploy:
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN
+    on:
+      branch: greenkeeper/initial,
 
-  after_success: "Successfull Build Approved by travis ci",
-  npm run coverall
+after_deploy:  
+keep_history: true
+local-dir: gh-pages
+branche: master     
+repo: adamkeinan/Metro-Desktop

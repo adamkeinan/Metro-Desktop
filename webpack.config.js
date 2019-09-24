@@ -50,7 +50,7 @@ module.exports = env => {
         ],	
       app: './src/metroapp.js',	
       bootstrap: bootstrapconfig	
-      }	
+      }	          
     },	
       // The dev server will serve content from this directory.	
       contentBase: PATH_DIST,	
