@@ -1,143 +1,208 @@
-const webpack = require('webpack');	
-const path = require('path');	
-const glob = require('glob');	
-const fs = require('fs');	
-const dotenv = require('dotenv');	
-const HtmlWebpackPlugin = require('html-webpack-plugin');	
-const HtmlWebPackPlugin = require('html-webpack-plugin');	
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');	
-const PurifyCSSPlugin = require('purifycss-webpack');	
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');	
-const bootStrapEntryPoints = require('./webpack.bootstrap.config');	
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');	
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');	
+const webpack = require('webpack');
+const webpackDevServer = require('webpack-dev-server');
+const path = require('path');
+const glob = require('glob');
+const fs = require('fs');
+const dotenv = require('dotenv');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
+const commonConfig = require('./webpack.common.js');
 
- // We'll refer to our source and dist paths frequently, so let's store them here	
-const PATH_APP = path.resolve(__dirname, './portal-app/src');	
+const PATH_APP = path.resolve(__dirname, './portal-app/src/index.js');
 const PATH_DIST = path.resolve(__dirname, './dist');
 const PATH_BUILD = path.resolve(__dirname, './build');
 const PATH_SOURCE= path.resolve(__dirname, './src');
 const PATH_TESTS = path.resolve(__dirname, './tests');
 
-// If we export a function, it will be passed two parameters, the first	
-// of which is the webpack command line environment option `--env`.	
-// `webpack --env.production` sets env.production = true	
-// `webpack --env.a = b` sets env.a = 'b'	
-// https://webpack.js.org/configuration/configuration-types#exporting-a-function
-const {environment} = env;	
-const isProduction = environment === 'production';	
-const isDevelopment = environment === 'development';	
 
-if (process.env.NODE_ENV = 'production') then((env.webpack) = 'production');	
-if (process.env.NODE_ENV = 'development') then((env.webpack) = 'development');  	
-    // Tell Webpack to do some optimizations for our environment (development	
-    // or production). Webpack will enable certain plugins and set	
-    // `process.env.NODE_ENV` according to the environment we specify.	
-    // https://webpack.js.org/configuration/mode		
-module.exports = env => { 
-    mode: process.env.NODE_ENV || 'development'
-    entry: path.resolve(__dirname, 'src', 'index.js')
-    build: path.resolve(__dirname, 'build')
-    filename: 'app.bundle.js'
-    output: path.join(__dirname, 'dist'),
-     // Configuration options for Webpack DevServer, an Express web server that	
-    // aids with development. It provides live reloading out of the box and can	
-    // be configured to do a lot more.	
-    devServer: {	
-      devtool: ['inline-source-map'],	
-      entry: Path.resolve(__dirname 'src/app');
-      vendor: [	
-        'react',	
-        'react-dom'	
-        ],	
-      app: './src/metroapp.js',	
-      bootstrap: bootstrapconfig		
-      // The dev server will serve content from this directory.	
-      contentBase: PATH_DIST,	
+console.log(NODE_ENV = 'development');
 
-       // Specify a host. (Defaults to 'localhost'.)	
-      host: 'localhost',	
-
-       // Specify a port number on which to listen for requests.	
-      port: 8080,	
-
-       // When using the HTML5 History API (you'll probably do this with React	
-      // later), index.html should be served in place of 404 responses.	
-      historyApiFallback: true,	
-
-       // Show a full-screen overlay in the browser when there are compiler	
-      // errors or warnings.	
-      overlay: {	
-        errors: true,	
-        warnings: true,	
-      },	
-    // The point or points to enter the application. This is where Webpack will	
-    // start. We generally have one entry point per HTML page. For single-page	
-    // applications, this means one entry point. For traditional multi-page apps,	
-    // we may have multiple entry points.	
-    // https://webpack.js.org/concepts#entry	
-  // Tell Webpack where to emit the bundles it creates and how to name them.	
-  // https://webpack.js.org/concepts#output	
-  // https://webpack.js.org/configuration/output#output-filename	
-      output: {	
-      path: PATH_DIST,	
-      filename: 'js/[name].[hash].js',
-       },
+module.exports = {
+    mode: 'development',
+    entry: path.resolve(__dirname, 'src', 'index.js'),
+    app: PATH_APP,
+    build: path.resolve(__dirname, 'build'),
+    output: {
+        path: path.resolve(__dirname+'./dist'),
+        filename: 'bundle.js',
+        publicPath:'./assets/',
     },
-},	
-   // Determine how the different types of modules will be treated.	
-  // https://webpack.js.org/configuration/module	
-  // https://webpack.js.org/concepts#loaders	
-  module: {	
-    rules: [	
-        {	
-          test: /\.js|jsx$/, // Apply this rule to files ending in .js	
-          exclude: ['node_modules'], // Don't apply to files residing in node_modules	
-          use: { // Use the following loader and options	
-            loader: ['babel-loader', 'eslint-loader'],	
-            // We can pass options to both babel-loader and Babel. This option object	
-            // will replace babel.config.js	
-            options: {	
-              presets: [	
-                ['@babel/preset-env', {	
-                  debug: true, // Output the targets/plugins used when compiling	
-
-                   // Configure how @babel/preset-env handles polyfills from core-js.	
-                  // https://babeljs.io/docs/en/babel-preset-env	
-                  useBuiltIns: 'usage',	
-
-                   // Specify the core-js version. Must match the version in package.json	
-                  corejs: 3,	
-
-                   // Specify which environments we support/target for our project.	
-                  // (We have chosen to specify targets in .browserslistrc, so there	
-                  // is no need to do it here.)	
-                  // targets: "",	
-                }],	
-
-                 // The react preset includes several plugins that are required to write	
-                // a React app. For example, it transforms JSX:	
-                // <div> -> React.createElement('div')	
-                '@babel/preset-react',	
-              ],	
-            },	
-          }	
-        }	
-      ],	
-    },	
-
-     plugins: [	
-      // This plugin will generate an HTML5 file that imports all our Webpack	
-      // bundles using <script> tags. The file will be placed in `output.path`.	
-      // https://github.com/jantimon/html-webpack-plugin	
-      new HtmlWebpackPlugin({	
-        template: path.join(PATH_SOURCE, './index.html')	
-      }),	
-
-       // This plugin will delete all files inside `output.path` (the dist directory),	
-      // but the directory itself will be kept.	
-      // https://github.com/johnagan/clean-webpack-plugin	
-      new CleanWebpackPlugin(),	
-    ],	
-  };	
-};
+    module: {
+        rules: [
+            {
+                enforce: 'pre',
+                test: /\.js|jsx$/,
+                include: path.resolve(__dirname, 'src'),
+                exclude: ['node_modules'],
+                use: [
+                    'babel-loader',
+                    'eslint-loader'
+                ],
+                options: {
+                    presets: [
+                        '@babel/preset-env', {
+                            debug: true,
+                            useBuiltIns: 'usage',
+                            corejs: 3
+                        }
+                    ],
+                },
+            },
+        ],
+    },
+    {
+  test: /\.(js|jsx)$/,
+    exclude: path.resolve(__dirname, 'node_modules'),
+        use: ['babel-loader'],
+        options: {
+        presets: ['env']
+        }
+    }
+    {
+        test: /\.css$/,
+        use: ['css-loader'], {
+            loader: 'postcss-loader, options: { 
+                plugins: () => ([require('autoprefixer'),require('precss')]),
+            }
+        },
+    }
+    {
+        test: /\.less$/,
+        use: [
+            'css-loader',
+            'less-loader'
+        ],
+    }
+    {
+        test: /\.scss$/,
+        use: ['sass-loader']
+    },
+    {
+        test:/\.html$/,
+        use: [
+            'html-loader',
+            'url-loader'
+        ]
+        exclude:path.resolve(__dirname, 'src/index.html')
+    },
+    {
+        test:/\.html$/,  
+        use: ['html-minify-loader'],
+        exclude:path.resolve(__dirname, 'src/index.html')
+    },
+    {
+        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        use: ['file-loader'],
+        options: {
+            limit: 20000,
+            mimetype: 'image/png'
+        },
+    },
+    {
+        test: /\.(jpg|gif|svg)$/,
+        use: ['raw-loader'],
+        options: {
+            limit: 20000,
+            mimetype: 'image/png'
+        },
+    },
+    {
+        test: /\.scss$/,
+        use: ['style-loader']
+    },
+    {
+        test: /\.css$/,
+        use: [
+            'css-loader',
+            'postcss-loader'
+        ],
+        options: {
+            importLoaders: 1,
+            modules: true
+        },
+    },
+    {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: ['file-loader'],
+        options: {
+            limit:10000,
+            mimetype: 'application/font-woff'
+        }
+    },
+    {
+        test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
+        loader: 'imports-loader?jQuery=jquery'
+    },
+optimization: {
+    runtimeChunk: 'single',
+        sptChunks: {
+        chunks: 'all',
+            maxSize: 0,
+                minChunks: 1,
+                    maxAsyncRequests: 9,
+                        maxInitialRequests: 7,
+                            automaticNameDelimiter: '~',
+                                automaticNameMaxLength: 30,
+                                    name: true,
+                                        cacheGroups: {
+            vendor: {
+                test: /[\\/]node_modules[\\/]/,
+                    priority: -10,
+                },
+                default: {
+                minChunks: 2,
+                    priority: -20,
+                        reuseExistingChunk: true
+            }
+        },
+    },
+    performance: {
+        hints: 'warnings',
+            maxEntrypointSize: 400000,
+                maxAssetSize: 100000
+        assetFilter: function(assetFilename) {
+            return assetFilename.endsWith('.js', '.jsx', '.css', '.html', '.json', '.jpeg');
+        },
+    },
+    devtool: 'inline-source-map', // 'start': 'webpack-dev-server --open'
+        devServer: {
+        contentBase: path.resolve(__dirname, 'dist'),
+            publicPath: '/assets/',
+                colors: {
+            green: '\u001b[32m'
+        },
+        compress: true,
+            disableHostCheck: true, // THIS IS NOT RECOMMENDED as apps that do not check the host are vulnerable to DNS rebinding  attacks
+                historyApiFallback: true,
+                    host: '127.0.0.1',
+                        https: true,
+                            port: 8080,
+                                overlay: {
+            errors: true,
+                warnings: true
+        },
+        stats: {
+            all: false,
+                modules: true,
+                    maxModules: 0,
+                        errors: true,
+                            warnings: true,
+                                moduleTrace: true,
+                                    errorDetails: true
+        },
+        useLocalIp: true
+    },
+    plugins: [
+        new Dotenv({
+            path: './.env.development'
+        }),
+        new HtmlWebpackPlugin({
+            title: 'print_test'
+        }),
+        new CleanWebpackPlugin()
+    ]
+  },
+}
