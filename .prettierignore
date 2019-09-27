@@ -7,3 +7,15 @@ package.json
 .gitignore	
 *.fixtures.json	
 src/libs/** 
+.eslitrc.js
+.travis.yaml
+./dist
+./vscode
+extensions.json
+tests/
+.env
+yarn.lock
+prettierrc.js
+appveyor.yaml
+.editor.config
+node_modules/
