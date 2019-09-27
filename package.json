@@ -38,7 +38,7 @@
     "css-loader": "3.1.0",
     "csv-loader": "3.0.2",
     "dotenv": "8.0.0",
-    "eslint-loader": "2.2.1",
+    "eslint-loader": "3.0.2",
     "eslint-plugin-eslint-comments": "3.1.2",
     "file-loader": "4.1.0",
     "history": "4.9.0",
