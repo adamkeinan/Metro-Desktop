@@ -21,7 +21,8 @@
     "react-redux": "7.1.0",
     "react-router-dom": "5.1.0",
     "redux": "4.0.4",
-    "yarn": "1.17.3"
+    "yarn": "1.17.3",
+    "snyk": "^1.230.5"
   },
   "devDependencies": {
     "@babel/core": "7.5.5",
@@ -73,7 +74,9 @@
   "scripts": {
     "test": "echo \\\"Error: no test specified\\\" && exit 1",
     "webpack": "babel-node ./node_modules/webpack/bin/webpack",
-    "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open"
+    "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server --open",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -89,5 +92,6 @@
   "bugs": {
     "url": "https://github.com/adamkeinan/Metro-Desktop/issues"
   },
-  "homepage": "https://github.com/adamkeinan/Metro-Desktop#readme"
+  "homepage": "https://github.com/adamkeinan/Metro-Desktop#readme",
+  "snyk": true
 }
