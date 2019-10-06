@@ -1,0 +1,14 @@
+[ignore]
+. */__tests__/. * 
+. * \.ignore\.js
+.env
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
