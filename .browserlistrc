@@ -1,7 +1,14 @@
  # Browsers that we support
- "browserslist": [
-    "last 2 version",
-    "> 2%",
-    "maintained node versions",
-    "not dead"
-  ]
+"browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "maintained node versions",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 2 chrome version",
+      "last 2 firefox version",
+      "last 1 safari version"
+    ]
+}

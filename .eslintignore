@@ -10,6 +10,7 @@ documentation/
 .prettierignore
 .travis.yaml
 .vscode-upload.json
+.babelrc
 appveyor.yaml
 extensions.json
 jest.config.js
@@ -18,6 +19,7 @@ package-lock.json
 yarn.lock
 prettierrc.js
 /temp
+.env
 .env.development
 .env.staging
 test/

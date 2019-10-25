@@ -1,30 +1,53 @@
-// .babelrc
-{	{
-  "presets": [	  "presets": [
-    "@babel/preset-env",	      "@babel/preset-env",
-    "@babel/react"	      "@babel/preset-react",
-  ],	      "react",
-  "plugins": [	      "env",
-    "@babel/plugin-proposal-class-properties"	      "airbnb",
-    ]	      "flow"
-} 	      ],
-      "targets": {
-        "node": 8
-        },
-  "loose": true
-  {
-    "plugins": [
-      "transform-runtime",
-      "transform-async-to-generator"
-      "@babel/plugin-proposal-class-properties",
-      "module-resolver": [
-      "root": ["./prettier/webpack.config.dev.js"],
-      "alias": {
-        "test": "./test",
-        "underscore": "prettier"
+{
+ "plugins": [
+   [ 
+    "root-import",
+    { 
+      "paths":
+       [ 
+        "rootPathSuffix":"./", 
+        "rootPathPrefix":"~/"
+       ]
+    }, 
+    "module-resolver", 
+    "dynamic-import-node", 
+    "transform-flow-strip-types", 
+    "proposal-class-properties", 
+    "transform-spread", 
+    "transform-es2015-modules-commonjs", 
+    "transform-async-to-generator", 
+    "transform-react-constant-elements", 
+    "transform-runtime",  {
+      "absoluteRuntime":false, 
+        "corejs3":true, 
+        "helpers":true, 
+        "regenerator":true, 
+        "useESModules":true
+       }
+     ]
+  ], 
+  "presets":[
+    [
+      "babel-preset-airbnb", 
+      "@babel/preset-react",  {
+       "targets": {
+          "pragma":"React.createElement", 
+          "pragmaFrag":"React.Fragment", 
+          "throwIfNamespace":true
         }
-      ],
-    ],
-    "retainLines": true
-  },    
+      }, 
+      "@babel/preset-flow", 
+      "react", 
+      "@babel/preset-env",  {
+        "targets": {
+          "esmodules":true, 
+            "node":"current", 
+            "loose":true, 
+            "useBuiltIns":true
+        }
+      }, 
+      "es2015", 
+      "stage-3"
+    ]
+  ]
 }
