@@ -22,7 +22,7 @@
     "react-router-dom": "5.1.1",
     "redux": "4.0.4",
     "yarn": "1.19.3",
-    "snyk": "^1.238.0"
+    "snyk": "^1.239.2"
   },
   "devDependencies": {
     "@babel/core": "7.6.3",
