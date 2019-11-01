@@ -123,6 +123,7 @@
     "react-dev-config": "^2.2.2",
     "react-dev-utils": "^9.0.2",
     "react-scripts": "3.0.1",
+    "style-loader": "0.23.1",
     "regenerator-preset": "^0.13.1",
     "regenerator-runtime": "^0.13.3",
     "regenerator-transform": "^0.14.1",
