@@ -1,6 +1,7 @@
 import './App.css';
 import logo from './logo.svg';
 import React from './react';
+import import ReactDOM from 'react-dom';
 
 function App() {
   return (
@@ -24,3 +25,4 @@ function App() {
 }
 
 export default App;
+

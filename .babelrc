@@ -1,53 +1,51 @@
 {
- "plugins": [
-   [ 
-    "root-import",
-    { 
-      "paths":
-       [ 
-        "rootPathSuffix":"./", 
-        "rootPathPrefix":"~/"
-       ]
-    }, 
-    "module-resolver", 
-    "dynamic-import-node", 
-    "transform-flow-strip-types", 
-    "proposal-class-properties", 
-    "transform-spread", 
-    "transform-es2015-modules-commonjs", 
-    "transform-async-to-generator", 
-    "transform-react-constant-elements", 
-    "transform-runtime",  {
-      "absoluteRuntime":false, 
-        "corejs3":true, 
-        "helpers":true, 
-        "regenerator":true, 
-        "useESModules":true
-       }
-     ]
-  ], 
-  "presets":[
-    [
-      "babel-preset-airbnb", 
-      "@babel/preset-react",  {
-       "targets": {
-          "pragma":"React.createElement", 
-          "pragmaFrag":"React.Fragment", 
-          "throwIfNamespace":true
-        }
-      }, 
-      "@babel/preset-flow", 
-      "react", 
-      "@babel/preset-env",  {
-        "targets": {
-          "esmodules":true, 
-            "node":"current", 
-            "loose":true, 
-            "useBuiltIns":true
-        }
-      }, 
-      "es2015", 
-      "stage-3"
+  "presets": [
+    ["@babel-preset-es2018":, { "modules": false }],
+      "@babel/preset-react",
+      "@babel/preset-typescript",
+      "@babel/preset-stage-3",
+      ["@babel/preset-env", {
+        "node": "8.x|10.x|11.x",
+        "targets": { "chrome": 35 } ,
+        "debug": true,
+        "useBuiltIns": "commonjs",
+        "loose":true
+      }
     ]
-  ]
+  ],
+    "env": {
+    "development": {
+      "plugins": [
+      "@babel/plugin-development",
+      "@babel/plugin-dynamic-import-node",
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-json-strings",
+      "@babel/plugin-proposal-numeric-separator",
+      "@babel/plugin-proposal-object-rest-spread",
+      "@babel/plugin-syntax-dynamic-import",
+      "@babel/plugin-syntax-import-meta",
+      "@babel/plugin-transform-spread",
+      "@babel/plugin-transform-es2015-modules-commonjs",
+      "@babel/plugin-transform-async-to-generator",
+      "@babel/plugin-transform-react-constant-elements",
+      ["@babel/plugin-transform-runtime, {
+        "absoluteRuntime":false,
+        "corejs3":true,
+        "helpers":true,
+        "regenerator":true,
+        "useESModules":true
+      }],
+      "@babel/plugin-transform-typescript",
+      "babel-plugin-macros",
+      "react-hot-loader/babel"
+      ]
+    },
+    "production": {
+      "presets": ["minify"]
+    },
+    "test": {
+      "presets": ["@babel/preset-env", "@babel/preset-react"]
+    }
+  }
 }
+
