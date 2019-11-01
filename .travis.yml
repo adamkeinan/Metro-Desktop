@@ -1,0 +1,30 @@
+os: windows
+
+language: node_js
+node_js:
+  - "8"
+  - "10"
+  - "12"
+
+script:
+  - "npm run test"
+  - "npm run webpack.config.dev.js"
+  - "npm build"
+
+before_install:
+  - npm i -g npm@version-number
+
+ install: ./install-dependencies.sh
+
+cache:
+  npm: false
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: greenkeeper/lock-file
+
+
