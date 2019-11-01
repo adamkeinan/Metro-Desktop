@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-  - "8.x"
-  - "9.x"
-  - "10.x"
+  - "8"
+  - "'10.16.0'"
+  - "12.10.0"
 
 git:
--depth: 3
+-depth: 2
 
 dist: trusty
 notifications:
@@ -46,9 +46,9 @@ script:
   - npm  run build
 
 env:
-  - TRAVIS_NODE_VERSION: '8.x'
-  - TRAVIS_NODE_VERSION: '9.x'
-  - TRAVIS_NODE_VERSION: '10.x'
+  - TRAVIS_NODE_VERSION: '8'
+  - TRAVIS_NODE_VERSION: '10'
+  - TRAVIS_NODE_VERSION: '12'
   - TEST=true
   - LINT=true
 
@@ -64,7 +64,7 @@ deploy:
   skip_cleanup: true
   github-token: $GITHUB_TOKEN
   on:
-    branches: pages
+    branch: pages
 
 after_deploy:
 

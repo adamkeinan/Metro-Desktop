@@ -1,0 +1,49 @@
+body {
+  font: normal 18px/1.5 "Helvetica Neue", sans-serif;
+}
+
+.flex-wrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.flex-wrapper a {
+  position: relative;
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: flex .4s;
+}
+
+.flex-wrapper .one {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-001.jpg);
+  background-color: red;
+}
+
+.flex-wrapper .two {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-002.jpg);
+  background-color: green;
+}
+
+.flex-wrapper .three {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-003.jpg);
+  background-color: steelblue;
+}
+
+.flex-wrapper .four {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-004.jpg);
+  background-color: orange;
+}
+
+.flex-wrapper .five {
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/nav-005.jpg);
+  background-color: tomato;
+}
+
+.flex-wrapper a:hover {
+  flex: 3;
+}
