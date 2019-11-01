@@ -130,8 +130,9 @@ LiveShare_LinkCode.md
 ### VisualStudioCode ###
 .vscode/ ! .vscode/settings.json ! .vscode/tasks.json ! .vscode/launch.json ! .vscode/extensions.json
 extensions.json
-.code - workspace.code - workspace
+.code-workspace.code-workspace
 .ionide
+settings.json
 
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
