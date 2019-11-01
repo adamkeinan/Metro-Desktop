@@ -1,0 +1,75 @@
+language: node_js
+node_js:
+  - "8"
+  - "'10.16.0'"
+  - "12.10.0"
+
+git:
+-depth: 2
+
+dist: trusty
+notifications:
+  -email: false
+
+cache:
+  -npm: false
+
+before_install:
+  - npm cache clean -f
+  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
+  - "npm install -g npm@12.10.0"
+  - "npm install -g greenkeeper-lockfile"
+
+install:
+  - npm ci
+  - ./install-dependencies.sh
+
+before_script:
+  - npm prune
+  - greenkeeper-lockfile-update
+  - npm run report-coverage && npm run semantic-release
+
+script:
+  - npm run lint
+  - 'if [ "$NODE8" = "true" ]; then npm run lint; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run coverage; fi'
+  - 'if [ "$FIREFOX" = "true" ]; then cd experimental/puppeteer-firefox && npm i && cd ../..; fi'
+  - 'if [ "$FIREFOX" = "true" ]; then npm run funit; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run test-doclint; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run test-types; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run bundle; fi'
+  - 'if [ "$NODE8" = "true" ]; then npm run unit-bundle; fi'
+  - 'if [ "$NODE6" = "true" ]; then npm run unit-node6; fi'
+  - npm run test
+  - webpack --env.environment=development --config webpack.config.js,
+  - webpack-dev-server --env.environment=development --config webpack.config.js,
+  - npm  run build
+
+env:
+  - TRAVIS_NODE_VERSION: '8'
+  - TRAVIS_NODE_VERSION: '10'
+  - TRAVIS_NODE_VERSION: '12'
+  - TEST=true
+  - LINT=true
+
+after_success:
+  - "Successfull Build Approved by travis ci"
+  - "npm run coveralls"
+
+after_failure:
+  - "Test Build failure,Please View Log Report"
+before_deploy:
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github-token: $GITHUB_TOKEN
+  on:
+    branch: pages
+
+after_deploy:
+
+keep_history: true
+
+local-dir: gh-pages
+
+repo: adamkeinan/Metro-Desktop

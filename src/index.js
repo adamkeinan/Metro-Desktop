@@ -1,24 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { createHashHistory } from "history";
-import { Router, Route, Switch } from "react-router-dom";
-import eslint-plugin-eslint-comments from "eslint-plugin-eslint-comments";
-import style.css from "./styles"
-import App from './App';
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import "assets/css/material-dashboard-react.css?v=1.5.0";
+function Root() {
+  return <h1>Hello, world.</h1>;
+}
 
-import indexRoutes from "routes/index.jsx";
-
-const history = createHashHistory();
-
+// Render the Root element into the DOM
 ReactDOM.render(
-  <Router history={hist}>
-    <Switch>
-      {indexRoutes.map((prop, key) => {
-        return <Route path={prop.path} component={prop.component} key={key} />;
-      })}
-    </Switch>
-  </Router>,
-  document.getElementById("root")
+  <Root />,
+  document.getElementById('root'),
 );
+
+
+

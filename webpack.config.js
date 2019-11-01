@@ -1,287 +1,142 @@
-const path = require("path");
-const fs = require("fs");
-const webpack = require("webpack");
-const dotenv = require('dotenv');
-const merge = require("webpack-merge");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const DuplicatePackageCheckerPlugin = require("duplicate-package-checker-webpack-plugin");
+const webpack = require('webpack');	
+const path = require('path');	
+const glob = require('glob');	
+const fs = require('fs');	
+const dotenv = require('dotenv');	
+const HtmlWebpackPlugin = require('html-webpack-plugin');	
+const HtmlWebPackPlugin = require('html-webpack-plugin');	
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');	
+const PurifyCSSPlugin = require('purifycss-webpack');	
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');	
+const bootStrapEntryPoints = require('./webpack.bootstrap.config');	
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');	
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');	
 
+ // We'll refer to our source and dist paths frequently, so let's store them here	
+const PATH_SOURCE = path.resolve(__dirname, './portal-app/src');	
+const PATH_DIST = path.resolve(__dirname, './dist');	
 
-const parts = require("./webpack.parts");
+ // If we export a function, it will be passed two parameters, the first	
+// of which is the webpack command line environment option `--env`.	
+// `webpack --env.production` sets env.production = true	
+// `webpack --env.a = b` sets env.a = 'b'	
+// https://webpack.js.org/configuration/configuration-types#exporting-a-function	
+module.exports = env => {	
+  const {environment} = env;	
+  const isProduction = environment === 'production';	
+  const isDevelopment = environment === 'development';	
 
-const commonConfig = merge([
-  {
-    plugins: [
-      new HtmlWebpackPlugin({
-        title: "Webpack demo",
-        parts.loadCSS(),
-        parts.loadJavaScript({ include: "./src/app.js" }),
-      }),
-    ],
-  },
-]);
+   if (process.env.NODE_ENV = 'production') then((env.webpack) = 'production');	
+  if (process.env.NODE_ENV = 'development') then((env.webpack) = 'development');  	
+    // Tell Webpack to do some optimizations for our environment (development	
+    // or production). Webpack will enable certain plugins and set	
+    // `process.env.NODE_ENV` according to the environment we specify.	
+    // https://webpack.js.org/configuration/mode	
+    const PATHS = {	
+      mode: 'development',	
+      dist: path.join(__dirname, 'src', 'bundle.js'),	
+      build: path.join(__dirname, 'build')	
+    },	
 
-const developmentConfig = merge([
-  parts.devServer({
-    // Customize host/port here if needed
-    host: process.env.HOST=/localhost/,
-    port: process.env.PORT=8080,
-  }),
-]);
+     // Configuration options for Webpack DevServer, an Express web server that	
+    // aids with development. It provides live reloading out of the box and can	
+    // be configured to do a lot more.	
+    devServer: {	
+      devtool: ['inline-source-map'],	
+      entry: path.join(PATH_SOURCE, './index.js');	
+      vendor: [	
+        'react',	
+        'react-dom'	
+        ],	
+      app: './src/metroapp.js',	
+      bootstrap: bootstrapconfig	
+      }	          
+    },	
+      // The dev server will serve content from this directory.	
+      contentBase: PATH_DIST,	
 
-const productionConfig = merge([
-  parts.extractCSS({
-    use: ["css-loader", parts.autoprefix()],
-    parts.generateSourceMaps({ type: "source-map" }),
-    optimization: {
-      splitChunks: {
-        cacheGroups: {
-          commons: {
-            test: /[\\/]node_modules[\\/]/,
-            name: "vendor",
-            chunks: "initial",
-             plugins: [
-               new webpack.optimize.AggressiveSplittingPlugin({
-                 minSize: 10000,
-                 maxSize: 30000
-                 }),
-               ],
-             },
-           },
-         },
-       },
-     },
-   ]);
-    parts.clean(),
-  }),
-]);
+       // Specify a host. (Defaults to 'localhost'.)	
+      host: 'localhost',	
 
-module.exports = mode => {
-  if (mode === "production") {
-    return merge(commonConfig, productionConfig, { mode });
-  }
+       // Specify a port number on which to listen for requests.	
+      port: 8080,	
 
-  return merge(commonConfig, developmentConfig, { mode });
+       // When using the HTML5 History API (you'll probably do this with React	
+      // later), index.html should be served in place of 404 responses.	
+      historyApiFallback: true,	
+
+       // Show a full-screen overlay in the browser when there are compiler	
+      // errors or warnings.	
+      overlay: {	
+        errors: true,	
+        warnings: true,	
+    },	
+    // The point or points to enter the application. This is where Webpack will	
+    // start. We generally have one entry point per HTML page. For single-page	
+    // applications, this means one entry point. For traditional multi-page apps,	
+    // we may have multiple entry points.	
+    // https://webpack.js.org/concepts#entry	
+  // Tell Webpack where to emit the bundles it creates and how to name them.	
+  // https://webpack.js.org/concepts#output	
+  // https://webpack.js.org/configuration/output#output-filename	
+  output: {	
+    path: PATH_DIST,	
+    filename: 'js/[name].[hash].js',	
+  },	
+
+   // Determine how the different types of modules will be treated.	
+  // https://webpack.js.org/configuration/module	
+  // https://webpack.js.org/concepts#loaders	
+  module: {	
+    rules: [	
+        {	
+          test: /\.js|jsx$/, // Apply this rule to files ending in .js	
+          exclude: /node_modules/, // Don't apply to files residing in node_modules	
+          use: { // Use the following loader and options	
+            loader: ['babel-loader', 'eslint-loader'],	
+            // We can pass options to both babel-loader and Babel. This option object	
+            // will replace babel.config.js	
+            options: {	
+              presets: [	
+                ['@babel/preset-env', {	
+                  debug: true, // Output the targets/plugins used when compiling	
+
+                   // Configure how @babel/preset-env handles polyfills from core-js.	
+                  // https://babeljs.io/docs/en/babel-preset-env	
+                  useBuiltIns: 'usage',	
+
+                   // Specify the core-js version. Must match the version in package.json	
+                  corejs: 3,	
+
+                   // Specify which environments we support/target for our project.	
+                  // (We have chosen to specify targets in .browserslistrc, so there	
+                  // is no need to do it here.)	
+                  // targets: "",	
+                }],	
+
+                 // The react preset includes several plugins that are required to write	
+                // a React app. For example, it transforms JSX:	
+                // <div> -> React.createElement('div')	
+                '@babel/preset-react',	
+              ],	
+            },	
+          }	
+        }	
+      ],	
+    },	
+
+     plugins: [	
+      // This plugin will generate an HTML5 file that imports all our Webpack	
+      // bundles using <script> tags. The file will be placed in `output.path`.	
+      // https://github.com/jantimon/html-webpack-plugin	
+      new HtmlWebpackPlugin({	
+        template: path.join(PATH_SOURCE, './index.html')	
+      }),	
+
+       // This plugin will delete all files inside `output.path` (the dist directory),	
+      // but the directory itself will be kept.	
+      // https://github.com/johnagan/clean-webpack-plugin	
+      new CleanWebpackPlugin(),	
+    ],	
+  };	
 };
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./src/index.html", 
-  filename: "./index.html"
-}),
-
-module.exports = () => ({
-  const env = dotenv.config().parsed;
-  plugins: [
-    new webpack.DefinePlugin({DEVELOPMENT: JSON.stringify(true),
-  VERSION: JSON.stringify('5fa3b9'),
-  BROWSER_SUPPORTS_HTML5: true,
-  TWO: '1+1',
-  'typeof window': JSON.stringify('object'),
-  'process.env.NODE_ENV_DEV': JSON.stringify('development')
-    })
-  ]
-});
-
-module.exports = {
-  devServer: {
-  // Display only errors to reduce the amount of output.
-  stats: "errors-only",
-  // Parse host and port from env to allow customization.
-  //
-  // If you use Docker, Vagrant or Cloud9, set
-  // host: "0.0.0.0";
-  //
-  // 0.0.0.0 is available to all network devices
-  // unlike default `localhost`.
-  host: process.env.HOST=`localhost` npm start,
-  port: process.env.PORT=8080 npm start,
-  open: true, // Open the page in browser
-  contentBase: path.join(__dirname,'src');
-  overlay:true,
-  },
-  ...
-};
-
-const PATHS = {
-  dist: path.join(__dirname, "src", "bundle.js"),
-  build: path.join(__dirname, "build")
-},
-module.exports = {
- mode: 'development',
- entry: {
- src: "./src/index.js",
-}, 
-output: {
-  path: path.resolve(__dirname, 'dist');
-  filename: "main.bundle.js",
-  publicPath: "./public"
-},
-process.env.NODE_ENV || mode='development',
-resolve: {
-  modules: path.resolve(__dirname,'src'),'node_modules'
-},
-
-plugins: [
-  new HtmlWebpackPlugin({
-    template: path.join(__dirname,'src','index.html'),
-    inject: false,
-    title: "Webpack html"
-  }),
-  new DuplicatePackageCheckerPlugin({
-    // Also show module that is requiring each duplicate package (default: false)
-    verbose: true,
-    // Emit errors instead of warnings (default: false)
-    emitError: true,
-    // Show help message if duplicate packages are found (default: true)
-    showHelp: false,
-    // Warn also if major versions differ (default: true)
-    strict: true,
-    /**
-    * Exclude instances of packages from the results.
-    * If all instances of a package are excluded, or all instances except one,
-    * then the package is no longer considered duplicated and won't be emitted as a warning/error.
-    * @param {Object} instance
-    * @param {string} instance.name The name of the package
-    * @param {string} instance.version The version of the package
-    * @param {string} instance.path Absolute path to the package
-    * @param {?string} instance.issuer Absolute path to the module that requested the package
-    * @returns {boolean} true to exclude the instance, false otherwise
-    */
-    exclude(instance) {
-      return instance.name === "fbjs";
-      }
-   };
-],
-  module: {
-    rules: [
-      {
-        // Conditions
-        test: /\.(js|jsx)$/,
-        exclude: ./node_modules/,
-          // Actions
-        use:{
-          loader: "babel-loader",
-          options: {
-            presets: ["env"],
-          },
-        },
-      },  
-      {
-        test: /\.css$/,
-        use: "css-loader",
-          {
-            loader: "postcss-loader",
-            options: {
-              plugins: () => ([
-                require("autoprefixer"),
-                require("precss"),
-              ]),
-            },
-          },
-        ],
-      }, 
-      {
-        test: /\.less$/,
-        use: "style-loader", "css-loader", "less-loader",
-      },
-      {
-        test: /\.scss$/,
-        use: "style-loader", "css-loader", "sass-loader",
-      },
-           },
-           
-          ],
-        test:/\.html$/,
-        use: "html-loader"
-        },
-        {
-           test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-           use: {
-             loader: "url-loader",
-             options: {
-               limit: 25000,
-               mimetype: 'image/png'
-             },
-           },
-     },
-     {
-        test: /\.scss$/,
-        use: "style-loader", "css-loader", "sass-loader"
-     },
-     {
-        test: /\.css$/,
-        use: "style-loader",
-        {
-          loader: "css-loader",
-          options: {
-            importLoaders: 1,
-            modules: true
-            }
-          },
-        postcss-loader"
-        include: /\.module\.css$/
-        },
-     {
-        test: /\.svg$/,
-        use: "file-loader"
-     },
-    ]
-  },
-  resolve: {
-    extensions: ['.js','.jsx']
-    },
-    {
-       test: /\.(woff|woff2|eot|ttf|otf)$/,
-       use: {
-         loader: "url-loader",
-         options: {
-           limit:50000,
-
-        // url-loader sets mimetype if it's passed.
-        // Without this it derives it from the file extension
-        mimetype: "application/font-woff",
-
-       // Output below fonts directory
-        name: "./fonts/[name].[ext]",
-      },
-    }, 
-  },
-  {
-    devtool: [
-      'inline-source-map'
-      ]
-          },
-          {
-            modules: [
-              path.resolve(__dirname, 'dist'), 'node_modules'
-              ]
-              },
-              {
-                mode: 'development',
-                devServer: {
-                  contentBase: path.join(__dirname, 'src'), path.join(__dirname, 'dist'),
-                  filename: 'main.bundle.js',
-                  compress: true,
-                  port: 8080,
-                  watchContentBase: true,
-                  hot: false,
-                  liveReload: false,
-                  open: true,
-                  overlay: {
-                    warnings: true,
-                    errors: true
-                    }
-                    proxy: {
-                      '/api': {
-                        target: 'http://localhost:8080',
-                        secure: false,
-                        bypass: function(req, res, proxyOptions) {
-                          if (req.headers.accept.indexOf('html') !== -1) {
-                            console.log('Skipping proxy for browser request.');
-                            return '/index.html';
-                            }
-                        }
-                    }
-                }
-            }
-        };
