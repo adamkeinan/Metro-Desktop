@@ -1,10 +1,10 @@
 {
 	"compilerOptions": {
-    "module": "commonjs",
+    "module": "esnext",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
     "target": "es2018",
-    // Target latest version of ECMAScript.
     "allowJs": true,
-		// Don't emit; allow Babel to transform files.
     "allowSyntheticDefaultImports": true,
     "allowUnreachableCode": false,
     "baseUrl": "./src",
@@ -13,9 +13,12 @@
     "forceConsistentCasingInFileNames": true,
     "importHelpers": true,
     "jsx": "react",
-    "lib": [ "es2015"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "moduleResolution": "node",
-    // Process & infer types from .js files.
     "noFallthroughCasesInSwitch": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
@@ -24,27 +27,22 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
 		"outDir": "./dist/",
-    // path to output directory
     "rootDir": "./",
     "preserveConstEnums": true,
     "removeComments": true,
     "noEmit": true,
     "sourceMap": true,
     "strictNullChecks": false,
-    // enable strict null checks as a best practice
     "strict": true,
-
+    "skipLibCheck": true,
     "typeRoots": [ "./node_modules/@types" ]
-    // Search under node_modules for non-relative imports
   },
   "include": [
-    "./src/**/**/*"
+    "./src/**/**/*", "documentation/babel/config.babel"
   ],
   "exclude": [
     ".bablerc",
     "node_modules",
-    "dist",
-    "webpack.config.*",
     "**/*.spec.tsx"
   ],
   "compileOnSave": false

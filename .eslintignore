@@ -39,7 +39,6 @@ package-lock.json
 yarn.lock
 prettierrc.js
 /temp
-.env
 .env.development
 .env.staging
 test/

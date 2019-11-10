@@ -1,21 +1,21 @@
 module.exports = {
   root: true,
-  env: {
-    browser: true,
-    es6: true,
-    node: true,
-    commonjs: true,
-    jest: true
+  'env': {
+    'browser': true,
+    'es6': true,
+    'node': true,
+    'commonjs': true,
+    'jest': true
   },
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaVersion: 8,
-    sourceType: 'module',
-    ecmaFeatures: {
-      modules: true,
-      jsx: true
+  'parser': '@typescript-eslint/parser',
+  'parserOptions': {
+    'ecmaVersion': 8,
+    'sourceType': 'module',
+    'ecmaFeatures': {
+      'modules': true,
+      'jsx': true
     },
-    project: './.eslintrc.js'
+    project: '.src/eslintrc.js'
   },
   extends: [
     'eslint:recommended',
@@ -53,12 +53,15 @@ module.exports = {
       }
     }
   },
-  rules: {
-    '@typescript-eslint/interface-name-prefix': ['error', { prefixWithI: 'always' }],
+  'rules': {
+    '@typescript-eslint/interface-name-prefix': [
+      'error',
+      { prefixWithI: 'always' }
+    ],
     'array-bracket-newline': ['error', 'consistent'],
     'block-spacing': ['error', 'always'],
     'brace-style': ['error', '1tbs'],
-    'camelcase': ['error', { properties: 'always' }],
+    camelcase: ['error', { properties: 'always' }],
     'comma-dangle': [
       'error',
       {
@@ -75,47 +78,40 @@ module.exports = {
       'last',
       { exceptions: { VariableDeclaration: true } }
     ],
-    'curly': ['error', 'all'],
-    'eqeqeq': ['error', 'always'],
+    curly: ['error', 'all'],
+    eqeqeq: ['warn', 'allow-null'],
     'eol-last': ['error', 'always'],
-    'indent': ['error', 2],
+    indent: ['error', 4],
     'lines-around-comment': [
       'error',
       {
-        'beforeBlockComment': true
+        beforeBlockComment: true
       }
     ],
     'lines-between-class-members': [
       'error',
       'always',
       {
-        'exceptAfterSingleLine': true
+        exceptAfterSingleLine: true
       }
     ],
     'max-statements': ['error', 50],
     'max-statements-per-line': ['error', { max: 1 }],
     'multiline-ternary': ['error', 'always-multiline'],
-    'new-cap': ['error', { 'newIsCap': true, 'capIsNew': true, 'properties': true }],
+    'new-cap': ['error', { newIsCap: true, capIsNew: true, properties: true }],
     'new-parens': ['error'],
-    'newline-per-chained-call': ['error', { 'ignoreChainWithDepth': 3 }],
-    'no-array-constructor': ['error'],
-    'no-console': ['off'],
-    'no-else-return': ['error', { 'allowElseIf': false }],
-    'no-invalid-this': ['error'],
-    'no-multi-spaces': [
-      'error',
-      {
-        exceptions: {
-          'ImportDeclaration': true,
-          'VariableDeclarator': true
-        }
-      }
-    ],
+    'newline-per-chained-call': ['error', { ignoreChainWithDepth: 3 }],
+    'no-array-constructor': 'error',
+    'no-console': 'off',
+    'no-else-return': ['error', { allowElseIf: false }],
+    'no-invalid-this': 'error',
+    'no-inline-comments': 'off',
+    'no-multi-spaces': [ 'error', { exceptions: { ImportDeclaration: true, VariableDeclarator: true }}],
     'arrow-parens': ['error', 'as-needed'],
     'unicorn/no-unsafe-regex': 'error',
     'unicorn/no-unused-properties': 'error',
     'arrow-spacing': 'error',
-    'prefer-const': ['error', { 'destructuring': 'all' }],
+    'prefer-const': ['error', { destructuring: 'all' }],
     'no-new': ['error'],
     'no-new-func': ['error'],
     'no-lonely-if': ['error'],
@@ -129,7 +125,7 @@ module.exports = {
     'prefer-const': 'error',
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
-    'quotes': ['warn', 'single'],
+    quotes: ['error', 'double'],
     'rest-spread-spacing': ['error', 'never'],
     'space-in-parens': ['error', 'never'],
     'spaced-comment': ['error', 'always'],
@@ -151,12 +147,12 @@ module.exports = {
     'array-bracket-spacing': [2, 'never'],
     'consistent-return': 'error',
     'constructor-super': 'warn',
-    'ident': ['error', 4],
+    ident: ['error', 4],
     'import/imports-first': ['error', 'absolute-first'],
     'import/newline-after-import': 'error',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
-    'linebreak-style': ['off', 'eol-last'],
+    'linebreak-style': ['error', 'unix'],
     'max-len': [
       'warn',
       {
@@ -177,7 +173,7 @@ module.exports = {
     'no-await-in-loop': 'error',
     'no-const-assign': 'warn',
     'no-console': 'off',
-    'no-const-assign': 'error',
+    'no-cond-assign': ['error, always'],
     'no-constant-condition': ['error', { checkLoops: false }],
     'no-control-regex': 'error',
     'no-debugger': 'error',
@@ -210,12 +206,12 @@ module.exports = {
     'prefer-destructuring': 'off',
     'prettier/prettier': [
       'error',
-      { 'singleQuote': true, 'parser': '@typescript-eslint/parser' }
+      { singleQuote: true, parser: '@typescript-eslint/parser' }
     ],
-    'usePrettierrc': ['error', 'always'],
+    usePrettierrc: ['error', 'always'],
     'react/jsx-filename-extensions': [
       'warn',
-      { 'extensions': ['*.js', '*.jsx'] }
+      { extensions: ['*.js', '*.jsx'] }
     ],
     'react/default-props-match-prop-types': 'off',
     'react/jsx-uses-react': 'error',
@@ -228,24 +224,24 @@ module.exports = {
     'react/jsx-max-props-per-line': ['warn', { maximum: 1 }],
     'react/prop-types': 'warn',
     'react/require-default-props': 'warn',
-    'semi': ['warn', 'always'],
+    semi: ['error', 'always'],
     'space-unary-ops': 2,
-    'tabwidth': 2,
+    tabwidth: 2,
     'trailing-comma': 'error',
     'global-require': 'warn',
     'valid-jsdoc': 'warn'
   },
-  'overrides': [
+  overrides: [
     {
-      'files': ['packages/*/src/**/*.js', 'codemods/*/src/**/*.js'],
+      files: ['packages/*/src/**/*.js', 'codemods/*/src/**/*.js']
     },
     {
-      'files': [
+      files: [
         'packages/*/test/**/*.js',
         'codemods/*/test/**/*.js',
         'test/**/*.js'
       ],
-      'env': {
+      env: {
         jest: true
       }
     }

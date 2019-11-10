@@ -1,0 +1,34 @@
+[ignore]
+<PROJECT_ROOT>/lib/.*
+<PROJECT_ROOT>/test/.*
+<PROJECT_ROOT>/examples/.*
+<PROJECT_ROOT>/node_modules/.*/spec/.*
+
+
+[libs]
+flow-libs
+
+[lints]
+
+[options]
+# https://github.com/facebook/flow/issues/3143
+sharedmemory.hash_table_pow=21
+suppress_comment=.*\\$FlowFixMe.*
+suppress_comment=.*\\$FlowIssue.*
+suppress_comment=\\(.\\|\n\\)*\\$FlowDisableNextLine
+
+suppress_type=$FixMe
+
+experimental.lsp.code_actions=true
+
+module.name_mapper='^rsg-components/\(.*\)$' -> '<PROJECT_ROOT>/src/rsg-components/\1'
+
+[strict]
+
+[untyped]
+.*/node_modules/*
+<PROJECT_ROOT>/lib/flowNonLSP/pkg/commons-node
+<PROJECT_ROOT>/lib/flowNonLSP/pkg/flow-base/lib/FlowHelpers.js
+
+[version]
+^0.111.3

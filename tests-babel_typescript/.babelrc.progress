@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    [
+      "const-enum",
+      {
+        "transform": "removeConst"
+      }
+    ],
+    ["@babel/transform-typescript"]
+  ]
+}

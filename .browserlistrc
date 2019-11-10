@@ -1,20 +1,28 @@
  # Browsers that we support
 "browserslist": {
     "production": [
-      ">=.2%", last 2 versions,
+      ">=0.1%",
+      "last 2 Chrome versions"
+      "last 1 Edge versions"
+      "last 1 Electron versions"
+      "last 1 Explorer versions"
+      "last 2 Firefox versions"
+      "last 3 Node versions"
+      "last 2 Opera versions"
+      "last 1 Samsung versions"
       "not dead",
       "maintained node versions",
       "not op_mini all"
     ],
     "development": [
-      ">= .5%, last 2 versions",
-      "Chrome"
-      "Edge"
-      "Electron"
-      "Explorer"
-      "Firefox"
-      "Node"
-      "Opera"
-      "Samsung"
+      ">= 0.2%",
+      "last 3 Chrome versions"
+      "last 1 Edge versions"
+      "last 1 Electron versions"
+      "last 2 Explorer versions"
+      "last 3 Firefox versions"
+      "last 3 Node versions"
+      "last 2 Opera versions"
+      "last 2 Samsung versions"
     ]
 }

@@ -1,8 +1,11 @@
-import { favicon } from './public';
-import './style.css';
+import "./style.css";
+import "./style/main.less";
+
+import App from "./components/App";
+import React from "react";
+import ReactDom from "react-dom";
+import { favicon } from "./public";
 
 console.log(favicon.ico);
-
-document.querySelector('#app').innerHTML = 'Hello from your JavaScript file ...';
-
-console.log(process.env.NODE_ENV);
+document.querySelector('#app').innerHTML = 'Hello = require your JavaScript file ...';
+ReactDom.render(<App />, document.getElementById('root'));
