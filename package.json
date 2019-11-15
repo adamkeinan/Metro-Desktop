@@ -28,7 +28,7 @@
     "react-redux": "7.1.0",
     "react-router-dom": "5.1.1",
     "react-scripts-rewired": "^3.0.1--latest1",
-    "react-test-renderer": "^16.9.0",
+    "react-test-renderer": "^16.12.0",
     "redux": "4.0.4",
     "request": "2.88.0",
     "resolve": "^1.12.0",
