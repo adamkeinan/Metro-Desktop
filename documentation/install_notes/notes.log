@@ -1,0 +1,283 @@
+https://www.npmjs.com/package/webpack-babel-external-helpers-2
+webpack-babel-external-helpers-2
+A Webpack plugin modifies webpack configuration to make babel-loader use external-helpers and injects babelHelpers object to the specified bundles.
+
+Installation
+npm install webpack-babel-external-helpers-2
+
+Motivation
+A shortcut to configure babel-loader to use babel external-helpers plugin. There is no need to install the plugin manually, use complicated query-string syntax for babel-loader in webpack configuration and create external-helpers module (javascript code) to be added to webpack entries. Just install the package and make webpack use it as a plugin.
+
+Usage examples
+// webpack.config.js
+ 
+const WebpackBabelExternalsPlugin = require('webpack-babel-external-helpers-2');
+ 
+module.exports = {
+    entry: './main.js',
+    output: {
+        filename: 'main.bundle.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                loader: 'babel?presets[]=es2015',
+            }
+        ],
+    },
+    plugins: [
+        new WebpackBabelExternalsPlugin(/* plugin options object */),
+    ],
+};
+Options
+whitelist {Array<String>|String} : optional
+Keywords specifying helpers to be included in the output code according to the Babel specification.
+
+Array is used as is. Comma-separated string is split by comma, each item is trimmed. Space-separated string is split by space, all spaces are removed.
+
+See babel specification.
+
+entries {Array<String>|String} : optional
+Entries (in terms of webpack) to be modified. The option is applied only when entry property of the webpack configuration is an object. Bundles of the specified entries will have additional module with the babelHelpers object injected.
+
+Array is used as is. String is used to specify only one entry.
+
+See webpack configuration.
+
+aliases {Array<String|RegExp>} : optional
+Array of aliases for babel-loader specified in the webpack configuration.
+
+In case of an alias is a string it's compared with a loader name with strict equality (both operands are lowercased).
+
+strict {Boolean=false} : optional
+The plugin throws if strict === true and no babel-loader was found in webpack configuration.
+
+Special notes
+Node v4 is supported. Use lib/es5 as the entry point.
+require('webpack-babel-external-helpers-2/lib/es5')
+
+The plugin doesn't work when the webpack configuration entry property is a function.
+
+
+https://www.npmjs.com/package/fast-levenshtein
+fast-levenshtein
+2.0.6 • Public • Published 3 years ago
+fast-levenshtein - Levenshtein algorithm in Javascript
+Build Status NPM module NPM downloads Follow on Twitter
+
+An efficient Javascript implementation of the Levenshtein algorithm with locale-specific collator support.
+
+Features
+Works in node.js and in the browser.
+Better performance than other implementations by not needing to store the whole matrix (more info).
+Locale-sensitive string comparisions if needed.
+Comprehensive test suite and performance benchmark.
+Small: <1 KB minified and gzipped
+Installation
+node.js
+Install using npm:
+
+$ npm install fast-levenshtein
+Browser
+Using bower:
+
+$ bower install fast-levenshtein
+If you are not using any module loader system then the API will then be accessible via the window.Levenshtein object.
+
+Examples
+Default usage
+
+var levenshtein = require('fast-levenshtein');
+ 
+var distance = levenshtein.get('back', 'book');   // 2
+var distance = levenshtein.get('我愛你', '我叫你');   // 1
+Locale-sensitive string comparisons
+
+It supports using Intl.Collator for locale-sensitive string comparisons:
+
+var levenshtein = require('fast-levenshtein');
+ 
+levenshtein.get('mikailovitch', 'Mikhaïlovitch', { useCollator: true});
+// 1
+Building and Testing
+To build the code and run the tests:
+
+$ npm install -g grunt-cli
+$ npm install
+$ npm run build
+Performance
+Thanks to Titus Wormer for encouraging me to do this.
+
+Benchmarked against other node.js levenshtein distance modules (on Macbook Air 2012, Core i7, 8GB RAM):
+
+Running suite Implementation comparison [benchmark/speed.js]...
+>> levenshtein-edit-distance x 234 ops/sec ±3.02% (73 runs sampled)
+>> levenshtein-component x 422 ops/sec ±4.38% (83 runs sampled)
+>> levenshtein-deltas x 283 ops/sec ±3.83% (78 runs sampled)
+>> natural x 255 ops/sec ±0.76% (88 runs sampled)
+>> levenshtein x 180 ops/sec ±3.55% (86 runs sampled)
+>> fast-levenshtein x 1,792 ops/sec ±2.72% (95 runs sampled)
+Benchmark done.
+Fastest test is fast-levenshtein at 4.2x faster than levenshtein-component
+You can run this benchmark yourself by doing:
+
+$ npm install
+$ npm run build
+$ npm run benchmark
+Contributing
+If you wish to submit a pull request please update and/or create new tests for any changes you make and ensure the grunt build passes.
+
+See CONTRIBUTING.md for details.
+
+License
+MIT - see LICENSE.md
+
+
+https://www.npmjs.com/package/react-lifecycles-compat
+react-lifecycles-compat
+3.0.4 • Public • Published a year ago
+react-lifecycles-compat
+What is this project?
+React version 17 will deprecate several of the class component API lifecycles: componentWillMount, componentWillReceiveProps, and componentWillUpdate. (Read the Update on Async rendering blog post to learn more about why.) A couple of new lifecycles are also being added to better support async rendering mode.
+
+Typically, this type of change would require third party libraries to release a new major version in order to adhere to semver. However, the react-lifecycles-compat polyfill offers a way to use the new lifecycles with older versions of React as well (0.14.9+) so no breaking release is required. This enables shared libraries to support both older and newer versions of React simultaneously.
+
+How can I use the polyfill
+First, install the polyfill from NPM:
+
+# Yarn 
+yarn add react-lifecycles-compat
+ 
+# NPM 
+npm install react-lifecycles-compat --save
+Next, update your component and replace any of the deprecated lifecycles with new ones introduced with React 16.3. (Refer to the React docs for examples of how to use the new lifecycles.)
+
+Lastly, use the polyfill to make the new lifecycles work with older versions of React:
+
+import React from 'react';
+import {polyfill} from 'react-lifecycles-compat';
+ 
+class ExampleComponent extends React.Component {
+  static getDerivedStateFromProps(nextProps, prevState) {
+    // Normally this method would only work for React 16.3 and newer,
+    // But the polyfill will make it work for older versions also!
+  }
+ 
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    // Normally this method would only work for React 16.3 and newer,
+    // But the polyfill will make it work for older versions also!
+  }
+ 
+  // render() and other methods ...
+}
+ 
+// Polyfill your component so the new lifecycles will work with older versions of React:
+polyfill(ExampleComponent);
+ 
+export default ExampleComponent;
+Which lifecycles are supported?
+Currently, this polyfill supports static getDerivedStateFromProps and getSnapshotBeforeUpdate- both introduced in version 16.3.
+
+Validation
+Note that in order for the polyfill to work, none of the following lifecycles can be defined by your component: componentWillMount, componentWillReceiveProps, or componentWillUpdate.
+
+Note also that if your component contains getSnapshotBeforeUpdate, componentDidUpdate must be defined as well.
+
+An error will be thrown if any of the above conditions are not met.
+
+
+    module: {
+    rules:
+      {
+        test: /\.(js|jsx)$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader'
+        ]
+      },
+      {
+        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        use: ['file-loader'],
+        loaders: ['file-loader']
+      },
+      {
+         test: /\.(woff|woff2|eot|ttf|otf)$/,
+         use: ['file-loader']
+      },
+    output: {
+      filename: 'bundle.js',
+      path: path.resolve(__dirname, 'dist'),
+       }
+      publicPath: '/'
+    },
+  };
+
+
+
+webpack.config.babel.js
+
+
+
+  import jsxobj from 'jsxobj';
+
+// example of an imported plugin
+const CustomPlugin = config => ({
+  ...config,
+  name: 'custom-plugin'
+});
+
+export default (
+  <webpack target="web" watch mode="production">
+    <entry path="src/index.js" />
+    <resolve>
+      <alias {...{
+        react: 'preact-compat',
+        'react-dom': 'preact-compat'
+      }} />
+    </resolve>
+    <plugins>
+      <CustomPlugin foo="bar" />
+    </plugins>
+  </webpack>
+);
+
+
+WDS tries to run in another port in case the default one is being used. The terminal output tells you where it ends up running. 
+You can debug the situation with a command like netstat -na | grep 8080. 
+If something is running on the port 8080, it should display a message on Unix.
+
+Consider the example below where webpack processes JavaScript through Babel:
+
+webpack.config.js
+
+module.exports = {
+  ...
+  module: {
+    rules: [
+      {
+        // **Conditions** to match files using RegExp, function.
+        test: /\.js$/,
+
+        // **Restrictions**
+        // Restrict matching to a directory. This
+        // also accepts an array of paths or a function.
+        // The same applies to `exclude`.
+        include: path.join(__dirname, "app"),
+        exclude(path) {
+          // You can perform more complicated checks  as well.
+          return path.match(/node_modules/);
+        },
+
+        // **Actions** to apply loaders to the matched files.
+        use: "babel-loader",
+      },
+    ],
+  },
+};

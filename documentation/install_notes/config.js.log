@@ -1,0 +1,59 @@
+// config.js module for server.js
+const dotenv = require('dotenv');
+dotenv.config();
+module.exports = {
+  endpoint: process.env.API_URL,
+  masterKey: process.env.API_KEY,
+  port: process.env.PORT
+};
+
+
+
+React + Express
+"scripts": {
+  "start": "node server/index.js",
+  "dev": "webpack --mode development && node server/index.js",
+  "build": "webpack --mode production",
+  "test": "echo \"Error: no test specified\" && exit 1"
+}
+
+
+
+'use strict';
+
+// our setup function adds behind-the-scenes bits to the config that all of our
+// examples need
+const { setup } = require('../../util');
+
+module.exports = setup({
+  context: __dirname,
+  entry: './app.js',
+  output: {
+    filename: 'bundle.js',
+  },
+});
+
+
+webpack.config.js
+
+module.exports = mode => {
+
+  process.env.BABEL_ENV = mode;
+
+
+  ...
+};
+
+The way env works is subtle. 
+Consider logging env and make sure it matches your Babel configuration or otherwise the functionality you expect is not applied to your build.
+
+envName
+Type: string
+Default: process.env.BABEL_ENV || process.env.NODE_ENV || "development"
+Placement: Only allowed in Babel's programmatic options
+
+The current active environment used during configuration loading. 
+This value is used as the key when resolving "env" configs, and is also available inside configuration functions, plugins, and presets, via the api.env() function.
+
+$ travis encrypt YOUR_AUTH_TOKEN --add deploy.api_key
+https://docs.travis-ci.com/user/environment-variables/

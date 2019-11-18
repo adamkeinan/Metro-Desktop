@@ -1,0 +1,971 @@
+{
+	"folders": [
+		{
+			"path": "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Metro-Desktop"
+		}
+	],
+	"settings": {
+		"editor.cursorBlinking":"smooth",
+		"editor.fontFamily":"'Fira Code', monospace",
+    "editor.fontLigatures":true,
+    "editor.rulers": [80],
+    "editor.snippetSuggestions": "top",
+    "editor.wordBasedSuggestions": false,
+    "editor.suggest.localityBonus": true,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+		"editor.fontSize":15,
+		"editor.lineHeight": 30,
+		"editor.formatOnSaveTimeout":200,
+		"editor.formatOnType":false,
+		"editor.minimap.maxColumn":200,
+		"editor.acceptSuggestionOnEnter":"smart",
+		"editor.suggestFontSize":14,
+		"files.maxMemoryForLargeFilesMB":16384,
+		"files.simpleDialog.enable":true,
+		"files.trimTrailingWhitespace":true,
+		"workbench.colorTheme":"Cyberpunk",
+		"workbench.editor.highlightModifiedTabs":true,
+		"window.closeWhenEmpty":true,
+		"terminal.integrated.confirmOnExit":true,
+		"terminal.integrated.copyOnSelection":true,
+		"AllAutocomplete.cycleOpenDocumentsOnLaunch":true,
+    "editor.renderWhitespace":"all",
+    "editor.glyphMargin": false,
+    "editor.folding": false,
+    "files.exclude": {
+      "**/.git": true,
+      "**/.svn": true,
+      "**/.hg": true,
+      "**/CVS": true,
+      "**/.DS_Store": true,
+      "USE_GITIGNORE": true
+    },
+		"editor.wordWrap":"wordWrapColumn",
+		"editor.accessibilitySupport":"on",
+		"editor.autoClosingQuotes":"always",
+		"editor.codeActionsOnSave": {
+			"source.organizeImports":true
+		},
+    "editor.defaultFormatter":"esbenp.prettier-vscode",
+    "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggestSelection": "recentlyUsed"
+    },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.suggestSelection": "recentlyUsed",
+    "editor.suggest.filteredTypes": {
+      "keyword": true,
+      "snippet": true
+    }
+  },
+    "javascript.suggest.autoImports": false,
+    "javascript.validate.enable": true,
+    "search.exclude": {
+      "**/node_modules": true,
+      "**/bower_components": false,
+      "**/coverage": true,
+      "**/dist": true,
+      "**/build": true,
+      "**/.build": true,
+      "**/.gh-pages": true
+    },
+    "breadcrumbs.enabled": true,
+    "prettier.eslintIntegration": true,
+    "prettier.printWidth": 120,
+    "prettier.tabWidth": 2,
+    "prettier.singleQuote": true,
+    "prettier.trailingComma": "all",
+    "prettier.jsxBracketSameLine": false,
+    "prettier.semi": false,
+    "prettier.proseWrap": "always",
+    "prettier.requireConfig": true,
+		"editor.hover.delay":100,
+    "editor.copyWithSyntaxHighlighting":true,
+    "editor.minimap.enabled": false,
+		"files.autoSave":"onWindowChange",
+		"files.insertFinalNewline":true,
+		"workbench.commandPalette.history":150,
+		"workbench.quickOpen.preserveInput":true,
+		"workbench.iconTheme":"vscode-great-icons",
+		"workbench.editor.revealIfOpen":true,
+		"workbench.settings.openDefaultKeybindings":true,
+		"workbench.settings.openDefaultSettings":true,
+		"explorer.openEditors.visible":20,
+		"workbench.settings.editor":"json",
+		"search.location":"panel",
+		"search.quickOpen.includeSymbols":true,
+		"search.runInExtensionHost":true,
+		"search.showLineNumbers":true,
+		"search.smartCase":true,
+		"debug.console.fontFamily":"'Fira Code', monospace",
+		"debug.console.fontSize":15,
+		"debug.inlineValues":true,
+		"scm.alwaysShowActions":true,
+		"scm.alwaysShowProviders":true,
+		"scm.diffDecorationsGutterWidth":4,
+		"extensions.showRecommendationsOnlyOnDemand":false,
+		"terminal.integrated.fontFamily":"'Fira Code', monospace",
+		"terminal.integrated.fontSize":15,
+		"terminal.integrated.scrollback":1500,
+		"better-comments.highlightPlainText":true,
+		"bracket-pair-colorizer-2.colors":[
+			"Gold",
+			"Orchid",
+			"LightSkyBlue"
+		],
+		"bracket-pair-colorizer-2.highlightActiveScope":true,
+		"bracket-pair-colorizer-2.scopeLineCSS":[
+			"borderStyle : solid",
+			"borderWidth : 1px",
+			"borderColor : {LightGreen}",
+			"opacity: 0.5"
+		],
+		"bracket-pair-colorizer-2.showBracketsInRuler":true,
+		"bracket-pair-colorizer-2.showBracketsInGutter":true,
+		"workbench.tree.indent":20,
+		"workbench.tree.renderIndentGuides":"always",
+		"workbench.view.alwaysShowHeaderActions":true,
+		"window.zoomLevel":0.7,
+		"files.autoSaveDelay": 300,
+		"workbench.settings.useSplitJSON":true,
+		"better-comments.tags":[ {
+
+				"tag":"!",
+				"color":"#FF3D10",
+				"strikethrough":false,
+				"backgroundColor":"transparent"
+			},
+			{
+				"tag":"?",
+				"color":"#3498DB",
+				"strikethrough":false,
+				"backgroundColor":"transparent"
+			},
+			{
+				"tag":"//",
+				"color":"#474747",
+				"strikethrough":true,
+				"backgroundColor":"transparent"
+			},
+			{
+				"tag":"todo",
+				"color":"#FF8C00",
+				"strikethrough":false,
+				"backgroundColor":"transparent"
+			},
+			{
+				"tag":"*",
+				"color":"#98C379",
+				"strikethrough":false,
+				"backgroundColor":"transparent"
+			}
+		],
+		"bracket-pair-colorizer-2.activeScopeCSS":[
+			"borderStyle : solid",
+			"borderWidth : 1px",
+			"borderColor : {LightSkyBlue}",
+			"opacity: 0.5"
+		],
+		"color-highlight.sass.includePaths":[
+			"**./src/*"
+		],
+		"color-highlight.matchWords": true,
+		"colorInfo.fields": [
+			"hex", "rgb", "hsl", "hsv", "lab", "cmyk", "alpha"
+		],
+		"colorInfo.languages": [
+			{
+				"selector": "css",
+				"colors": "css"
+			},
+			{
+				"selector": "sass",
+				"colors": "css"
+			},
+			{
+				"selector": "scss",
+				"colors": "css"
+			},
+			{
+				"selector": "less",
+				"colors": "css"
+			},
+			{
+				"selector": "html",
+				"colors": "css"
+			}
+		],
+		"css.fileExtensions": [
+			"css",
+			"scss"
+		],
+		"emmet.extensionsPath": {
+			 "html": {
+				 "snippets": { "ull": "ul>li[id=${1} class=${2}]*2{    Will work with html, jade, haml and slim }",
+				   "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
+				   "ran": "{ Wrap plain text in curly braces }",
+				   "file":"C:\\Users/adam/.vscode/emmet snippets/html.json"
+			   }
+		   },
+		   "css": {
+			 "snippets": {
+				 "cb":"color: 1px solid ${1:green}",
+				 "bsd":"border: 1px solid ${1:purple}",
+				 "ls":"list-style: ${1}",
+				 "file":"C:\\Users/adam/.vscode/emmet snippets/css.json"
+			 }
+		  }
+		},
+    "emmet.includeLanguages": {
+      "javascript":"javascriptreact",
+			"HTML":"html",
+      "erb":"erb",
+      "VUE":"vue",
+      "ejs":"html",
+			"razor":"html",
+      "plaintext":"jade",
+      "MARKDOWN":"markdown",
+      "Powershell": "powershell",
+      "PHP": "php",
+      "python": "python",
+      "SHELL": "bash",
+      "RUBY": "ruby",
+      "BABEL": "json5",
+      "Gulp": "gulp",
+      "JAVA": "java",
+      "C++": "cpp",
+      "TypeScript": "typescript"
+		},
+		"emmet.triggerExpansionOnTab":true,
+		"emmet.showExpandedAbbreviation":"never",
+		"emmet.preferences": {
+			"css.webkitProperties":"border-right,animation"
+		},
+		"fontAwesomeAutocomplete.disableTriggerWordAutoClearPatterns":[
+			"**/*.html"
+		],
+		"git.allowForcePush": true,
+		"git.autofetchPeriod": 200,
+		"git.defaultCloneDirectory": "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\",
+		"git.detectSubmodulesLimit": 12,
+		"git.enableCommitSigning": true,
+		"git.enableSmartCommit": true,
+		"git.inputValidationLength": 120,
+		"git.postCommitCommand": "sync",
+		"git.scanRepositories": [
+			"I:\\\\Program Files (x86)/Microsoft Visual Studio/Repositories/",
+			"I:\\\\Program Files (x86)\\\\Microsoft Visual Studio\\\\Repositories\\Metro-Desktop\\"
+		],
+		"git.ignoredRepositories":[
+			"I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\2018.jsconf.eu-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Accelerider.Windows-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\AdminLTE-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Alchemy-Websockets-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\AnimateDemo",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ant-design-pro",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\api-platform-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\avalon-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\backup folder",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Block",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\blur-admin-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Caliburn.Micro-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\cerebral-next",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\client-hints-example-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\cocos2d-x-3",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\compressed files",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\concept-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\CreatingHtmlUI",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Dashio",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Data folder",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\demoweb",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\diff-serving-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\dnstradamus-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\DotvvmApplication",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\dotvvm-coffee-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\dotvvmprod",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\eclipse-javascript-2019-03-R-win32-x86_64",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\electron-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\electron-react",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\electron-react-boilerplate",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\express-es6-rest-api-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\fastfood",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline.adminlte.electron",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline-dev",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline-Reactor",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\fullPage.js-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\gentelella-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\gh3-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\gridsome-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\grunt-edge-apidoc-webapi-generator-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Hack-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\howto-components-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\hpbn.co-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\html-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\HtmlMasterRenderer",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\HtmlRenderer",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\httparchive.org-master",
+      "I:\\Program Files (x86)\\studio\\Repositories\\InStore-a-React-Native-E-Commerce-with-a-Restful-API-in-NodeJS",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic.frontline.project",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-app-scripts-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-core-angularjs-demo-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-native-5.5.1",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-pwa-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\jeremy.codes-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\json-server-gui-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\knockout-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\krembo",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\krembowpf",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\lazy-loading-research-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\material-dashboard-react-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\material-kit-react",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Mimic",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\mui-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\multiscroll.js-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\MvvmCross",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Neutronium-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\next.js-canary",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\NgEngine-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ngx-admin-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\node_modules",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\node-api-client-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\nodejs-shopping-cart-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\node-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\nvim-typescript-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\octokat.js-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\octonode-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\parcel-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\prerender-spa-plugin-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Prism-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Project",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\promise-worker-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\purifycss-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\pwaapp",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\pwacompat-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\pwa-module-dev",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reacoa 2852019",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react repo",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-dashboard",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\React-Electron-Webpack",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-from-scratch-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-git",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reactide",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-intl-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reactjs-admin-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reactjs-basics-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-material-admin-template-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-mobx-realworld-example-app-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\React-MultiDesktop",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-refetch-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\React-Slide",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-static",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\rest.js-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\serviceworker-cookbook-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\service-workers-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\single-page-application-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\space.js-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\split-me-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\stencil-angularjs-demo-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\stencil-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\stencil-transform-angularjs-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\SuperWebSocket",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\TriangularBtn-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Uefa Bot",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\UiDesignDemo",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\WebAPIContainer",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\webapp",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\webpack-pwa-manifest-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\webpack-react",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Workbox",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\WpfBrowserApp",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\wpfmaster",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\wpftoolkit-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\XanderUiDemo-master",
+      "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\yall.js-master"
+		],
+		"git.showPushSuccessNotification":true,
+		"gitblame.commitUrl":"guess",
+		"gitblame.inferCommitUrl":true,
+		"gitblame.ignoreWhitespace":false,
+		"gitblame.infoMessageFormat":"${commit.summary}",
+		"gitblame.pluralWebPathSubstrings":[
+			"bitbucket",
+			"atlassian"
+		],
+		"gitblame.logNonCritical":true,
+    "gitblame.statusBarMessageFormat":"Blame ${author.name} (${time.ago})",
+    "gitblame.statusBarMessageNoCommit":"Not Committed Yet",
+    "gitblame.statusBarPositionPriority":0,
+		"gitProjectManager.displayProjectPath":true,
+		"gitProjectManager.supportsSVN":true,
+		"gitProjectManager.warnIfFolderNotFound":true,
+		"gitTreeCompare.root":"repository",
+		"github.host":"github.com",
+		"github.username":"adamkeinan",
+		"githubPullRequests.queries":[ {
+				"label":"Waiting For My Review",
+				"query":"is:open review-requested:${user}"
+			},
+			{
+				"label":"Assigned To Me",
+				"query":"is:open assignee:${user}"
+			},
+			{
+				"label":"Created By Me",
+				"query":"is:open author:${user}"
+			},
+			{
+				"label":"Mentioned Me",
+				"query":"is:open mentions:${user}"
+			}
+		],
+		"gitignore.cacheExpirationInterval":4400,
+		"gitlens.advanced.blame.delayAfterEdit":2000,
+		"gitlens.advanced.repositorySearchDepth":5,
+		"gitlens.codeLens.includeSingleLineSymbols":true,
+		"gitlens.codeLens.recentChange.command":"gitlens.diffWithPrevious",
+		"gitlens.codeLens.recentChange.enabled":true,
+    "gitlens.hovers.detailsMarkdownFormat":".md",
+    "importCost.smallPackageSize": 50,
+    "importCost.mediumPackageSize": 100,
+    "importCost.smallPackageColor": "#7cc36e",
+    "importCost.mediumPackageColor": "#7cc36e",
+    "importCost.largePackageColor": "#d44e40",
+    "importCost.typescriptExtensions": [
+      "\\.ts?$", "\\.tsx?$"
+    ],
+    "importCost.javascriptExtensions": [
+      "\\.js?$", "\\.jsx?$", "\\.ts?$", "\\.tsx?$", "\\.html?$"
+    ],
+    "importCost.bundleSizeDecoration": "both",
+    "importCost.showCalculatingDecoration": true,
+    "importCost.debug": false,
+    "importCost.timeout": 10000,
+		"standard.autoFixOnSave":true,
+		"standard.enable":true,
+		"standard.run":"onSave",
+		"standard.trace.server":"messages",
+		"standard.validate":[
+			"javascript",
+			"javascriptreact"
+		],
+		"standard.workingDirectories":[
+			"**/*.",
+			"**./src"
+		],
+		"jestRunner.enabled":true,
+		"liveServer.settings.AdvanceCustomBrowserCmdLine":"chrome --incognito --headless --remote-debugging-port=9222",
+		"markdown.preview.fontSize":15,
+		"markdown.preview.lineHeight":0,
+		"markdownExtended.pdfFormat":"A4",
+		"markdown-preview-enhanced.enableCriticMarkupSyntax":true,
+		"markdown-preview-enhanced.HTML5EmbedIsAllowedHttp":true,
+		"javascript.commonjs.resolve.extensions":[
+			"*.js",
+			"*.jsx",
+      "*.ts",
+      "*.tsx"
+		],
+		"javascript.commonjs.resolve.languages":[
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+      "vue",
+			"coffeescript",
+			"Scala.js"
+		],
+		"javascript.commonjs.resolve.moduleDirectory":[
+			"node_modules",
+			"*./node_modules/"
+		],
+		"node_require.exclude":[
+			"node_modules",
+			"typings",
+			"bin",
+			"build",
+			"tmp",
+			"*.ignore"
+		],
+		"npm-intellisense.scanDevDependencies":true,
+		"openInGitHub.gitHubDomain":"github.com",
+		"dependencyAnalyticsServer.maxNumberOfProblems":120,
+		"powershell.codeFormatting.useCorrectCasing":true,
+		"prettier.jsxSingleQuote":true,
+		"prettier.useTabs":true,
+		"prettier.bracketSpacing":true,
+		"code-runner.executorMap": {
+			"javascript":"node",
+			"java":"cd $dir && javac $fileName && java $fileNameWithoutExt",
+			"c":"cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"cpp":"cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"objective-c":"cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"php":"php",
+			"python":"python -u",
+			"perl":"perl",
+			"perl6":"perl6",
+			"ruby":"ruby",
+			"go":"go run",
+			"lua":"lua",
+			"groovy":"groovy",
+			"powershell":"powershell -ExecutionPolicy ByPass -File",
+			"bat":"cmd /c",
+			"shellscript":"bash",
+			"fsharp":"fsi",
+			"csharp":"scriptcs",
+			"vbscript":"cscript //Nolog",
+			"typescript":"ts-node",
+			"coffeescript":"coffee",
+			"scala":"scala",
+			"swift":"swift",
+			"julia":"julia",
+			"crystal":"crystal",
+			"ocaml":"ocaml",
+			"r":"Rscript",
+			"applescript":"osascript",
+			"clojure":"lein exec",
+			"haxe":"haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+			"rust":"cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+			"racket":"racket",
+			"scheme":"csi -script",
+			"ahk":"autohotkey",
+			"autoit":"autoit3",
+			"dart":"dart",
+			"pascal":"cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+			"d":"cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+			"haskell":"runhaskell",
+			"nim":"nim compile --verbosity:0 --hints:off --run",
+			"lisp":"sbcl --script",
+			"kit":"kitc --run"
+		},
+		"code-runner.executorMapByFileExtension": {
+			".vb":"cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
+			".vbs":"cscript //Nologo",
+			".scala":"scala",
+			".jl":"julia",
+			".cr":"crystal",
+			".ml":"ocaml",
+			".exs":"elixir",
+			".hx":"haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+			".rkt":"racket",
+			".scm":"csi -script",
+			".ahk":"autohotkey",
+			".au3":"autoit3",
+			".kt":"cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
+			".kts":"kotlinc -script",
+			".dart":"dart",
+			".pas":"cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+			".pp":"cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+			".d":"cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+			".hs":"runhaskell",
+			".nim":"nim compile --verbosity:0 --hints:off --run",
+			".csproj":"dotnet run --project",
+			".fsproj":"dotnet run --project",
+			".lisp":"sbcl --script",
+			".kit":"kitc --run"
+		},
+		"code-runner.customCommand":"echo run",
+		"code-runner.defaultLanguage":"javascriptreact",
+		"code-runner.executorMapByGlob": {
+			"pom.xml":"cd $dir && mvn clean package"
+		},
+		"code-runner.languageIdToFileExtensionMap": {
+			"bat":".bat",
+			"powershell":".ps1",
+			"javascriptreact":".js",
+			"plaint txt":"html",
+			"typescript":".ts"
+		},
+		"code-runner.runInTerminal":true,
+		"code-runner.saveAllFilesBeforeRun":true,
+		"code-runner.saveFileBeforeRun":true,
+		"scss.lint.boxModel":"warning",
+		"shellformat.effectLanguages":[
+			"shellscript",
+			"dockerfile",
+			"dotenv",
+			"hosts",
+			"jvmoptions",
+			"ignore",
+			"gitignore",
+			"properties",
+			"spring-boot-properties",
+			"azcli"
+		],
+		"sort-imports.languages":[
+			"javascript",
+			"typescript"
+		],
+		"statusbar_command.commands":[ {
+				"text":"$(gear)",
+				"tooltip":"workspace settings",
+				"alignment":"right",
+				"command":"workbench.action.openWorkspaceSettings"
+			}
+		],
+		"statusbarerror.wholeLine.show":true,
+		"git.alwaysShowStagedChangesResourceGroup":true,
+		"git.inputValidationSubjectLength":70,
+		"gitProjectManager.maxDepthRecursion":5,
+		"gitlens.advanced.maxListItems":250,
+		"gitlens.advanced.maxSearchItems":300,
+		"svn.conflicts.autoResolve":true,
+		"svn.enableProposedApi":"argument",
+		"svn.layout.showFullName":true,
+		"svn.layout.tagRegexName":1,
+		"svn.layout.trunkRegex":"(trunk)(/.*)?",
+		"svn.layout.trunkRegexName":1,
+		"svn.log.length":80,
+		"svn.multipleFolders.depth":5,
+		"svn.multipleFolders.enabled":true,
+		"svn.multipleFolders.ignore":[
+			"**/.git",
+			"**/.hg",
+			"**/vendor",
+			"**/node_modules"
+		],
+		"svn.refresh.remoteChanges":true,
+		"svn.showOutput":true,
+		"svn.sourceControl.combineExternalIfSameServer":true,
+		"taskExplorer.debug":true,
+		"taskExplorer.debugLevel":3,
+		"taskExplorer.enableSideBar":true,
+		"taskExplorer.exclude":[
+			"**/.vscode-test/**",
+			"**/CompiledOutput/**",
+			"**/doc/**",
+			"**/ext/**",
+			"**/out/**",
+			"**/output/**",
+			"**/packages/**",
+			"**/release/**",
+			"**/releases/**",
+			"**/samples/**",
+			"**/sdks/**",
+			"**/static/**",
+			"**/target/**",
+			"**/third_party/**",
+			"**/vendor/**"
+		],
+		"testExplorer.showOnRun": true,
+		"travis.pro": true,
+        "editor.multiCursorModifier": "ctrlCmd",
+        "editor.formatOnPaste": true,
+		"markdown.preview.fontFamily": "'Fira Code', 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
+		"markdownExtended.exportOutDirName": "Root",
+		"markdownExtended.imageQuality": 80,
+		"markdown-preview-enhanced.enableExtendedTableSyntax": true,
+		"markdown-preview-enhanced.enableHTML5Embed": true,
+		"markdownShortcuts.icons.image": true,
+		"markdownShortcuts.languages": [
+			"markdown"
+		],
+		"vsintellicode.java.completionsEnabled": true,
+		"workspaceExplorer.enableCustomIconSearch": true,
+		"workspaceExplorer.workspaceStorageDirectory": "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Metro-Desktop",
+        "yaml.completion": true,
+		"yaml.format.printWidth": 120,
+		"yaml.hover": true,
+    "editor.formatOnSave": true,
+    "editor.detectIndentation": true,
+    "editor.lightbulb.enabled": false,
+    "editor.parameterHints.enabled": false,
+		"editor.codeActionsOnSaveTimeout": 300,
+		"editor.smoothScrolling": true,
+		"editor.tabCompletion": "on",
+		"editor.suggest.filteredTypes": {
+			"keyword": true,
+			"snippet": true
+    },
+		"editor.suggest.maxVisibleSuggestions": 10,
+		"files.associations": {
+			"JSON": "json",
+			"Markdown": "markdown",
+			"Powershell": "powershell",
+			"*.es2015": "javascriptreact",
+      "*.es2016": "javascriptreact",
+      "*.es2017": "javascriptreact",
+      "*.es2018": "javascriptreact",
+      "*.es2019": "javascriptreact",
+			"JavaScript": "javascriptreact",
+			"PHP": "php",
+			"HTML": "html",
+			"CSS": "css",
+			"SCSS": "scss",
+			"git commit": "Git",
+			"git rebase": "Git",
+      "Ruby": "ruby",
+      "Python": "python",
+			"TypeScript": "typescript",
+      "YAML": "yml",
+      ".yml": "yml",
+			"Diff": "Diff",
+      "C++": "cpp",
+      "SHELL": "bash",
+      "CMake": "cmake",
+      "*.js": "javascriptreact",
+      "*.jsx": "javascriptreact",
+      "*.ts": "typescript",
+      "*.tsx": "typescript",
+      "*.json": "json"
+		},
+		"svn.remoteChanges.checkFrequency": 200,
+		"ActiveFileInStatusBar.revealFile": true,
+		"ActiveFileInStatusBar.color": "#35b1f4",
+		"format.onType": false,
+		"liveshare.allowGuestDebugControl": true,
+		"liveshare.autoShareTerminals": false,
+		"vscode-devtools-for-chrome.chromePath": "C:\\Program Files (x86)\\Google\\Chrome\\Application",
+		"browser-preview.chromeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+		"markdown.preview.openMarkdownLinks": "inEditor",
+		"markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
+		"markdown-preview-enhanced.codeBlockTheme": "default.css",
+		"markdown-preview-enhanced.enableEmojiSyntax": false,
+		"http.proxyStrictSSL": false,
+		"workbench.colorCustomizations": {
+      "activityBar.background": "#173232",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#994699",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "titleBar.activeBackground": "#070f0f",
+      "titleBar.inactiveBackground": "#070f0f99",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveForeground": "#e7e7e799",
+      "statusBar.background": "#070f0f",
+      "statusBarItem.hoverBackground": "#173232",
+      "statusBar.foreground": "#e7e7e7"
+    },
+		"git.ignoreLimitWarning": true,
+		"debug.allowBreakpointsEverywhere": true,
+        "pullRequestMonitor.refreshInterval": 60,
+        "pullRequestMonitor.showClosed": false,
+        "pullRequestMonitor.showMerged": false,
+        "pullRequestMonitor.autostart": true,
+		"pullRequestMonitor.count": 6,
+		"pullRequestMonitor.allowUnsafeSSL": false,
+		"node_require.aliases": {
+			"backbone": "Backbone",
+            "backbone.marionette": "Marionette",
+            "bluebird": "Promise",
+            "cheerio": "$",
+            "ember": "Ember",
+            "handlebars": "Handlebars",
+            "highland": "hl",
+            "hogan.js": "Hogan",
+            "leaflet": "L",
+            "lodash": "_",
+            "string": "S",
+            "jquery": "$",
+            "jquery-ui": "ui",
+            "knockout": "ko",
+            "mustache": "Mustache",
+            "node-tap": "test",
+            "openlayers": "ol",
+            "pouchdb": "PouchDB",
+            "prova": "test",
+            "es6-promise": "Promise",
+            "raven-js": "Raven",
+            "native-promise-only": "Promise",
+            "node-uuid": "uuid",
+            "ractive": "Ractive",
+            "immutable": "Immutable",
+            "ramda": "R",
+            "react": "React",
+            "react-dom": "ReactDOM",
+            "react-addons-clone-with-props": "cloneWithProps",
+            "react-addons-create-fragment": "createFragment",
+            "react-addons-css-transition-group": "CSSTransitionGroup",
+            "react-addons-linked-state-mixin": "LinkedStateMixin",
+            "react-addons-pure-render-mixin": "PureRenderMixin",
+            "react-addons-shallow-compare": "shallowCompare",
+            "react-addons-transition-group": "TransitionGroup",
+            "react-addons-update": "update",
+            "roslib": "ROS",
+            "rsvp": "RSVP",
+            "underscore": "_",
+            "socket.io": "io",
+            "superagent": "request",
+            "spine": "Spine",
+            "tap": "test",
+            "three": "THREE",
+            "q": "Q",
+            "qunit": "QUnit",
+            "zepto": "$",
+            "graceful-fs": "fs",
+            "findup-sync": "findup",
+            "mime-types": "mime",
+            "gulp-util": "gutil",
+            "iconv-lite": "iconv",
+            "event-stream": "es",
+            "stream-line-wrapper": "LineWrapper",
+            "stream-to-array": "streamToArray",
+            "raw-body": "getRawBody",
+            "aws-sdk": "AWS",
+            "connect-dynamodb": "DynamoDBStore",
+            "connect-mysql": "MySQLStore",
+            "connect-sdb": "SdbStore",
+            "connect-sqlite3": "SQLiteStore",
+            "package.json": "pkg",
+            "tape": "test",
+            "sequelize": "Sequelize",
+            "r": "rethinkdb",
+			"underscore.string": "s",
+			"dependencyAnalyticsServer.maxNumberOfProblems": 100,
+			"npm.executable.path": "C:\\Program Files\\nodejs\\node_modules\\npm\\bin"
+		},
+		"sublimeImporter.hasPromptedOnStartup": true,
+		"npm.fetchOnlinePackageInfo": true,"jsonTreeView.customizedViewActivated": true,"jsonTreeView.customizedViewMapping": {
+			"items": "id"
+    },
+    "color-highlight.languages": [
+      "*"
+    ],
+    "javascript.format.enable": true,
+    "javascript.commonjs.resolve.package": "package.json",
+    "templateLiteralEditor.regexes": {
+      "coffeescript": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "cpp": "(R\"\\()([\\s\\S]*?)(\\)\")",
+      "csharp": "(@\")([^\"]*(?:\"\"[^\"]*)*)(\")",
+      "d": "(`)([\\s\\S]*?)(`)",
+      "dart": "(''')([\\s\\S]*?)(''')",
+      "eiffel": "(\"\\[)([\\s\\S]*?)(\\]\")",
+      "elixir": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "elm": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "erlang": "(\")([^\"\\\\]*(?:\\\\[\\s\\S][^\"\\\\]*)*)(\")",
+      "fsharp": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "go": "(`)([\\s\\S]*?)(`)",
+      "groovy": "(''')([\\s\\S]*?)(''')",
+      "html": "(`)([\\s\\S]*?)(`)",
+      "javascriptreact": "(`)([\\s\\S]*?)(`)",
+      "julia": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "kotlin": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "lua": "(\\[\\[)([\\s\\S]*?)(\\]\\])",
+      "markdown": "(```.*)([\\s\\S]*?)(```)",
+      "nim": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "objective-cpp": "(R\"\\()([\\s\\S]*?)(\\)\")",
+      "ocaml": "(\")([^\"\\\\]*(?:\\\\[\\s\\S][^\"\\\\]*)*)(\")",
+      "perl": "(<<['\"]?EOF['\"]?)([\\s\\S]*?)(EOF)",
+      "perl6": "(:(to|heredoc)(:c)?[[/\"]EOF[[/\"];)([\\s\\S]*?)(EOF)",
+      "php": "(<<<['\"]?EOD['\"]?)([\\s\\S]*?)(EOD)",
+      "powershell": "(@\")([\\s\\S]*?)(\"@)",
+      "python": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "r": "(')([^'\\\\]*(?:\\\\[\\s\\S][^'\\\\]*)*)(')",
+      "racket": "(#<<EOF)([\\s\\S]*?)(EOF)",
+      "razor": "(@\")([\\s\\S]*?)(\")",
+      "ruby": "(<<EOF-?)([\\s\\S]*?)(EOF)",
+      "rust": "(r#\")([\\s\\S]*?)(\"#)",
+      "scala": "(\"\"\")([\\s\\S]*?)(\"\"\")",
+      "shellscript": "(<< ?['\"]?EOF['\"]?)([\\s\\S]*?)(EOF)",
+      "typescriptreact": "(`)([\\s\\S]*?)(`)",
+      "vb": "(\")([^\"]*(?:\"\"[^\"]*)*)(\")",
+      "vue": "(`)([\\s\\S]*?)(`)"
+    },
+    "vsintellicode.typescript.completionsEnabled": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis": true,
+    "typescript.validate.enable": true,
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.showSlider": "always",
+    "editor.cursorSmoothCaretAnimation": true,
+    "workbench.settings.enableNaturalLanguageSearch": true
+    {
+      ["javascript"]: {
+      "editor.formatOnSave": true
+    },
+    {
+      "eslint.enable": true
+    },
+    {
+      "sort-imports.default-sort-style": "eslint"
+    },
+    {
+      "eslint.autoFixOnSave": true
+    },
+    {
+      "editor.codeActionsOnSave": {
+        "source.fixAll.tslint": false
+      }
+    },
+    {
+      "eslint.alwaysShowStatus": true
+    },
+    {
+      "eslint.codeAction.disableRuleComment": {
+        "enable": true,
+        "location": "separateLine"
+      }
+    },
+    {
+      "eslint.lintTask.enable": true
+    },
+    {
+      "eslint.lintTask.options": "-c I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Metro-Desktop\\.eslintrc.js --ignore-path I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Metro-Desktop\\.eslintignore"
+    },
+    {
+      "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "html"
+      ]
+    },
+    {
+      "eslint.packageManager": "npm"
+    }
+    {
+      "eslint.quiet": false
+    },
+    {
+      "eslint.run": "onType"
+    },
+    {
+      "eslint.trace.server": "on"
+    },
+    {
+      "css.lint.propertyIgnoredDueToDisplay": "warning"
+    },
+    {
+      "scss.lint.propertyIgnoredDueToDisplay": "warning"
+    },
+    {
+      "less.lint.duplicateProperties": "ignore"
+    },
+    {
+      "scss.lint.duplicateProperties": "ignore"
+    },
+    {
+      "eslint.alwaysShowStatus": true
+    },
+    {
+      "eslint.codeAction.showDocumentation": {
+        "enable": true
+      }
+    },
+    {
+      "eslint.nodePath": "C:\\Users\\adam\\AppData\\Roaming\\npm\\node_modules\\eslint"
+    },
+    {
+      "eslint.codeAction.disableRuleComment": {
+        "enable": true,
+        "location": "separateLine"
+      }
+    },
+    {
+      "eslint.experimental.incrementalSync": true
+    },
+    "peacock.affectAccentBorders": false,
+    "peacock.affectActivityBar": true,
+    "peacock.affectStatusBar": true,
+    "peacock.affectTabActiveBorder": false,
+    "peacock.affectTitleBar": true,
+    "peacock.color": "",
+    "peacock.darkenLightenPercentage": 5,
+    "peacock.darkForegroundColor": "#15202b",
+    "peacock.elementAdjustments": {
+      "activityBar": "lighten",
+      "statusBar": "none",
+      "titleBar": "none"
+    },
+  }
+}

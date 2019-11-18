@@ -1,0 +1,409 @@
+git checkout -b tower origin/master
+Branch sf set up to track remote branch refs/remotes/origin/master.
+Switched to a new branch "tower"
+
+Let's say want to set the remote branch origin/master to be the tracking branch for the local master branch you've checked out. Just issue :
+
+   $ git branch --set-upstream  master origin/master
+   > Branch master set up to track remote branch master from origin.
+
+Renaming and Removing Remotes
+You can run git remote rename to change a remote’s shortname. For instance, if you want to rename pb to paul, you can do so with git remote rename:
+
+$ git remote rename pb paul
+$ git remote
+origin
+paul
+
+$ git remote remove paul
+$ git remote
+origin
+
+Listing Your Tags
+Listing the existing tags in Git is straightforward. Just type git tag (with optional -l or --list):
+
+$ git tag
+v1.0
+v2.0
+
+Tagging Later
+You can also tag commits after you’ve moved past them. Suppose your commit history looks like this:
+
+$ git log --pretty=oneline
+15027957951b64cf874c3557a0f3547bd83b3ff6 Merge branch 'experiment'
+a6b4c97498bd301d84096da251c98a07c7723e65 beginning write support
+0d52aaab4479697da7686c15f77a3d64d9165190 one more thing
+6d52a271eda8725415634dd79daabbc4d9b6008e Merge branch 'experiment'
+0b7434d86859cc7b8c3d5e1dddfed66ff742fcbc added a commit function
+4682c3261057305bdd616e23b64b0857d832627b added a todo file
+166ae0c4d3f420721acbb115cc33848dfcc2121a started write support
+9fceb02d0ae598e95dc970b74767f19372d61af8 updated rakefile
+964f16d36dfccde844893cac5b347e7b3d44abbc commit the todo
+8a5cbc430f1a9c3d00faaeffd07798508422908a updated readme
+
+Now, suppose you forgot to tag the project at v1.2, which was at the “updated rakefile” commit. You can add it after the fact. To tag that commit, you specify the commit checksum (or part of it) at the end of the command:
+
+$ git tag -a v1.2 9fceb02
+You can see that you’ve tagged the commit:
+
+$ git tag
+v0.1
+v1.2
+v1.3
+v1.4
+v1.4-lw
+v1.5
+
+This way, you can see the last commit easily:
+
+$ git last
+commit 66938dae3329c7aebe598c2246a8e6af90d04646
+Author: Josh Goebel <dreamer3@example.com>
+Date:   Tue Aug 26 19:48:51 2008 +0800
+
+Figure 13. HEAD pointing to a branch
+You can easily see this by running a simple git log command that shows you where the branch pointers are pointing. This option is called --decorate.
+
+$ git log --oneline --decorate
+
+git log --oneline --decorate --graph --all
+
+[2]+  Stopped                 git log --oneline --decorate
+adam@adam-pc:/mnt/i/Program Files (x86)/Microsoft Visual Studio/Repositories/Metro-Desktop$ git log --oneline --decorate --graph --all
+* ad454ab (metro) added @typescript/eslint
+| * 4fe4fe5 (destination/greenkeeper/cypress-pin-3.6.0) fix: pin cypress to 3.6.0
+| | * d7c41db (destination/greenkeeper/cypress-3.6.1) chore(package): update cypress to version 3.6.1
+| |/
+| | * f3bc185 (destination/greenkeeper/monorepo.babel7-20191108210517) chore(package): update @babel/preset-react to version 7.7.0
+| | * 7fe7c42 chore(package): update @babel/preset-env to version 7.7.1
+| | * a5dc557 chore(package): update @babel/plugin-proposal-class-properties to version 7.7.0
+| | * 57737cd chore(package): update @babel/node to version 7.7.0
+| | * ebf0a80 chore(package): update @babel/core to version 7.7.2
+| |/
+| | * ea90d45 (destination/greenkeeper/eslint-plugin-jest-23.0.3) chore(package): update eslint-plugin-jest to version 23.0.3
+:...skipping...
+* ad454ab (metro) added @typescript/eslint
+| * 4fe4fe5 (destination/greenkeeper/cypress-pin-3.6.0) fix: pin cypress to 3.6.0
+| | * d7c41db (destination/greenkeeper/cypress-3.6.1) chore(package): update cypress to version 3.6.1
+| |/
+| | * f3bc185 (destination/greenkeeper/monorepo.babel7-20191108210517) chore(package): update @babel/preset-react to version 7.7.0
+| | * 7fe7c42 chore(package): update @babel/preset-env to version 7.7.1
+| | * a5dc557 chore(package): update @babel/plugin-proposal-class-properties to version 7.7.0
+| | * 57737cd chore(package): update @babel/node to version 7.7.0
+| | * ebf0a80 chore(package): update @babel/core to version 7.7.2
+| |/
+| | * ea90d45 (destination/greenkeeper/eslint-plugin-jest-23.0.3) chore(package): update eslint-plugin-jest to version 23.0.3
+| |/
+| | * f62f0fa (destination/greenkeeper/monorepo.babel7-20191106233658) chore(package): update @babel/preset-react to version 7.7.0
+| | * 56c1b4d chore(package): update @babel/preset-env to version 7.7.1
+| | * 92b2967 chore(package): update @babel/plugin-proposal-class-properties to version 7.7.0
+| | * 36270ca chore(package): update @babel/node to version 7.7.0
+| | * 5af8073 chore(package): update @babel/core to version 7.7.2
+| |/
+| | * 3a40fdc (destination/greenkeeper/glob-pin-7.1.5) chore: pin glob to 7.1.5
+| |/
+| | * ee61077 (destination/greenkeeper/glob-7.1.6) chore(package): update glob to version 7.1.6
+| |/
+| | * b0e104d (destination/greenkeeper/core-js-pin-3.3.6) chore: pin core-js to 3.3.6
+| |/
+| | * 090ebaf (destination/greenkeeper/core-js-3.4.0) chore(package): update core-js to version 3.4.0
+| |/
+| | * 3790481 (destination/greenkeeper/snyk-1.244.0) chore(package): update snyk to version 1.244.0
+| |/
+| | * 26e797a (destination/greenkeeper/react-redux-7.1.3) fix(package): update react-redux to version 7.1.3
+| |/
+| | * f7d30b9 (destination/greenkeeper/react-redux-7.1.2) fix(package): update react-redux to version 7.1.2
+| |/
+| | * 48c1b2c (destination/greenkeeper/monorepo.babel7-20191105151132) chore(package): update @babel/preset-react to version 7.7.0
+| | * 31b3baf chore(package): update @babel/preset-env to version 7.7.1
+| | * a5fee8f chore(package): update @babel/plugin-proposal-class-properties to version 7.7.0
+| | * 3c80937 chore(package): update @babel/node to version 7.7.0
+| | * cc28751 chore(package): update @babel/core to version 7.7.0
+| |/
+| | * f80f076 (destination/greenkeeper/snyk-1.243.0) chore(package): update snyk to version 1.243.0
+| |/
+| | * d2d583b (destination/greenkeeper/snyk-1.242.3) chore(package): update snyk to version 1.242.3
+| |/
+| | * f3ce8df (destination/greenkeeper/monorepo.babel7-20191105110141) chore(package): update @babel/preset-react to version 7.7.0
+| | * 2827fd9 chore(package): update @babel/preset-env to version 7.7.0
+| | * 280670a chore(package): update @babel/plugin-proposal-class-properties to version 7.7.0
+| | * ce35c3d chore(package): update @babel/node to version 7.7.0
+| | * 8a82a9d chore(package): update @babel/core to version 7.7.0
+| |/
+| | * 0c4e75b (destination/greenkeeper/snyk-1.242.2) chore(package): update snyk to version 1.242.2
+| |/
+| | * c2cb883 (destination/greenkeeper/snyk-1.242.1) chore(package): update snyk to version 1.242.1
+| |/
+| | * 601d53c (destination/greenkeeper/snyk-1.242.0) chore(package): update snyk to version 1.242.0
+| |/
+| | * d8ca95a (destination/greenkeeper/snyk-1.241.1) chore(package): update snyk to version 1.241.1
+| |/
+| *   b3f2ad6 (destination/master, destination/HEAD) commit
+| |\
+| * | bab259c added
+| * | d379fe9 commit
+|/ /
+* | b0fc1af added
+| | * ca31c14 (origin/greenkeeper/snyk-1.241.0, destination/greenkeeper/snyk-1.241.0) chore(package): update snyk to version 1.241.0
+| |/
+| *   e77bdec (origin/master) Merge pull request #42 from adamkeinan/greenkeeper/snyk-1.239.2
+| |\
+| | * 01eb03a chore(package): update snyk to version 1.239.2
+| |/
+| | *-.   18c93ea (refs/stash) On metro: stash
+| | |\ \
+| |/ / /
+|/| | |
+| | | * d578261 untracked files on metro: 3cde428 added
+| | * f481ea3 index on metro: 3cde428 added
+| |/
+|/|
+* | 3cde428 added
+* | d32bfcb added
+* | 4425bb3 commiting new changes
+* | 382b8f9 "major version fixes before test"
+* | 1a51fc9 (destination/master) "added and modified"
+* | 521faa2 Modified
+| | *   e24b26e (origin/metro, destination/metro) Merge pull request #44 from adamkeinan/greenkeeper/lock-file
+| | |\
+| | | *   9363583 (origin/greenkeeper/lock-file, destination/greenkeeper/lock-file) Merge branch 'metro' into greenkeeper/lock-file
+| | | |\
+| | | |/
+| | |/|
+| | * | f976ced Update README.MD
+| | * | 94ec0d7 Update README.MD
+| |/ /
+|/| |
+* | | 4941b37 commiit
+* | | cafd5c2 "modified files"
+* | | de19fd4 "replaced"
+* | | 31751c4 "new configurations"
+* | | 4f3255b (HEAD -> origin/master) modified
+* | | d771608 "json modifications"
+* | | 367afce added ci\cd
+| | * b2b3b1d added travis
+| | * bdec105 docs(readme): add Greenkeeper badge
+| | * fe159c3 chore(package): update dependencies
+| | * 71308e2 Update README.md
+| | * 63cb644 Create README.md
+| | | * ec120be (origin/greenkeeper/webpack-cli-3.3.10, destination/greenkeeper/webpack-cli-3.3.10) chore(package): update webpack-cli to version 3.3.10
+| | |/
+| |/|
+| | | * 5961215 (origin/greenkeeper/npm-pin-6.12.0) chore: pin npm to 6.12.0
+| | |/
+| |/|
+| | | * 82f8141 (origin/greenkeeper/npm-6.12.1) chore(package): update npm to version 6.12.1
+| | |/
+| |/|
+| * |   ee7a531 Merge pull request #38 from adamkeinan/snyk-fix-d38926ebf487f23abd54945319e9bc95
+| |\ \
+| | * \   efd7a69 Merge pull request #37 from adamkeinan/master
+| | |\ \
+| | |/ /
+| |/| |
+| * | |   f658893 Merge pull request #36 from adamkeinan/greenkeeper/snyk-1.238.0
+| |\ \ \
+| | * | | f6444e1 chore(package): update snyk to version 1.238.0
+| * | | | e950252 Update README.md
+| * | | | f7a86de Fix
+| * | | | 1cb984f Update README.md
+| |/ / /
+| * | |   3decad4 Merge pull request #34 from adamkeinan/greenkeeper/snyk-1.236.2
+| |\ \ \
+| | * | | 129f008 chore(package): update snyk to version 1.236.2
+| |/ / /
+| * | |   8fb4118 Merge pull request #32 from adamkeinan/greenkeeper/monorepo.react-20191022233549
+| |\ \ \
+| | * | | 2ae845e fix(package): update react-dom to version 16.11.0
+| | * | | 5fb79c2 fix(package): update react to version 16.11.0
+| * | | |   012c9b6 Merge pull request #31 from adamkeinan/greenkeeper/webpack-dev-server-3.9.0
+| |\ \ \ \
+| | |/ / /
+| |/| | |
+| | * | | 43610d0 chore(package): update webpack-dev-server to version 3.9.0
+| |/ / /
+| * | |   80d9d45 Merge pull request #28 from adamkeinan/greenkeeper/webpack-4.41.1
+| |\ \ \
+| | * \ \   a5fd130 Merge branch 'master' into greenkeeper/webpack-4.41.1
+| | |\ \ \
+| | |/ / /
+| |/| | |
+| * | | |   47057a9 Merge pull request #27 from adamkeinan/greenkeeper/monorepo.babel7-20191008200020
+| |\ \ \ \
+| | * | | | 19a4701 chore(package): update lockfile yarn.lock
+| | * | | | 0e99c62 chore(package): update @babel/preset-react to version 7.6.3
+| | * | | | cf81c82 chore(package): update @babel/preset-env to version 7.6.3
+| | * | | | d93af6b chore(package): update @babel/node to version 7.6.3
+| | * | | | 0ff769f chore(package): update @babel/core to version 7.6.3
+| * | | | |   d978f77 Merge pull request #25 from adamkeinan/greenkeeper/url-loader-2.2.0
+| |\ \ \ \ \
+| | * \ \ \ \   f8c29c7 Merge branch 'master' into greenkeeper/url-loader-2.2.0
+| | |\ \ \ \ \
+| | |/ / / / /
+| |/| | | | |
+| * | | | | |   f2db463 Merge pull request #24 from adamkeinan/snyk-fix-d38926ebf487f23abd54945319e9bc95
+| |\ \ \ \ \ \
+| | | |_|_|/ /
+| | |/| | | |
+| | * | | | |   0333f67 Merge branch 'master' into snyk-fix-d38926ebf487f23abd54945319e9bc95
+| | |\ \ \ \ \
+| | |/ / / / /
+| |/| | | | |
+| * | | | | |   aee4aab Merge pull request #23 from adamkeinan/greenkeeper/react-scripts-3.2.0
+| |\ \ \ \ \ \
+| | * \ \ \ \ \   9371475 Merge branch 'master' into greenkeeper/react-scripts-3.2.0
+| | |\ \ \ \ \ \
+| | |/ / / / / /
+| |/| | | | | |
+| * | | | | | |   6592c66 Merge pull request #22 from adamkeinan/greenkeeper/react-dev-utils-9.1.0
+| |\ \ \ \ \ \ \
+| | * | | | | | | f8ef5e8 chore(package): update lockfile yarn.lock
+| | * | | | | | | 32654ee chore(package): update react-dev-utils to version 9.1.0
+| | | |_|_|/ / /
+| | |/| | | | |
+| * | | | | | |   eff47cc Merge pull request #21 from adamkeinan/greenkeeper/webpack-manifest-plugin-2.2.0
+| |\ \ \ \ \ \ \
+| | * \ \ \ \ \ \   e4c4978 Merge branch 'master' into greenkeeper/webpack-manifest-plugin-2.2.0
+| | |\ \ \ \ \ \ \
+| | |/ / / / / / /
+| |/| | | | | | |
+| * | | | | | | |   4138940 Merge pull request #20 from adamkeinan/greenkeeper/webpack-dev-server-3.8.2
+| |\ \ \ \ \ \ \ \
+| | * \ \ \ \ \ \ \   1d274f8 Merge branch 'master' into greenkeeper/webpack-dev-server-3.8.2
+| | |\ \ \ \ \ \ \ \
+| | |/ / / / / / / /
+| |/| | | | | | | |
+| * | | | | | | | |   b81d0f4 Merge pull request #17 from adamkeinan/greenkeeper/react-router-dom-5.1.1
+| |\ \ \ \ \ \ \ \ \
+| | * | | | | | | | | 7d0d369 chore(package): update lockfile yarn.lock
+| | * | | | | | | | | b8b09f2 fix(package): update react-router-dom to version 5.1.1
+| | | |_|/ / / / / /
+| | |/| | | | | | |
+| * | | | | | | | |   cf2de54 Merge pull request #16 from adamkeinan/greenkeeper/monorepo.react-20190927203006
+| |\ \ \ \ \ \ \ \ \
+| | * | | | | | | | | 89ccfcc chore(package): update lockfile yarn.lock
+| | * | | | | | | | | bda0c53 fix(package): update react-dom to version 16.10.0
+| | * | | | | | | | | ff2ce82 fix(package): update react to version 16.10.0
+| | |/ / / / / / / /
+| * | | | | | | | |   ae49280 Merge pull request #19 from adamkeinan/greenkeeper/yarn-1.19.0
+| |\ \ \ \ \ \ \ \ \
+| | * | | | | | | | | f20d343 chore(package): update lockfile yarn.lock
+| | * | | | | | | | | 3c90976 fix(package): update yarn to version 1.19.0
+| | |/ / / / / / / /
+| * | | | | | | | |   6a06c74 Merge pull request #15 from adamkeinan/greenkeeper/eslint-loader-3.0.2
+| |\ \ \ \ \ \ \ \ \
+| | * \ \ \ \ \ \ \ \   03326ab Merge branch 'master' into greenkeeper/eslint-loader-3.0.2
+| | |\ \ \ \ \ \ \ \ \
+| | |/ / / / / / / / /
+| |/| | | | | | | | |
+| * | | | | | | | | |   5672190 Merge pull request #18 from adamkeinan/greenkeeper/webpack-dev-middleware-3.7.2
+| |\ \ \ \ \ \ \ \ \ \
+| | * | | | | | | | | | 7641ec0 chore(package): update lockfile yarn.lock
+| | * | | | | | | | | | 48a4e40 chore(package): update webpack-dev-middleware to version 3.7.2
+| | | |/ / / / / / / /
+| | |/| | | | | | | |
+| * | | | | | | | | |   fe72350 Merge pull request #14 from adamkeinan/greenkeeper/schema-utils-2.4.0
+| |\ \ \ \ \ \ \ \ \ \
+| | * | | | | | | | | | e0c4bb0 chore(package): update lockfile yarn.lock
+| | * | | | | | | | | | 363a534 chore(package): update schema-utils to version 2.4.0
+| | |/ / / / / / / / /
+| * | | | | | | | | |   e6cdb57 Merge pull request #29 from adamkeinan/greenkeeper/dotenv-8.2.0
+| |\ \ \ \ \ \ \ \ \ \
+| | |/ / / / / / / / /
+| |/| | | | | | | | |
+| | * | | | | | | | | f52ab82 chore(package): update lockfile yarn.lock
+| | * | | | | | | | | 08b884c chore(package): update dotenv to version 8.2.0
+| |/ / / / / / / / /
+| | * | | | | | | | 663c99c chore(package): update lockfile yarn.lock
+| | * | | | | | | | d16573c chore(package): update eslint-loader to version 3.0.2
+| |/ / / / / / / /
+| | * | | | | | | ed63f87 chore(package): update lockfile yarn.lock
+| | * | | | | | | 4fba64d chore(package): update webpack-dev-server to version 3.8.2
+| |/ / / / / / /
+| | * | | | | | 8b1fad4 chore(package): update lockfile yarn.lock
+| | * | | | | | e510196 chore(package): update webpack-manifest-plugin to version 2.2.0
+| |/ / / / / /
+| | * | | | | 83763ed chore(package): update react-scripts to version 3.2.0
+| |/ / / / /
+| | * | | | 31104e5 fix: package.json & .snyk to reduce vulnerabilities
+| |/ / / /
+| | * | | e723282 chore(package): update lockfile yarn.lock
+| | * | | 0dcd437 chore(package): update url-loader to version 2.2.0
+| |/ / /
+| | * | 63f73fb chore(package): update webpack to version 4.41.1
+| |/ /
+| * | 2cf6dd2 Update and rename travis.yml to .travis.yml
+| * | e7198e0 Delete metroapp.js
+| * | ae1cf53 Delete .eslintrc
+| * |   a6428b8 Merge pull request #9 from adamkeinan/greenkeeper/react-router-dom-5.1.0
+| |\ \
+| | * | fa9227b chore(package): update lockfile yarn.lock
+| | * | 42872cf fix(package): update react-router-dom to version 5.1.0
+| |/ /
+| * | e0bdc1b Update package.json
+| * |   54cc988 Merge pull request #5 from adamkeinan/greenkeeper/webpack-manifest-plugin-2.1.0
+| |\ \
+| | * | b8928bf chore(package): update webpack-manifest-plugin to version 2.1.0
+| |/ /
+| * |   7248500 Merge pull request #3 from adamkeinan:greenkeeper/initial
+| |\ \
+| | * | a739c35 (grafted) Merge branch 'master' into greenkeeper/initial
+| |  /
+| * | b96a595 Delete json_schema_prettierrc.log
+| * | 8ba7c62 Delete webpack.parts.js
+| * | da049cd Delete rpt.md
+| * | e57d69c Delete nodemon.json
+| * | 8f45e78 Delete .eslintrc.json
+| * | a0f42b1 Delete com.js
+| * | 2da6f73 Delete .env.development
+| * | 4f2fbfc Delete extentions.json
+| * | b157832 Delete log.js
+| * |   dbb5d7a Merge pull request #4 from adamkeinan:dependabot/npm_and_yarn/eslint-utils-1.4.2
+| |\ \
+| | * | ebf3591 Bump eslint-utils from 1.4.0 to 1.4.2
+| |/ /
+| * | de53327 Create README.md
+| | | * 24cca7b (jest, gb-pages) add a detailed description
+| |_|/
+|/| |
+* | | bc43213 modified yml
+* | | 543e8d2 changes in last pull
+* | | dd33230 moddified
+* | | 0f439f6 major fixes patch 0.0.2
+* | | 969f8f9  commit before reset initiliaz trackin
+* | | edaf4aa patch 0.0.1 fix
+|/ /
+* | 58b80aa added files to modify
+* | 6c0ee13 fix
+| | * cf520e3 (greenkeeper/initial) added travisci
+| |/
+|/|
+* | 49aa9a8 after first lint
+* | 744291a Add eslint automation
+* | 016f6d2 error
+* | 103ad9f initial commit
+
+Tracking Branches
+
+https://git-scm.com/book/en/v2/Git-Branching-Remote-Branches
+git checkout -b sf origin/serverfix
+
+
+adam@adam-pc:/mnt/i/Program Files (x86)/Microsoft Visual Studio/Repositories/Metro-Desktop$ git log
+commit ad454abebdcdcd0e3df54ad1f7440bceccbcf2d7 (HEAD -> metro)
+Author: adam keinan <adamkeinan1@gmail.com>
+Date:   Sun Nov 10 10:27:19 2019 +0200
+
+    added @typescript/eslint
+
+commit b0fc1af58d3a87ece583d39135c35bfc37707f3f
+Author: adam keinan <adamkeinan1@gmail.com>
+Date:   Fri Nov 1 21:55:23 2019 +0200
+
+    added
+
+commit 3cde428127730a5832cf5b99d72d6aa38be3be68
+Author: adam keinan <adamkeinan1@gmail.com>
+Date:   Fri Nov 1 09:30:32 2019 +0200
+
+    added
