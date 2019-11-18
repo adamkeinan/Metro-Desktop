@@ -1,17 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-const HtmlWebpackPlugin = new HtmlWebpackPluginWebpackPlugin({
-  template: 'src/index.html',
-  filename: './index.html'
-});
-const extractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('HtmlWebpackPluginWebpackPlugin');
 const SourceMapWebpackPlugin = require('source-map-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const BabelMultiTargetPlugin = require('webpack-babel-multi-target-plugin')
-  .BabelMultiTargetPlugin;
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HotModuleReplacementPlugin = require('hot-module-replacement-plugin');
 const WriteFileWebpackPlugin = require('write-file-webpack-plugin');

@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin",
+        "alwaysShowRuleFailuresAsWarnings": false,
+        "ignoreDefinitionFiles": true,
+        "configFile": "./tsconfig.json",
+        "suppressWhileTypeErrorsPresent": false
+      }
+    ]
+  }
+}
