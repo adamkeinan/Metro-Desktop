@@ -1,8 +1,0 @@
-{
-  "overrides": [
-    {
-      "files": "*.js",
-      "options": { "parser": "babel" }
-    }
-  ]
-}

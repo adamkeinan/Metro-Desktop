@@ -1,16 +1,16 @@
+const webpack = require('webpack');
 const path = require('path');
-// importing plugins that do not come by default in webpack
 const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-const SourceMapDevToolPlugin = require('source-map-dev-tool-plugin');
+const HtmlWebpackPlugin = require('HtmlWebpackPluginWebpackPlugin');
+const SourceMapWebpackPlugin = require('source-map-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HotModuleReplacementPlugin = require('hot-module-replacement-plugin');
 const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-import CleanWebpackPlugin from 'clean-webpack-plugin';
-// adding plugins to your configuration
 module.exports = {
   mode: 'development',
   entry: {
@@ -54,6 +54,7 @@ module.exports = {
     ],
     mainFiles: ['index', 'app', 'bundle', 'style']
   },
+  devtool: 'source-map',
   target: 'node',
   devServer: {
     proxy: {
@@ -75,37 +76,35 @@ module.exports = {
   optimization: {
     minimize: true,
     minimizer: [
-      new TerserJSPlugin({
+      new TerserPlugin({
         sourceMap: true
       })
     ]
   },
-  devtool: 'source-map',
   module: {
     rules: [
       {
         test: /\.ts|tsx?$/,
-        loader: ['ts-loader'],
-        use: ['source-map-devtool-plugin'],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: ['babel-loader']
       },
       {
         test: /\.ts|tsx?$/,
         loader: ['ts-loader']
       },
       {
-        test: /\.html$/,
-        use: ['HtmlWebpackPlugin'],
+        test: /\.js|jsx$/,
+        presets: ['@babel/preset-env'],
+        loader: ['source-map-loader'],
         options: {
           debug: true,
           useBuiltIns: 'usage',
           corejs: 3,
-          node: '8.x|10.x'
+          node: '8.x|9.x|10.x'
         },
         enforce: 'pre',
         exclude: [/[/\\\\]node_modules[/\\\\]/],
-        template: 'src/index.html',
-        output: './lib/index_test.html'
+        include: (__dirname, 'src')
       },
       {
         test: /\.(js|jsx)$/,
@@ -159,18 +158,10 @@ module.exports = {
         test: /\.txt$/,
         loader: ['raw-loader']
       },
-      /**
-        {
-      */
-      /**
-          test: /\.js$/,
-      */
-      /**
-          use: ['BabelMultiTargetPlugin.loader()']
-      */
-      /**
-        },
-      */
+      {
+        test: /\.js$/,
+        use: ['BabelMultiTargetPlugin.loader()']
+      },
       {
         test: /\.css$/,
         use: ['write-file-webpack-plugin']
@@ -179,10 +170,13 @@ module.exports = {
   },
   plugins: [
     new DuplicatePackageCheckerPlugin(),
-    new SourceMapDevToolPlugin(),
+    new HtmlWebpackPlugin(),
+    new SourceMapWebpackPlugin(),
+    new extractTextPlugin('styles.css'),
     new MiniCssExtractPlugin(),
     new TerserJSPlugin(),
     new ForkTsCheckerWebpackPlugin(),
+    new BabelMultiTargetPlugin(),
     new OptimizeCssAssetsWebpackPlugin(),
     new CleanWebpackPlugin(),
     new HotModuleReplacementPlugin(),

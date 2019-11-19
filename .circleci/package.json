@@ -1,4 +1,4 @@
- {
+{
 "name":"metro-desktop",
 "version":"1.0.0",
 "description":"Platform | Compiler | Language | Code      |\r ---------|----------|----------|-------|\r  C | Metro |      javascriptExtensions | Mirror\r  Py | Metro | javascriptExtensions | Mirror\r  Cobol | Legacy/Metro/ES2015 | javascriptExtensions |      Mirror/Sandbox",
