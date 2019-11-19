@@ -1,0 +1,396 @@
+envName;
+Type: string;
+Default: process.env.BABEL_ENV || process.env.NODE_ENV || "development";
+
+
+rootMode
+Type: "root" | "upward" | "upward-optional"
+Default: "root"
+Placement: Only allowed in Babel's programmatic options
+Version: ^7.1.0
+
+This option, combined with the "root" value, defines how Babel chooses its project root. The different modes define different ways that Babel can process the "root" value to get the final project root.
+
+"root" - Passes the "root" value through as unchanged.
+"upward" - Walks upward from the "root" directory, looking for a directory containing a babel.config.js file, and throws an error if a babel.config.js is not found.
+"upward-optional" - Walk upward from the "root" directory, looking for a directory containing a babel.config.js file, and falls back to "root" if a babel.config.js is not found.
+
+
+configFile
+Type: string | boolean
+Default: path.resolve(opts.root, "babel.config.js"), if it exists, false otherwise
+Placement: Only allowed in Babel's programmatic options
+
+
+babelrc
+Type: boolean
+Default: true as long as the filename option has been specified
+Placement: Allowed in Babel's programmatic options, or inside of the loaded "configFile". A programmatic option will override a config file one.
+
+true will enable searching for configuration files relative to the "filename" provided to Babel.
+
+A babelrc value passed in the programmatic options will override one set within a configuration file.
+
+  Note: .babelrc files are only loaded if the current "filename" is inside of a package that matches one of the "babelrcRoots" packages.
+
+  babelrcRoots: [
+  // Keep the root as a root
+  ".",
+
+  // Also consider monorepo packages "root" and load their .babelrc files.
+  "./packages/*"
+  ]
+
+  Source Map options
+inputSourceMap
+Type: boolean | SourceMap
+Default: true
+
+true will attempt to load an input sourcemap from the file itself, if it contains a //# sourceMappingURL=... comment. If no map is found, or the map fails to load and parse, it will be silently discarded.
+
+If an object is provided, it will be treated as the source map object itself.
+
+sourceMaps
+Type: boolean | "inline" | "both"
+Default: false
+
+true to generate a sourcemap for the code and include it in the result object.
+"inline" to generate a sourcemap and append it as a data URL to the end of the code, but not include it in the result object.
+"both" is the same as inline, but will include the map in the result object.
+
+sourceMap
+This is an synonym for sourceMaps. Using sourceMaps is recommended.
+
+sourceFileName
+Type: string
+Default: path.basename(opts.filenameRelative) when available, or "unknown"
+
+The name to use for the file inside the source map object.
+
+sourceRoot
+Type: string
+
+The sourceRoot fields to set in the generated source map, if one is desired.
+
+parserOpts
+Type: {}
+
+An opaque object containing options to pass through to the parser being used.
+
+Code Generator options
+retainLines
+Type: boolean
+Default: false
+
+Babel will make an effort to generate code such that items are printed on the same line that they were on in the original file. This option exists so that users who cannot use source maps can get vaguely useful error line numbers, but it is only a best-effort, and is not guaranteed in all cases with all plugins.
+
+compact
+Type: boolean | "auto"
+Default: "auto"
+
+"auto" will set the value by evaluating code.length > 500_000
+
+All optional newlines and whitespace will be omitted when generating code in compact mode.
+
+minified
+Type: boolean
+Default: false
+
+Includes compact: true, omits block-end semicolons, omits () from new Foo() when possible, and may output shorter versions of literals.
+
+auxiliaryCommentBefore
+Type: string
+
+Allows specifying a prefix comment to insert before pieces of code that were not present in the original file.
+
+Note: The definition of what is and isn't present in the original file can get a little ugly, so usage of this option is not recommended. If you need to annotate code somehow, it is better to do so using a Babel plugin.
+
+auxiliaryCommentAfter
+Type: string
+
+Allows specifying a prefix comment to insert after pieces of code that were not present in the original file.
+
+Note: The definition of what is and isn't present in the original file can get a little ugly, so usage of this option is not recommended. If you need to annotate code somehow, it is better to do so using a Babel plugin.
+
+AMD / UMD / SystemJS module options
+moduleIds
+Type: boolean
+Default: !!opts.moduleId
+
+Enables module ID generation.
+
+moduleId
+Type: string
+
+A hard-coded ID to use for the module. Cannot be used alongside getModuleId.
+
+getModuleId
+Type: (name: string) => string
+
+Given the babel-generated module name, return the name to use. Returning a falsy value will use the original name.
+
+moduleRoot
+Type: string
+
+A root path to include on generated module names.
+
+Options Concepts
+MatchPattern
+Type: string | RegExp | (filename: string | void, context: { callee: { name: string } | void, envName: string ) => boolean
+
+Several Babel options perform tests against file paths. In general, these options support a common pattern approach where each pattern can be
+
+string - A file path with simple support for * and ** as full slug matches. Any file or parent folder matching the pattern counts as a match. The path follow's Node's normal path logic, so on POSIX is must be /-separated, but on Windows both / and \ are supported.
+RegExp - A regular expression to match against the normalized filename. On POSIX the path RegExp will run against a /-separated path, and on Windows it will be on a \-separated path.
+Importantly, if either of these are used, Babel requires that the filename option be present, and will consider it an error otherwise.
+
+(filename: string | void, context: { callee: { name: string } | void, envName: string }) => boolean is a general callback that should return a boolean to indicate whether it is a match or not.The function is passed the filename or undefined if one was not given to Babel.It is also passed the current envName and callee options that were specified by the top - level call to Babel.
+
+Merging
+Babel's configuration merging is relatively straightforward. Options will overwrite existing options when they are present, and their value is not undefined, with a few special cases:
+
+parserOpts objects are merged, rather than replaced, using the same logic as top-level options.
+generatorOpts objects are merged, rather than replaced, using the same logic as top-level options.
+plugins and presets are replaced based on the identity of the plugin/preset object/function itself combined with the name of the entry.
+Plugin/Preset merging
+As an example, consider a config with:
+
+plugins: [
+  './other',
+  ['./plug', { thing: true, field1: true }]
+],
+overrides: [{
+  plugins: [
+    ['./plug', { thing: false, field2: true }],
+  ]
+}]
+
+Copy
+The overrides item will be merged on top of the top-level plugins. Importantly, the plugins array as a whole doesn't just replace the top-level one. The merging logic will see that "./plug" is the same plugin in both cases, and { thing: false, field2: true } will replace the original options, resulting in a config as
+
+plugins: [
+  './other',
+  ['./plug', { thing: false, field2: true }],
+],
+
+Since merging is based on identity + name, it is considered an error to use the same plugin with the same name twice in the same plugins/presets array. For example
+
+plugins: [
+  './plug',
+  './plug',
+]
+
+Copy
+is considered an error, because it's identical to plugins: ['./plug']. Additionally, even
+
+plugins: [
+  ['./plug', {one: true}],
+  ['./plug', {two: true}]
+]
+
+Copy
+is considered an error, because the second one would just always replace the first one.
+
+If you actually do want to instantiate two separate instances of a plugin, you must assign each one a name to disambiguate them. For example:
+
+plugins: [
+  ['./plug', {one: true}, "first-instance-name"],
+  ['./plug', {two: true}, "second-instance-name"]
+]
+
+Copy
+  because each instance has been given a unique name and this a unique identity.
+
+
+
+
+  Name Normalization
+
+  Here are some examples, when applied in a plugin context:
+
+Input	Normalized
+"/dir/plugin.js"	"/dir/plugin.js"
+"./dir/plugin.js"	"./dir/plugin.js"
+"mod"	"babel-plugin-mod"
+"mod/plugin"	"mod/plugin"
+"babel-plugin-mod"	"babel-plugin-mod"
+"@babel/mod"	"@babel/plugin-mod"
+"@babel/plugin-mod"	"@babel/plugin-mod"
+"@babel/mod/plugin"	"@babel/mod/plugin"
+"@scope"	"@scope/babel-plugin"
+"@scope/babel-plugin"	"@scope/babel-plugin"
+"@scope/mod"	"@scope/babel-plugin-mod"
+"@scope/babel-plugin-mod"	"@scope/babel-plugin-mod"
+"@scope/prefix-babel-plugin-mod"	"@scope/prefix-babel-plugin-mod"
+"@scope/mod/plugin"	"@scope/mod/plugin"
+  "module:foo"	"foo"
+
+
+
+  {
+  "plugins": ["@babel/plugin-transform-runtime"]
+}
+
+Copy
+With options (and their defaults):
+
+{
+  "plugins": [
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        "absoluteRuntime": false,
+        "corejs": false,
+        "helpers": true,
+        "regenerator": true,
+        "useESModules": false
+      }
+    ]
+  ]
+  }
+
+  Environment variables
+By default @babel/node cli and @babel/register will save to a json cache in your temporary directory.
+
+This will heavily improve with the startup and compilation of your files. There are however scenarios where you want to change this behaviour and there are environment variables exposed to allow you to do this.
+
+BABEL_CACHE_PATH
+Specify a different cache location.
+
+BABEL_CACHE_PATH=/foo/my-cache.json babel-node script.js
+
+Copy
+BABEL_DISABLE_CACHE
+Disable the cache.
+
+    BABEL_DISABLE_CACHE = 1 babel - node script.js
+
+  Compiling plugins and presets on the fly
+@babel/register uses Node's require() hook system to compile files on the fly when they are loaded. While this is quite helpful overall, it means that there can be confusing cases where code within a require() hook causes more calls to require, causing a dependency cycle. In Babel's case for instance, this could mean that in the process of Babel trying to compile a user's file, Babel could end up trying to compile itself as it is loading.
+
+To avoid this problem, this module explicitly disallows re-entrant compilation, e.g. Babel's own compilation logic explicitly cannot trigger further compilation of any other files on the fly. The downside of this is that if you want to define a plugin or preset that is itself live-compiled, the process is complicated.
+
+The crux of it is that your own code needs to load the plugin/preset first. Assuming the plugin/preset loads all of its dependencies up front, what you'll want to do is:
+
+require("@babel/register")({
+  // ...
+});
+
+require("./my-plugin");
+
+Copy
+  Because it is your own code that triggered the load, and not the logic within @babel/register itself, this should successfully compile any plugin/preset that loads synchronously.
+
+  @babel/preset-env
+
+  How Does it Work?
+@babel/preset-env would not be possible if not for a number of awesome open-source projects, like browserslist, compat-table, and electron-to-chromium.
+
+  Browserslist Integration
+For browser- or Electron-based projects, we recommend using a .browserslistrc file to specify targets. You may already have this configuration file as it is used by many tools in the ecosystem, like autoprefixer, stylelint, eslint-plugin-compat and many others.
+
+By default @babel/preset-env will use browserslist config sources unless either the targets or ignoreBrowserslistConfig options are set.
+
+For example, to only include polyfills and code transforms needed for users whose browsers have >0.25% market share (ignoring browsers without security updates like IE 10 and BlackBerry):
+
+Options
+
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "useBuiltIns": "entry"
+      }
+    ]
+  ]
+  }
+
+  targets.esmodules
+boolean.
+
+You may also target browsers supporting ES Modules (https://www.ecma-international.org/ecma-262/6.0/#sec-modules). When specifying this option, the browsers field will be ignored. You can use this approach in combination with <script type="module"></script> to conditionally serve smaller scripts to users (https://jakearchibald.com/2017/es-modules-in-browsers/#nomodule-for-backwards-compatibility).
+
+Please note: when specifying the esmodules target, browsers targets will be ignored.
+
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "esmodules": true
+        }
+      }
+    ]
+  ]
+}
+
+Copy
+targets.node
+string | "current" | true.
+
+If you want to compile against the current node version, you can specify "node": true or "node": "current", which would be the same as "node": process.versions.node.
+
+loose
+boolean, defaults to false.
+
+Enable "loose" transformations for any plugins in this preset that allow them.
+
+modules
+"amd" | "umd" | "systemjs" | "commonjs" | "cjs" | "auto" | false, defaults to "auto".
+
+Enable transformation of ES6 module syntax to another module type.
+
+Setting this to false will not transform modules.
+
+Also note that cjs is just an alias for commonjs.
+
+debug
+boolean, defaults to false.
+
+Outputs the targets/plugins used and the version specified in plugin data version to console.log.
+
+include
+Array<string|RegExp>, defaults to [].
+
+An array of plugins to always include.
+
+Valid options include any:
+
+Babel plugins - both with (@babel/plugin-transform-spread) and without prefix (plugin-transform-spread) are supported.
+
+Built-ins (both for core-js@2 and core-js@3, such as es.map, es.set, or es.object.assign.
+
+Plugin names can be fully or partially specified (or using RegExp).
+
+Acceptable inputs:
+
+Full name (string): "es.math.sign"
+Partial name (string): "es.math.*" (resolves to all plugins with es.math prefix)
+RegExp Object: /^transform-.*$/ or new RegExp("^transform-modules-.*")
+Note that the above . is the RegExp equivalent to match any character, and not the actual '.' character. Also note that to match any character .* is used in RegExp as opposed to * in glob format.
+
+This option is useful if there is a bug in a native implementation, or a combination of a non-supported feature + a supported one doesn't work.
+
+For example, Node 4 supports native classes but not spread. If super is used with a spread argument, then the @babel/plugin-transform-classes transform needs to be included, as it is not possible to transpile a spread with super otherwise.
+
+NOTE: The include and exclude options only work with the plugins included with this preset; so, for example, including @babel/plugin-proposal-do-expressions or excluding @babel/plugin-proposal-function-bind will throw errors. To use a plugin not included with this preset, add them to your "plugins" directly.
+
+exclude
+Array<string|RegExp>, defaults to [].
+
+An array of plugins to always exclude/remove.
+
+The possible options are the same as the include option.
+
+This option is useful for "blacklisting" a transform like @babel/plugin-transform-regenerator if you don't use generators and don't want to include regeneratorRuntime (when using useBuiltIns) or for using another plugin like fast-async instead of Babel's async-to-gen.
+
+useBuiltIns
+"usage" | "entry" | false, defaults to false.
+
+This option configures how @babel/preset-env handles polyfills.
+
+When either the usage or entry options are used, @babel-preset-env will add direct references to core-js modules as bare imports (or requires). This means core-js will be resolved relative to the file itself and needs to be accessible.
+
+Since @babel/polyfill was deprecated in 7.4.0, we recommend directly adding core-js and setting the version via the corejs option.

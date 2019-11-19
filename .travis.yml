@@ -1,73 +1,30 @@
+os: windows
+
 language: node_js
 node_js:
-  - '12'
-  - '10'
-  - '8'
-os:
-- 'windows'
-- 'linux'
-
-git:
--depth: 3
-
-dist: trusty
-notifications:
-  -email: false
-
-cache:
-  -npm: false
+  - "8"
+  - "10.16.0"
+  - "12.10.0"
+  
+script:
+  - "npm run test"
+  - "npm run webpack.config.dev.js"
+  - "npm build"
 
 before_install:
-  - npm cache clean -f
-  - '[[ $(node -v) =~ ^v9.*$ ]] || npm install -g npm@latest' # skipped when using node 9
-  - 'npm install -g npm@10.16.13'
-  - 'npm install -g greenkeeper-lockfile'
+  - npm i -g npm@version-number  
 
-install:
-  - npm ci
-  - ./install-dependencies.sh
+ install: ./install-dependencies.sh
 
-before_script:
-  - npm prune
-  - greenkeeper-lockfile-update
-  - npm run report-coverage && npm run semantic-release
+cache:
+  npm: false
 
-script:
-  - if [ 'NODE_VERSION' = true ==> then: 'npm run lint-fix' ]
-  - 'if [ 'NODE_VERSION' = 'true' ]; then npm run coverage; fix'
-  - 'if [ '$NODE_VERSION' = 'true' ]; then npm run test-types; fix'
-  - 'if [ '$NODE' = 'true' ]; then npm run unit-bundle; fix'
-  - 'if [ '$NODE' = 'true' ]; then npm run unit-node6; fix'
-  - npm run test
-  - webpack --env.environment=development --config webpack.config.js,
-  - webpack-dev-server --env.environment=development --config webpack.config.js,
-  - npm  run build
-
-env:
-  - TRAVIS_NODE_VERSION: '8.x'
-  - TRAVIS_NODE_VERSION: '9.x'
-  - TRAVIS_NODE_VERSION: '10.x'
-  - TEST=true
-  - LINT=true
-
-after_success:
-  - 'Successfull Build Approved by travis ci'
-  - 'npm run coveralls'
-
-after_failure:
-  - 'Test Build failure,Please View Log Report'
-before_deploy:
 deploy:
   provider: pages
   skip_cleanup: true
-  github-token: $GITHUB_TOKEN
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
   on:
-    branches: pages
+    branch: master
 
-after_deploy:
-
-keep_history: true
-
-local-dir: gh-pages
-
-repo: adamkeinan/Metro-Desktop
+    

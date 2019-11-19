@@ -1,0 +1,47 @@
+{
+  "name": "metro-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Platform|Compiler|Language|Code|\r---------|----------|----------|-------|\rC|Metro|javascriptExtensions|Mirror\rPy|Metro|javascriptExtensions|Mirror\rCobol|Legacy/Metro/ES2015|javascriptExtensions|Mirror/Sandbox",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo\\\"Error:no test specified\\\"&&exit1",
+    "clean": "rm-rf./dist",
+    "lint": "eslint.",
+    "webpack": "babel-node./node_modules/webpack/bin/webpack",
+    "dev": "webpack-dev-server--env development",
+    "run": "nodemon--watch webpack.config.js--exec\"webpack-dev-server--mode development\"",
+    "build": "webpack--env.NODE_ENV=local--env.production--progress",
+    "start": "http://localhost:8080/tests/runner.html?coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamkeinan/Metro-Desktop.git"
+  },
+  "keywords": [],
+  "author": "adamkeinan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adamkeinan/Metro-Desktop/issues"
+  },
+  "homepage": "https://github.com/adamkeinan/Metro-Desktop#readme",
+  "dependencies": {
+
+  },
+  "devDependencies": {
+
+  },
+  "peerDependencies": {
+
+  },
+  "devEngines": {
+    "node": "8.x || 9.x || 10.x || 11.x || 12.x"
+  },
+  "jest": {
+    "testRegex": "/scripts/jest/dont-run-jest-directly\\.js$"
+  }
+}

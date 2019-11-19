@@ -1,0 +1,1066 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.cursorBlinking": "smooth",
+		"editor.fontFamily": "'Fira Code', monospace",
+		"editor.fontLigatures": true,
+		"editor.fontSize": 15,
+		"editor.formatOnSaveTimeout": 400,
+		"editor.formatOnType": true,
+		"editor.minimap.maxColumn": 200,
+		"editor.acceptSuggestionOnEnter": "smart",
+		"editor.suggestFontSize": 13,
+		"files.maxMemoryForLargeFilesMB": 16384,
+		"files.simpleDialog.enable": true,
+		"files.trimTrailingWhitespace": true,
+		"workbench.colorTheme": "Winter is Coming (Dark Blue - No Italics)",
+		"workbench.editor.highlightModifiedTabs": true,
+		"window.closeWhenEmpty": true,
+		"terminal.integrated.confirmOnExit": true,
+		"terminal.integrated.copyOnSelection": "defalt",
+		"AllAutocomplete.cycleOpenDocumentsOnLaunch": true,
+		"auto-close-tag.fullMode": true,
+		"autoimport.doubleQuotes": true,
+		"autoAlign.collapseOnDisable": true,
+		"autoprefixer.findExternalAutoprefixer": true,
+		"copy-text.fullPath": true,
+		"browserRefresh.delay": 150,
+		"sync.autoUpload": true,
+		"editor.renderWhitespace": "all",
+		"editor.wordWrap": "wordWrapColumn",
+		"files.exclude": {
+			"**/.bablerc": true,
+			"**/.yml": true
+		},
+		"editor.accessibilitySupport": "on",
+		"editor.autoClosingQuotes": "always",
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": true
+		},
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.hover.delay": 150,
+		"editor.copyWithSyntaxHighlighting": true,
+		"files.autoSave": "onWindowChange",
+		"files.insertFinalNewline": true,
+		"files.maxMemoryForLargeFilesMB": 16384,
+		"workbench.commandPalette.history": 150,
+		"workbench.quickOpen.preserveInput": true,
+		"workbench.iconTheme": "vscode-great-icons",
+		"workbench.editor.revealIfOpen": true,
+		"workbench.settings.openDefaultKeybindings": true,
+		"workbench.settings.openDefaultSettings": true,
+		"explorer.openEditors.visible": 20,
+		"search.location": "panel",
+		"search.quickOpen.includeSymbols": true,
+		"search.runInExtensionHost": true,
+		"search.showLineNumbers": true,
+		"search.smartCase": true,
+		"debug.console.fontFamily": "'Fira Code', monospace",
+		"debug.console.fontSize": 15,
+		"debug.inlineValues": true,
+		"scm.alwaysShowActions": true,
+		"scm.alwaysShowProviders": true,
+		"scm.diffDecorationsGutterWidth": 4,
+		"extensions.showRecommendationsOnlyOnDemand": false,
+		"terminal.integrated.fontFamily": "'Fira Code', monospace",
+		"terminal.integrated.fontSize": 15,
+		"terminal.integrated.scrollback": 1500,
+		"autoAlign.delay": 500,
+		"auto-comment-blocks.singleLineBlockOnEnter": true,
+		"autoprefixer.formatOnSave": true,
+		"autoprefixer.grid": "autoplace",
+		"backgroundPhiColors.enabledPanels": true,
+		"better-comments.highlightPlainText": true,
+		"bookmarks.saveBookmarksInProject": true,
+		"backgroundPhiColors.symbolEnabled": true,
+		"bookmarks.backgroundLineColor": "#00CD66\t",
+		"bookmarks.useWorkaroundForFormatters": true,
+		"bracket-pair-colorizer-2.colors": [
+			"Gold",
+			"Orchid",
+			"LightSkyBlue"
+		],
+		"bracket-pair-colorizer-2.highlightActiveScope": true,
+		"bracket-pair-colorizer-2.scopeLineCSS": [
+			"borderStyle : solid",
+			"borderWidth : 1px",
+			"borderColor : {color}",
+			"opacity: 0.5"
+		],
+		"bracket-pair-colorizer-2.showBracketsInRuler": true,
+		"bracket-pair-colorizer-2.showBracketsInGutter": true,
+		"bracketPairColorizer.activeScopeCSS": [
+			"borderStyle : solid",
+			"borderWidth : 1px",
+			"borderColor : {color}; opacity: 0.5"
+		],
+		"bracketPairColorizer.forceUniqueOpeningColor": true,
+		"bracketPairColorizer.highlightActiveScope": true,
+		"bracketPairColorizer.independentPairColors": [
+			[
+				"()",
+				[
+					"Gold",
+					"Orchid",
+					"LightSkyBlue"
+				],
+				"Red"
+			],
+			[
+				"[]",
+				[
+					"Gold",
+					"Orchid",
+					"LightSkyBlue"
+				],
+				"Red"
+			],
+			[
+				"{}",
+				[
+					"Gold",
+					"Orchid",
+					"LightSkyBlue"
+				],
+				"Red"
+			],
+		],
+		"workbench.tree.indent": 20,
+		"workbench.tree.renderIndentGuides": "always",
+		"workbench.view.alwaysShowHeaderActions": true,
+		"window.zoomLevel": 0.7,
+		"svgviewer.showzoominout": true,
+		"files.autoSaveDelay": 400,
+		"workbench.settings.useSplitJSON": true,
+		"autoAlign.enabled": {
+			"csv": true,
+			"bsv": true
+		},
+		"auto-close-tag.SublimeText3Mode": true,
+		"autoprefixer.browsers": [
+			"last 2 versions",
+			"> 5%"
+		],
+		"betterComment.forcedLineComment": [
+			"**/*.xml",
+			"**/*.html",
+			"**/*.css",
+			"**/*.md"
+		],
+		"better-comments.tags": [
+			{
+				"tag": "!",
+				"color": "#FF2D00",
+				"strikethrough": false,
+				"backgroundColor": "transparent"
+			},
+			{
+				"tag": "?",
+				"color": "#3498DB",
+				"strikethrough": false,
+				"backgroundColor": "transparent"
+			},
+			{
+				"tag": "//",
+				"color": "#474747",
+				"strikethrough": true,
+				"backgroundColor": "transparent"
+			},
+			{
+				"tag": "todo",
+				"color": "#FF8C00",
+				"strikethrough": false,
+				"backgroundColor": "transparent"
+			},
+			{
+				"tag": "*",
+				"color": "#98C379",
+				"strikethrough": false,
+				"backgroundColor": "transparent"
+			}
+		],
+		"bracket-pair-colorizer-2.activeScopeCSS": [
+			"borderStyle : solid",
+			"borderWidth : 1px",
+			"borderColor : {color}",
+			"opacity: 0.5"
+		],
+		"bracketPairColorizer.consecutivePairColors": [
+			"()",
+            "[]",
+            "{}",
+            [
+                "</",
+                ">"
+            ],
+            [
+                "<",
+                "/>"
+            ],
+            "<>",
+            [
+                "Gold",
+                "Orchid",
+                "LightSkyBlue"
+            ],
+            "Red"
+        ],
+		"bracketPairColorizer.excludedLanguages": [
+			"*.env"
+		],
+		"browserRefresh.focus": true,
+		"cdnjs.maxRecentLibraries": 12,
+		"color-highlight.sass.includePaths": [
+			"**./src/*"
+		],
+		"color-highlight.matchWords": true,
+		"colorInfo.fields": [
+			"hex", "rgb", "hsl", "hsv", "lab", "cmyk", "alpha-xl"
+		],
+		"colorInfo.languages": [
+			{
+				"selector": "css",
+				"colors": "css"
+			},
+			{
+				"selector": "sass",
+				"colors": "css"
+			},
+			{
+				"selector": "scss",
+				"colors": "css"
+			},
+			{
+				"selector": "less",
+				"colors": "css"
+			},
+			{
+				"selector": "html",
+				"colors": "css"
+			}
+		],
+		"commentAnchors.tags.list": [
+			{
+				"tag": "ANCHOR",
+				"iconColor": "default",
+				"highlightColor": "#A8C023",
+				"scope": "file"
+			},
+			{
+				"tag": "TODO",
+				"iconColor": "blue",
+				"highlightColor": "#3ea8ff",
+				"scope": "workspace"
+			},
+			{
+				"tag": "FIXME",
+				"iconColor": "red",
+				"highlightColor": "#F44336",
+				"scope": "workspace"
+			},
+			{
+				"tag": "STUB",
+				"iconColor": "purple",
+				"highlightColor": "#BA68C8",
+				"scope": "file"
+			},
+			{
+				"tag": "NOTE",
+				"iconColor": "orange",
+				"highlightColor": "#FFB300",
+				"scope": "file"
+			},
+			{
+				"tag": "REVIEW",
+				"iconColor": "green",
+				"highlightColor": "#64DD17",
+				"scope": "workspace"
+			},
+			{
+				"tag": "SECTION",
+				"iconColor": "blurple",
+				"highlightColor": "#896afc",
+				"scope": "workspace",
+				"isRegion": true
+			}
+		],
+		"comment-ts.includeDescriptionTag": true,
+		"composer.maxNumberOfProblems": 15,
+		"css.fileExtensions": [
+			"css",
+			"scss"
+		],
+		"cssLanguageClient.maxNumberOfProblems": 180,
+		"csstriggers.showDecorationInline": true,
+		"dashboard.customProjectNameColor": "",
+		"dashboard.customProjectCardBackground": "",
+		"dashboard.customProjectPathColor": "",
+		"dashboard.customProjectsTempFileLocation": "",
+		"emmet.extensionsPath": {
+			"html": {
+				"snippets": {
+					"ull": "ul>li[id=${1} class=${2}]*2{ Will work with html, jade, haml and slim }",
+                    "oll": "<ol><li id=${1} class=${2}> Will only work in html </ol>",
+                    "ran": "{ Wrap plain text in curly braces }",
+					"file": "C:\\Users/adam/.vscode/emmet snippets/html.json"
+				}
+            },
+			"css": {
+                "snippets": {
+                    "cb": "color: black",
+                    "bsd": "border: 1px solid ${1:red}",
+                    "ls": "list-style: ${1}",
+					"file": "C:\\Users/adam/.vscode/emmet snippets/css.json"
+				}
+            }
+		},
+		"emmet.includeLanguages": {
+			"javascript": "javascriptreact",
+			"html": "html",
+            "erb": "erb",
+            "vue": "html",
+            "ejs": "html",
+			"razor": "html",
+            "plaintext": "jade",
+			"markdown": "html"
+
+		},
+		"emmet.triggerExpansionOnTab": true,
+		"emmet.showExpandedAbbreviation": "never",
+		"emmet.preferences": {
+			"css.webkitProperties": "border-right,animation"
+		},
+		"errorLens.enabledDiagnosticLevels": [
+			"error",
+			"warning",
+			"info",
+			"hint"
+		],
+		"errorLens.fontStyle": "normal",
+		"eslint.alwaysShowStatus": true,
+		"eslint.codeAction.disableRuleComment": {
+			"enable": true,
+			"location": "separateLine"
+		},
+		"eslint.lintTask.enable": true,
+		"eslint.nodePath": [
+			"./node_modules/eslint/"
+		],
+		"eslint.run": "onSave",
+		"extension-leaderboard.enableAppInsights": true,
+		"find.all.references.engine": "rg",
+		"fontAwesomeAutocomplete.disableTriggerWordAutoClearPatterns": [
+			"**/*.html"
+		],
+		"formattingToggle.activateFor": [
+			"formatOnPaste",
+			"formatOnSave"
+		],
+		"git.allowForcePush": true,
+		"git.autofetchPeriod": 200,
+		"git.defaultCloneDirectory": "I:\\\\Program Files (x86)\\\\Microsoft Visual Studio\\\\Repositories\\\\",
+		"git.detectSubmodulesLimit": 12,
+		"git.enableCommitSigning": true,
+		"git.enableSmartCommit": true,
+		"git.inputValidationLength": 120,
+		"git.postCommitCommand": "sync",
+		"git.scanRepositories": [
+			"I:\\\\Program Files (x86)/Microsoft Visual Studio/Repositories/",
+			"I:\\\\Program Files (x86)\\\\Microsoft Visual Studio\\\\Repositories\\Metro-Desktop\\"
+		],
+		"git.ignoredRepositories": [
+			"I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\2018.jsconf.eu-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Accelerider.Windows-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\AdminLTE-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Alchemy-Websockets-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\AnimateDemo",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ant-design-pro",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\api-platform-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\avalon-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\backup folder",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Block",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\blur-admin-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Caliburn.Micro-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\cerebral-next",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\client-hints-example-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\cocos2d-x-3",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\compressed files",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\concept-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\CreatingHtmlUI",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Dashio",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Data folder",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\demoweb",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\diff-serving-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\dnstradamus-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\DotvvmApplication",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\dotvvm-coffee-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\dotvvmprod",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\eclipse-javascript-2019-03-R-win32-x86_64",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\electron-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\electron-react",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\electron-react-boilerplate",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\express-es6-rest-api-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\fastfood",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline.adminlte.electron",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline-dev",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Frontline-Reactor",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\fullPage.js-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\gentelella-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\gh3-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\gridsome-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\grunt-edge-apidoc-webapi-generator-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Hack-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\howto-components-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\hpbn.co-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\html-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\HtmlMasterRenderer",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\HtmlRenderer",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\httparchive.org-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\InStore-a-React-Native-E-Commerce-with-a-Restful-API-in-NodeJS",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic.frontline.project",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-app-scripts-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-core-angularjs-demo-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-native-5.5.1",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ionic-pwa-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\jeremy.codes-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\json-server-gui-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\knockout-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\krembo",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\krembowpf",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\lazy-loading-research-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\material-dashboard-react-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\material-kit-react",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Mimic",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\mui-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\multiscroll.js-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\MvvmCross",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Neutronium-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\next.js-canary",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\NgEngine-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\ngx-admin-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\node_modules",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\node-api-client-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\nodejs-shopping-cart-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\node-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\nvim-typescript-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\octokat.js-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\octonode-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\parcel-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\prerender-spa-plugin-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Prism-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Project",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\promise-worker-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\purifycss-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\pwaapp",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\pwacompat-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\pwa-module-dev",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reacoa 2852019",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react repo",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-dashboard",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\React-Electron-Webpack",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-from-scratch-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-git",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reactide",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-intl-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reactjs-admin-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\reactjs-basics-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-material-admin-template-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-mobx-realworld-example-app-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\React-MultiDesktop",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-refetch-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\React-Slide",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\react-static",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\rest.js-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\serviceworker-cookbook-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\service-workers-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\single-page-application-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\space.js-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\split-me-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\stencil-angularjs-demo-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\stencil-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\stencil-transform-angularjs-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\SuperWebSocket",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\TriangularBtn-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Uefa Bot",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\UiDesignDemo",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\WebAPIContainer",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\webapp",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\webpack-pwa-manifest-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\webpack-react",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Workbox",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\WpfBrowserApp",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\wpfmaster",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\wpftoolkit-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\XanderUiDemo-master",
+            "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\yall.js-master"
+		],
+		"git.showPushSuccessNotification": true,
+		"gitblame.commitUrl": "\"https://github.com/adamkeinan/Metro-Desktop/commit/${hash}\"",
+		"gitblame.pluralWebPathSubstrings": [
+			"bitbucket",
+			"atlassian"
+		],
+		"githd.logView.commitsCount": 400,
+		"githd.traceLevel": "error",
+		"gitProjectManager.displayProjectPath": true,
+		"gitProjectManager.supportsSVN": true,
+		"gitProjectManager.warnIfFolderNotFound": true,
+		"gitTreeCompare.root": "repository",
+		"github.repositories": [
+			"https://github.com/travis-ci/travis-ci",
+			"https://github.com/nlopes/slack",
+			"https://github.com/snyk/snyk",
+			"https://github.com/adamkeinan/Metro-Desktop/tree/greenkeeper/initial"
+		],
+		"github.host": "github.com",
+		"github.preferedMergeMethod": "merge",
+		"github.username": "adamkeinan",
+		"github.customPullRequestDescription": "gitEditor",
+		"githubPullRequests.queries": [
+			{
+				"label": "Waiting For My Review",
+				"query": "is:open review-requested:${user}"
+			},
+			{
+				"label": "Assigned To Me",
+				"query": "is:open assignee:${user}"
+			},
+			{
+				"label": "Created By Me",
+				"query": "is:open author:${user}"
+			},
+			{
+				"label": "Mentioned Me",
+				"query": "is:open mentions:${user}"
+			}
+		],
+		"gitignore.cacheExpirationInterval": 4400,
+		"gitlens.advanced.blame.delayAfterEdit": 2000,
+		"gitlens.advanced.repositorySearchDepth": 5,
+		"gitlens.codeLens.includeSingleLineSymbols": true,
+		"gitlens.codeLens.recentChange.command": "gitlens.diffWithPrevious",
+		"importCost.debug": true,
+		"importCost.javascriptExtensions": [
+			"\\.jsx?$"
+		],
+		"gitlens.hovers.detailsMarkdownFormat": ".md",
+		"importCost.mediumPackageSize": 120,
+		"importSorter.generalConfiguration.sortOnBeforeSave": true,
+		"importSorter.sortConfiguration.customOrderingRules.rules": [
+			{
+				"type": "importMember",
+				"regex": "^$",
+				"orderLevel": 5,
+				"disableSort": true
+			},
+			{
+				"regex": "^[^.@]",
+				"orderLevel": 10
+			},
+			{
+				"regex": "^[@]",
+				"orderLevel": 15
+			},
+			{
+				"regex": "^[.]",
+				"orderLevel": 30
+			}
+		],
+		"intelephense.completion.fullyQualifyGlobalConstantsAndFunctions": true,
+		"intelephense.completion.maxItems": 150,
+		"standard.autoFixOnSave": true,
+		"standard.enable": true,
+		"standard.run": "onSave",
+		"standard.trace.server": "messages",
+		"standard.validate": [
+			"javascript",
+			"javascriptreact"
+		],
+		"standard.workingDirectories": [
+			"**/*.",
+			"**./src"
+		],
+		"jestRunner.enabled": true,
+		"jsonHelper.quickpick.maxlayer": 200,
+		"liveServer.settings.AdvanceCustomBrowserCmdLine": "chrome --incognito --headless --remote-debugging-port=9222",
+		"livereload.debug": true,
+		"livereload.delayForUpdate": 50,
+		"local-history.exclude": [
+			"**/.history/**",
+			"**/.vscode/**",
+			"**/node_modules/**",
+			"**/typings/**",
+			"**/out/**",
+			"**/Code/User/**"
+		],
+		"markdown.extension.tableFormatter.normalizeIndentation": true,
+		"markdown.extension.toc.githubCompatibility": false,
+		"markdown-table-formatter.removeColonsIfSameAsDefault": true,
+		"markdownlint.config": {
+			"MD013": false
+		},
+		"markdownlint.run": "onSave",
+		"markdown.preview.fontSize": 15,
+		"markdown.preview.lineHeight": 0,
+		"markdown.extension.print.absoluteImgPath": false,
+		"markdown.extension.syntax.decorations": true,
+		"markdownExtended.pdfFormat": "A4",
+		"material-icon-theme.activeIconPack": "react",
+		"markdown-preview-enhanced.enableCriticMarkupSyntax": true,
+		"markdown-preview-enhanced.HTML5EmbedIsAllowedHttp": true,
+
+		"minify.css": {
+			"advanced": true,
+			"aggressiveMerging": true,
+			"compatibility": "*",
+			"inliner": {},
+			"keepBreaks": false,
+			"keepSpecialComments": "*",
+			"mediaMerging": true,
+			"processImport": true,
+			"processImportFrom": [
+				"all"
+			],
+			"rebase": true,
+			"restructuring": true,
+			"root": "${workspaceRoot}",
+			"roundingPrecision": 2,
+			"semanticMerging": false,
+			"shorthandCompacting": true
+		},
+		"minify.html": {
+			"caseSensitive": false,
+			"collapseBooleanAttributes": true,
+			"collapseInlineTagWhitespace": false,
+			"collapseWhitespace": true,
+			"conservativeCollapse": false,
+			"customAttrAssign": [],
+			"customAttrCollapse": "",
+			"customAttrSurround": [],
+			"customEventAttributes": [
+				"^on[a-z]{3,}$"
+			],
+			"decodeEntities": false,
+			"html5": true,
+			"ignoreCustomComments": [
+				"^!"
+			],
+			"ignoreCustomFragments": [
+				"<%[\\s\\S]*?%>",
+				"<\\?[\\s\\S]*?\\?>"
+			],
+			"includeAutoGeneratedTags": true,
+			"keepClosingSlash": false,
+			"maxLineLength": false,
+			"minifyCSS": true,
+			"minifyJS": true,
+			"minifyURLs": false,
+			"preserveLineBreaks": false,
+			"preventAttributesEscaping": false,
+			"processConditionalComments": false,
+			"processScripts": [],
+			"quoteCharacter": "\"",
+			"removeAttributeQuotes": false,
+			"removeComments": false,
+			"removeEmptyAttributes": false,
+			"removeEmptyElements": false,
+			"removeOptionalTags": false,
+			"removeRedundantAttributes": false,
+			"removeScriptTypeAttributes": false,
+			"removeStyleLinkTypeAttributes": false,
+			"sortAttributes": false,
+			"sortClassName": false,
+			"trimCustomFragments": false,
+			"useShortDoctype": false
+		},
+		"minify.js": {
+			"mangle": true,
+			"compress": {
+				"sequences": true,
+				"properties": true,
+				"dead_code": true,
+				"drop_debugger": true,
+				"unsafe": false,
+				"unsafe_comps": false,
+				"conditionals": true,
+				"comparisons": true,
+				"evaluate": true,
+				"booleans": true,
+				"loops": true,
+				"unused": true,
+				"hoist_funs": true,
+				"keep_fargs": true,
+				"keep_fnames": false,
+				"hoist_vars": false,
+				"if_return": true,
+				"join_vars": true,
+				"collapse_vars": false,
+				"reduce_vars": false,
+				"side_effects": true,
+				"pure_getters": false,
+				"pure_funcs": null,
+				"negate_iife": false,
+				"drop_console": false,
+				"passes": 1,
+				"global_defs": {}
+			},
+			"output": {
+				"ascii_only": false,
+				"inline_script": false,
+				"max_line_len": 32000,
+				"braces": false,
+				"semicolons": true,
+				"comments": false,
+				"shebang": true,
+				"preamble": null,
+				"quote_style": "best"
+			}
+		},
+		"miramac.node.args": {
+			/* To execute the current file or the selection press F8 or use the command Execute Node.js */
+            /* To cancel a running process press F9 */
+			"miramac.node.clearOutput": true,
+			"miramac.node.showInfo": true,
+			"miramac.node.showStdout": true,
+			"miramac.node.showStderr": true,
+			"miramac.node.legacyMode": false,
+			"miramac.node.args": ["--port", "1337"],
+            "miramac.node.options": ["--require", "babel-register"],
+            "miramac.node.nodeBin": "/path/to/some/bin/node-7.0",
+            "miramac.node.includeCode": "const DEBUG = true; const fs = require('fs');"
+		},
+		"CreateModule.supportES6modules": true,
+		"javascript.commonjs.resolve.extensions": [
+			"*.js",
+			"*.jsx",
+			"*.ts"
+		],
+		"javascript.commonjs.resolve.languages": [
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+			"vue",
+			"coffeescript",
+			"Scala.js"
+		],
+		"javascript.commonjs.resolve.moduleDirectory": [
+			"node_modules",
+			"*./node_modules/"
+		],
+		"node_require.exclude": [
+			"node_modules",
+			"typings",
+			"bin",
+			"build",
+			"tmp",
+			"*.ignore"
+		],
+		"npm-intellisense.scanDevDependencies": true,
+		"openInGitHub.gitHubDomain": "github.com",
+		"dependencyAnalyticsServer.maxNumberOfProblems": 120,
+		"path-intellisense.autoSlashAfterDirectory": true,
+		"path-intellisense.extensionOnImport": true,
+		"postman.testDefaultDelay": 100,
+		"powershell.codeFormatting.useCorrectCasing": true,
+		"prettier.jsxSingleQuote": true,
+		"prettier.useTabs": true,
+		"prettier.bracketSpacing": true,
+		"njpPush.envReminderTimeout": 40,
+		"njpPush.envColours": {
+			"dev": "#62defd",
+			"stage": "#ffd08a",
+			"prod": "#f7ed00"
+		},
+		"remoteBrowser.connectionOptions": {
+			"host": "127.0.0.1",
+			"username": "remoteuser"
+		},
+		"code-runner.executorMap": {
+			"javascript": "node",
+			"java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+			"c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"cpp": "cd $dir && g++ $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+			"php": "php",
+			"python": "python -u",
+			"perl": "perl",
+			"perl6": "perl6",
+			"ruby": "ruby",
+			"go": "go run",
+			"lua": "lua",
+			"groovy": "groovy",
+			"powershell": "powershell -ExecutionPolicy ByPass -File",
+			"bat": "cmd /c",
+			"shellscript": "bash",
+			"fsharp": "fsi",
+			"csharp": "scriptcs",
+			"vbscript": "cscript //Nologo",
+			"typescript": "ts-node",
+			"coffeescript": "coffee",
+			"scala": "scala",
+			"swift": "swift",
+			"julia": "julia",
+			"crystal": "crystal",
+			"ocaml": "ocaml",
+			"r": "Rscript",
+			"applescript": "osascript",
+			"clojure": "lein exec",
+			"haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+			"rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+			"racket": "racket",
+			"scheme": "csi -script",
+			"ahk": "autohotkey",
+			"autoit": "autoit3",
+			"dart": "dart",
+			"pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+			"d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+			"haskell": "runhaskell",
+			"nim": "nim compile --verbosity:0 --hints:off --run",
+			"lisp": "sbcl --script",
+			"kit": "kitc --run"
+		},
+		"code-runner.executorMapByFileExtension": {
+			".vb": "cd $dir && vbc /nologo $fileName && $dir$fileNameWithoutExt",
+			".vbs": "cscript //Nologo",
+			".scala": "scala",
+			".jl": "julia",
+			".cr": "crystal",
+			".ml": "ocaml",
+			".exs": "elixir",
+			".hx": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+			".rkt": "racket",
+			".scm": "csi -script",
+			".ahk": "autohotkey",
+			".au3": "autoit3",
+			".kt": "cd $dir && kotlinc $fileName -include-runtime -d $fileNameWithoutExt.jar && java -jar $fileNameWithoutExt.jar",
+			".kts": "kotlinc -script",
+			".dart": "dart",
+			".pas": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+			".pp": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+			".d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+			".hs": "runhaskell",
+			".nim": "nim compile --verbosity:0 --hints:off --run",
+			".csproj": "dotnet run --project",
+			".fsproj": "dotnet run --project",
+			".lisp": "sbcl --script",
+			".kit": "kitc --run"
+		},
+		"code-runner.customCommand": "echo run",
+		"code-runner.defaultLanguage": "javascript",
+		"code-runner.executorMapByGlob": {
+			"pom.xml": "cd $dir && mvn clean package"
+		},
+		"code-runner.languageIdToFileExtensionMap": {
+			"bat": ".bat",
+			"powershell": ".ps1",
+			"javascript":".js",
+			"plaint txt":"html",
+			"typescript": ".ts"
+		},
+		"code-runner.runInTerminal": true,
+		"code-runner.saveAllFilesBeforeRun": true,
+		"code-runner.saveFileBeforeRun": true,
+		"scss.lint.boxModel": "warning",
+		"reacted.maxNumberOfProblems": 150,
+		"shellformat.effectLanguages": [
+			"shellscript",
+			"dockerfile",
+			"dotenv",
+			"hosts",
+			"jvmoptions",
+			"ignore",
+			"gitignore",
+			"properties",
+			"spring-boot-properties",
+			"azcli"
+		],
+		"Toggle activity bar": true,
+		"Save active file": true,
+		"Switch header source": true,
+		"Toggle render whitespace": true,
+		"shortcuts.buttons": [
+			"file-binary , workbench.action.tasks.build , Run build task",
+			"beaker , workbench.action.tasks.test , Run test task",
+			"terminal , workbench.action.terminal.toggleTerminal , Toggle terminal panel",
+			"telescope , workbench.action.showCommands , Show command palette",
+			"bug, workbench.action.debug.start, Launch debug"
+		],
+		"toggle.setting1Title": "Enable",
+		"toggle.setting2Title": "Disable",
+		"toggle.settingState1": "on",
+		"toggle.settingState2": "off",
+		"typescript.extension.sortImports.maxNamedImportsInSingleLine": 4,
+		"typescript.extension.sortImports.sortOnSave": false,
+		"sort-imports.languages": [
+			"javascript",
+			"typescript"
+		],
+		"sortLines.sortEntireFile": true,
+		"spellright.ignoreFiles": [
+			"**/.gitignore",
+			"**/.spellignore"
+		],
+		"statusbar_command.commands": [
+			{
+				"text": "$(gear)",
+				"tooltip": "workspace settings",
+				"alignment": "right",
+				"command": "workbench.action.openWorkspaceSettings"
+			}
+		],
+		"statusbarerror.wholeLine.show": true,
+		"git.alwaysShowStagedChangesResourceGroup": true,
+		"git.inputValidationSubjectLength": 70,
+		"gitProjectManager.maxDepthRecursion": 5,
+		"github.customPullRequestTitle": true,
+		"gitlens.advanced.maxListItems": 250,
+		"gitlens.advanced.maxSearchItems": 300,
+		"svn.conflicts.autoResolve": true,
+		"svn.enableProposedApi": "argument",
+		"svn.layout.showFullName": true,
+		"svn.layout.tagRegexName": 1,
+		"svn.layout.trunkRegex": "(trunk)(/.*)?",
+		"svn.layout.trunkRegexName": 1,
+		"svn.log.length": 80,
+		"svn.multipleFolders.depth": 5,
+		"svn.multipleFolders.enabled": true,
+		"svn.multipleFolders.ignore": [
+			"**/.git",
+			"**/.hg",
+			"**/vendor",
+			"**/node_modules"
+		],
+		"svn.refresh.remoteChanges": true,
+		"svn.showOutput": true,
+		"svn.sourceControl.combineExternalIfSameServer": true,
+		"sync-rsync.autoShowOutput": true,
+		"sync-rsync.args": [
+			"rsync $outputfile",
+			"rsync $outputfolder"
+		],
+		"sync-rsync.exclude": [
+			".git",
+			".vscode",
+			".ignore"
+		],
+		"taskExplorer.debug": true,
+		"taskExplorer.debugLevel": 3,
+		"taskExplorer.enableSideBar": true,
+		"taskExplorer.exclude": [
+			"**/.vscode-test/**",
+			"**/CompiledOutput/**",
+			"**/doc/**",
+			"**/ext/**",
+			"**/out/**",
+			"**/output/**",
+			"**/packages/**",
+			"**/release/**",
+			"**/releases/**",
+			"**/samples/**",
+			"**/sdks/**",
+			"**/static/**",
+			"**/target/**",
+			"**/third_party/**",
+			"**/vendor/**"
+		],
+		"testExplorer.showOnRun": true,
+		"travisClient.branches": [
+			"master",
+			"greenkeper/initial"
+		],
+		"travisClient.interval": 7,
+		"travisClient.owner": "adamkeinan",
+		"travisClient.pro": true,
+		"travis.pro": true,
+        "editor.multiCursorModifier": "ctrlCmd",        
+        "editor.formatOnPaste": true,
+		"markdown.preview.fontFamily": "'Fira Code', 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif",
+		"markdown.preview.fontSize": 16,
+		"markdown.extension.preview.autoShowPreviewToSide": true,
+		"markdown.extension.showExplorer": true,
+		"markdownExtended.exportOutDirName": "Root",
+		"markdownExtended.imageQuality": 80,
+		"markdown-preview-enhanced.enableExtendedTableSyntax": true,
+		"markdown-preview-enhanced.enableHTML5Embed": true,
+		"markdownShortcuts.icons.image": true,
+		"markdownShortcuts.languages": [
+			"markdown"
+		],
+		"markdown-table-formatter.enable": true,
+		"markdown-table-formatter.keepFirstAndLastPipes": true,
+		"markdown-table-formatter.spacePadding": 1,
+		"view-in-browser.default": "chrome",
+		"vsintellicode.java.completionsEnabled": "enabled",
+		"hlsl.openDocOnSide": true,
+		"vs-color-picker.autoLaunch": true,
+		"vs-color-picker.autoLaunchDelay": 100,
+		"VSCodeCounter.outputMarkdownSeparately": true,
+		"VSCodeCounter.outputPreviewType": "markdown",
+		"wallaby.colors": {
+			"covered": "#62b455",
+            "errorPath": "#ffa0a0",
+            "errorSource": "#fe536a",
+            "notCovered": "#cccccc",
+            "partiallyCovered": "#d2a032"
+		},
+		"wallaby.outputContentSize": 40000,
+		"windowsExplorerContextMenu.executable": "AutohotkeyContextMenu.exe",
+		"workspaceExplorer.enableCustomIconSearch": "true",
+		"workspaceExplorer.workspaceStorageDirectory": "I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Metro-Desktop",
+        "yaml.completion": "true",
+		"yaml.format.printWidth": 100,
+		"editor.formatOnSave": true,
+		"editor.codeActionsOnSaveTimeout": 500,
+		"editor.smoothScrolling": true,
+		"editor.tabCompletion": "on",
+		"editor.suggest.filteredTypes": {
+			"keyword": true,
+			"snippet": true
+		},
+		"editor.suggest.maxVisibleSuggestions": 10,
+		"files.associations": {
+			
+		},
+		"errorLens.statusBarControl": "never",
+		"VSCodeCounter.showInStatusBar": true,
+		"svn.remoteChanges.checkFrequency": 200,
+		"ActiveFileInStatusBar.revealFile": true,
+		"ActiveFileInStatusBar.color": "#35b1f4",
+		"vscodeWorkspaceSwitcher.paths": [
+			"I:\\Program Files (x86)\\Microsoft Visual Studio\\Repositories\\Metro-Desktop"
+		],
+		"vscodeWorkspaceSwitcher.codeExecutable": [
+			"C:\\Program Files\\Microsoft VS Code"
+		],
+		"perforce.addOnFileCreate": true,
+		"format.onType": false,
+		"liveshare.allowGuestDebugControl": true,
+		"liveshare.autoShareTerminals": false,
+		"browserRefresh.browser": "chrome",
+		"vscode-devtools-for-chrome.chromePath": "C:\\Program Files (x86)\\Google\\Chrome\\Application",
+		"browser-preview.chromeExecutable": "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+		"instantmarkdown.autoCloseServerAndBrowser": false,
+		"instantmarkdown.autoOpenBrowser": false,
+		"markdown.preview.openMarkdownLinks": "inEditor",
+		"markdown.extension.tableFormatter.enabled": false,
+		"markdown-preview-enhanced.automaticallyShowPreviewOfMarkdownBeingEdited": false,
+		"markdown-preview-enhanced.codeBlockTheme": "default.css",
+		"markdown-preview-enhanced.enableEmojiSyntax": false,
+		"VSCodeCounter.outputAsMarkdown": false,
+		"http.proxyStrictSSL": false,
+		"emacs-mcx.killRingMax": 100,
+		"workbench.colorCustomizations": {
+			"activityBar.background": "#163233",
+			"titleBar.activeBackground": "#1F4647",
+			"titleBar.activeForeground": "#F7FBFB"
+		},
+		"git.ignoreLimitWarning": true,
+	},
+}

@@ -1,0 +1,77 @@
+{
+    "extends": 
+        "airbnb-config-eslint",
+        "eslint-config-wesbos",
+        "wesbos", 
+        "plugin: prettier/recommended",
+        "eslint: recommended",
+        "rules": [
+        "consistent-return": 2,
+        "indent"           : [1, 4],
+        "no-else-return"   : 1,
+        "semi"             : [1, "always"],
+        "space-unary-ops"  : 2,
+        ],
+    "plugins": [
+        "jsx-a11y",   
+        "prettier/recommended",  
+        "eslint-config-prettier", 
+        "plugin": "eslint-plugin-import"
+        "rules": [
+            "coma-dangle": ["error", "always"]
+        ],
+        "settings":[
+         "import/resolver": [
+             "babel-module": []
+         ]    
+       ],
+    ],
+    "parser": "babel-eslint",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "parserOptions": [
+        "ecmaFeatures": [
+            "jsx": true
+        ],
+        "ecmaVersion": "6",
+        "sourceType": "module"
+    ],
+    "rules": [
+        "react/jsx-filename-extension": [
+            1,
+            [
+                "extensions": ["*.js", ".jsx"]
+            ]
+        ],
+        "constructor-super": "warn",
+        "import/imports-first": ["error", "absolute-first"],
+        "import/newline-after-import": "error",
+        "indent": ["error", 4],
+        "no-const-assign": "warn",
+        "no-extra-semi": "error",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-underscore-dangle": 0,
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "prettier/prettier": "error",
+        "quotes": ["error", "single"],
+        "react/prop-types": 0,
+        "semi": ["error", "always"],
+        "valid-typeof": "warn"
+    ],
+    "globals": {
+        "Promise": "off",
+        "window": true,
+        "document": true,
+        "localStorage": true,
+        "FormData": true,
+        "FileReader": true,
+        "Blob": true,
+        "navigator": true
+    }
+}

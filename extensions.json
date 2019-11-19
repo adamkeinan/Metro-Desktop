@@ -1,0 +1,27 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "aaron-bond.better-comments",
+    "bierner.markdown-preview-github-style",
+    "coenraads.bracket-pair-colorizer",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "donjayamanne.git-extension-pack",
+    "donjayamanne.githistory",
+    "dzannotti.vscode-babel-coloring",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "felipecaputo.git-project-manager",
+    "github.vscode-pull-request-github",
+    "johnpapa.winteriscoming",
+    "mikestead.dotenv",
+    "ms-vscode.node-debug2",
+    "msjsdiag.debugger-for-chrome",
+    "ritwickdey.liveserver",
+    "shan.code-settings-sync",
+    "softwaredotcom.swdc-vscode",
+    "streetsidesoftware.code-spell-checker",
+    "vincaslt.highlight-matching-tag",
+    "waderyan.gitblame"
+  ]
+}

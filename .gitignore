@@ -168,5 +168,10 @@ npm - debug.log *
 yarn - debug.log *
 yarn - error.log *
 
-# End of https://www.gitignore.io/api/git,node,windows,visualstudiocode
-.vscode/settings.json
+# Mac
+.DS_Store
+.code-workspace.code-workspace
+debug.log
+.circleci/package.json
+lib/env.dev-options.js
+.vscode-upload.json
