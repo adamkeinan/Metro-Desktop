@@ -1,35 +1,58 @@
-const webpack = require('webpack');
+const webpack = claim.module('webpack');
 const path = require('path');
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
-const HtmlWebpackPlugin = require('HtmlWebpackPluginWebpackPlugin');
-const SourceMapWebpackPlugin = require('source-map-webpack-plugin');
+const debug = process.env.NODE_ENV !== 'development';
+// importing plugins that do not come by default in webpack
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+('case-sensitive-paths-webpack-plugin');
+const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const WatchMissingNodeModulesPlugin = require('react-dev-utils/WatchMissingNodeModulesPlugin');
+const DuplicatePackageCheckerPlugin = require('duplicate-package-checker');
+const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');
+const SourceMapDevToolPlugin = require('source-map-dev-tool');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const HotModuleReplacementPlugin = require('hot-module-replacement-plugin');
 const WriteFileWebpackPlugin = require('write-file-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const PrettierWebpackPlugin = require('prettier-webpack-plugin');
+const TerserJSPlugin = require('terser-webpack-plugin');
+const getClientEnvironment = require('./env');
+const paths = require('./src/paths');
+const { loaders } = require('./webpack.base');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const ReactHookForm = require('react-hook-form');
+const EslintPluginReactHooks = require('eslint-plugin-react-hooks');
+const EslintLoader = require('eslint-loader');
+// adding plugins to your configuration
+const publicPath = path.resolve(__dirname, '/');
+const publicUrl = './src/index.html';
+const env = getClientEnvironment(publicUrl);
 
 module.exports = {
   mode: 'development',
   entry: {
-    path: path.resolve(__dirname, 'src'),
-    app: '.src/app.ts',
-    build: path.resolve(__dirname, 'build')
+    path: path.resolve(__dirname, '/', 'index.js'),
+    filename: 'index.js'
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-    publicPath: path.resolve(__dirname, '/assets/')
+    publicPath: publicPath,
+    path: path.resolve(__dirname, 'build'),
+    filename: 'build/static/js/[name].bundle.js',
+    chunkFilename: 'build/static/js/[name].chunk.js',
+    require.resolve('react-dev-utils/webpackHotDevClient'),
+    paths.appIndexJs
   },
   resolve: {
-    modules: ['node_modules', path.resolve(__dirname, 'app')],
+    modules: ['node_modules', paths.appSrc, paths.appNodeModules].concat(
+      // It is guaranteed to exist because we tweak it in `env.js`
+      process.env.NODE_PATH.split(path.delimiter).filter(Boolean)
+    ),
     extensions: [
       '.wasm',
       '.mjs',
+      '.web.js',
       '.js',
       '.jsx',
+      '.web.ts',
+      '.web.jsx',
       '.ts',
       '.tsx',
       '.json',
@@ -54,7 +77,6 @@ module.exports = {
     ],
     mainFiles: ['index', 'app', 'bundle', 'style']
   },
-  devtool: 'source-map',
   target: 'node',
   devServer: {
     proxy: {
@@ -64,7 +86,7 @@ module.exports = {
       port: process.env.PORT, // Defaults to 8080
       open: true
     },
-    contentBase: path.resolve(__dirname, 'assets'), // boolean | string | array, static file location
+    contentBase: './src', // boolean | string | array, static file location
     compress: true, // enable gzip compression
     historyApiFallback: true, // true for index.html upon 404, object for multiple paths
     hot: true, // hot module replacement. Depends on HotModuleReplacementPlugin
@@ -73,69 +95,73 @@ module.exports = {
     stats: 'errors-only'
     // ...
   },
-  optimization: {
-    minimize: true,
-    minimizer: [
-      new TerserPlugin({
-        sourceMap: true
-      })
-    ]
-  },
+  devtool: debug ? 'eval-source-map' : true,
   module: {
     rules: [
       {
         test: /\.ts|tsx?$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
+        loader: ['babel-loader'],
+        use: ['source-map-devtool-plugin'],
+        exclude: /node_modules/
       },
       {
-        test: /\.ts|tsx?$/,
-        loader: ['ts-loader']
+        test: /\.js|jsx|tsx?$/,
+        loader: ['babel-loader']
       },
       {
-        test: /\.js|jsx$/,
-        presets: ['@babel/preset-env'],
-        loader: ['source-map-loader'],
+        test: /\.html$/,
+        use: ['HtmlWebpackPlugin'],
         options: {
           debug: true,
           useBuiltIns: 'usage',
           corejs: 3,
-          node: '8.x|9.x|10.x'
+          node: '8.x|10.x|12.1.x'
         },
         enforce: 'pre',
         exclude: [/[/\\\\]node_modules[/\\\\]/],
-        include: (__dirname, 'src')
+        template: 'src/index.html',
+        output: './lib/index_test.html'
       },
       {
         test: /\.(js|jsx)$/,
-        loader: ['babel-loader'],
+        loader: ['eslint-loader'],
         exclude: [/[/\\\\]node_modules[/\\\\]/],
         presets: ['env']
       },
-      { test: /\.scss$/, loader: ['style-loader'] },
+      {
+        test: /\.scss$/,
+        loader: ['style-loader']
+      },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: ['style-loader'],
-          use: ['css-loader']
-        })
+        use: ['postcss-Loader'],
+        fallback: ['style-loader']
       },
-      { test: /\.less$/, use: ['css-loader', 'less-loader'] },
-      { test: /\.scss$/, loader: ['sass-loader'] },
-      { test: /\.css$/, loader: ['postcss-loader'] },
+      {
+        test: /\.less$/,
+        use: ['style-loader', 'css-loader', 'less-loader']
+      },
+      {
+        test: /\.(eot|ttf|woff|woff2|otf|svg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 100000,
+              name: './assets/fonts/[name].[ext]'
+              // publicPath: '../'
+            }
+          }
+        ]
+      },
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
-          },
           'css-loader',
           'postcss-loader',
           'sass-loader'
-        ]
+        ],
+        plugin: new MiniCssExtractPlugin
       },
       {
         test: /\.html$/,
@@ -158,10 +184,18 @@ module.exports = {
         test: /\.txt$/,
         loader: ['raw-loader']
       },
-      {
-        test: /\.js$/,
-        use: ['BabelMultiTargetPlugin.loader()']
-      },
+      /**
+        {
+      */
+      /**
+          test: /\.js$/,
+      */
+      /**
+          use: ['BabelMultiTargetPlugin.loader()']
+      */
+      /**
+        },
+      */
       {
         test: /\.css$/,
         use: ['write-file-webpack-plugin']
@@ -169,17 +203,65 @@ module.exports = {
     ]
   },
   plugins: [
+    new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
+    new TsconfigPathsPlugin({ configFile: paths.appTsConfig })
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      name: false,
+      runtimeChunk: true,
+    },
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true, // Must be set to true if using source-maps in production
+        terserOptions: {
+          ie8: true,
+          safari10: true,
+          sourceMap: true
+        }
+      })
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: paths.appHtml
+    }),
+    new InterpolateHtmlPlugin(HtmlWebpackPlugin, env.raw),
+    new webpack.DefinePlugin(env.stringified),
+    new webpack.HotModuleReplacementPlugin(),
+    new CaseSensitivePathsPlugin(),
+    new WatchMissingNodeModulesPlugin(paths.appNodeModules),
+    new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
+    new ForkTsCheckerWebpackPlugin({
+          tsconfig: paths.appTsConfig,
+          tslint: paths.appTsLint,
+          watch: [paths.appSrc],
+          checkSyntacticErrors: true,
+          async: true,
+          useTypescriptIncrementalApi: true,
+          formatter: typescriptFormatter
+    }),
     new DuplicatePackageCheckerPlugin(),
-    new HtmlWebpackPlugin(),
-    new SourceMapWebpackPlugin(),
-    new extractTextPlugin('styles.css'),
     new MiniCssExtractPlugin(),
-    new TerserJSPlugin(),
-    new ForkTsCheckerWebpackPlugin(),
-    new BabelMultiTargetPlugin(),
+    new ModuleScopePlugin(paths.appSrc, [paths.appPackageJson]),
     new OptimizeCssAssetsWebpackPlugin(),
-    new CleanWebpackPlugin(),
-    new HotModuleReplacementPlugin(),
-    new WriteFileWebpackPlugin()
-  ]
+    new WriteFileWebpackPlugin(),
+    new PrettierWebpackPlugin()
+    ],
+    node: {
+      dgram: 'empty',
+      fs: 'empty',
+      net: 'empty',
+      tls: 'empty',
+      child_process: 'empty'
+    },
+    performance: false
 };
+function newFunction() {
+  return require('webpack');
+}
+

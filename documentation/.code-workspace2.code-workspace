@@ -71,7 +71,6 @@
       "**/.gh-pages": true
     },
     "breadcrumbs.enabled": true,
-    "prettier.eslintIntegration": true,
     "prettier.printWidth": 120,
     "prettier.tabWidth": 2,
     "prettier.singleQuote": true,
@@ -437,7 +436,7 @@
       "\\.ts?$", "\\.tsx?$"
     ],
     "importCost.javascriptExtensions": [
-      "\\.js?$", "\\.jsx?$", "\\.ts?$", "\\.tsx?$", "\\.html?$"
+      "\\.js?$", "\\.jsx?$", "\\.ts?$", "\\.tsx?$", "\\.mjs?$", "\\.json?$", "\\.html?$"
     ],
     "importCost.bundleSizeDecoration": "both",
     "importCost.showCalculatingDecoration": true,
@@ -493,9 +492,16 @@
 		"openInGitHub.gitHubDomain":"github.com",
 		"dependencyAnalyticsServer.maxNumberOfProblems":120,
 		"powershell.codeFormatting.useCorrectCasing":true,
-		"prettier.jsxSingleQuote":true,
+    "prettier.prettierPath": "./node_modules/prettier",
+    "prettier.quoteProps": "as-needed",
 		"prettier.useTabs":true,
-		"prettier.bracketSpacing":true,
+    "prettier.bracketSpacing":true,
+    "prettier.configPath": "./prettierrc.js",
+    "prettier.endOfLine": "auto",
+    "prettier.htmlWhitespaceSensitivity": "strict",
+    "prettier.ignorePath": "./.prettierignore",
+    "prettier.jsxSingleQuote": false,
+    "prettier.parser": "babylon",
 		"code-runner.executorMap": {
 			"javascript":"node",
 			"java":"cd $dir && javac $fileName && java $fileNameWithoutExt",
@@ -967,5 +973,24 @@
       "statusBar": "none",
       "titleBar": "none"
     },
+    {
+      "editor.wordBasedSuggestions": true
+    },
+    {
+      "html.format.enable": true
+    },
+    {
+      "json.format.enable": true
+    },
+    {
+      "npm-intellisense.importES6": true
+    },
+    {
+      "files.eol": "auto"
+    },
+    {
+      // Controls the memory available to VS Code after restart when trying to open large files. Same effect as specifying `--max-memory=NEWSIZE` on the command line.
+      "files.maxMemoryForLargeFilesMB": 8192
+    }
   }
 }
