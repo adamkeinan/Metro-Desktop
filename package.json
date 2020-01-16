@@ -10,7 +10,7 @@
   "dependencies": {
     "async": "^3.1.0",
     "async-limiter": "^1.0.1",
-    "autoprefixer": "^9.6.1",
+    "autoprefixer": "^9.7.4",
     "babel-jest": "^24.9.0",
     "browserlist": "^1.0.1",
     "core-js": "^3.2.0",
