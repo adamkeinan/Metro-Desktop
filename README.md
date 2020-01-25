@@ -2,6 +2,10 @@
 
 ## `Full-Stack API Compiler`
 
+#### Author: Adam Keinan
+
+#### Current Version: 1.26(Testing)
+
 #### In Progress
 
 Library | Compiler | Language Extension | Bundlers      |
