@@ -4,7 +4,7 @@
 
 #### In Progress
 
-Platform | Compiler | Language | Code      |
+Library | Compiler | Language | Code      |
 ---------|----------|----------|-------|
  C | Metro | javascriptExtensions | Mirror
  Py | Metro | javascriptExtensions | Mirror
