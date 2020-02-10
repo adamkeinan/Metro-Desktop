@@ -15,7 +15,7 @@
     "browserlist": "^1.0.1",
     "core-js": "^3.2.0",
     "cross-env": "^5.2.0",
-    "fast-check": "^1.16.0",
+    "fast-check": "^1.22.2",
     "fast-levenshtein": "^2.0.6",
     "glob": "^7.1.4",
     "global-prefix": "3.0.0",
