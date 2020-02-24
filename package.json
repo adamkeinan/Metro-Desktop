@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "async": "^3.1.0",
+    "async": "^3.2.0",
     "async-limiter": "^2.0.0",
     "autoprefixer": "^9.6.1",
     "babel-jest": "^24.9.0",
