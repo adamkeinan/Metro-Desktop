@@ -111,7 +111,7 @@
     "react-dev-utils": "^9.0.2",
     "react-scripts": "3.2.0",
     "regenerator-preset": "^0.13.1",
-    "regenerator-runtime": "^0.13.3",
+    "regenerator-runtime": "^0.13.5",
     "regenerator-transform": "^0.14.1",
     "sass-loader": "^7.2.0",
     "schema-utils": "2.4.0",
