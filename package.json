@@ -112,7 +112,7 @@
     "react-scripts": "3.2.0",
     "regenerator-preset": "^0.13.1",
     "regenerator-runtime": "^0.13.3",
-    "regenerator-transform": "^0.14.1",
+    "regenerator-transform": "^0.14.4",
     "sass-loader": "^7.2.0",
     "schema-utils": "2.4.0",
     "style-loader": "0.23.1",
