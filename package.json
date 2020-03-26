@@ -91,7 +91,7 @@
     "jest-cli": "^24.9.0",
     "jest-config": "^24.9.0",
     "jest-environment-enzyme": "^7.1.0",
-    "jest-environment-jsdom": "^24.9.0",
+    "jest-environment-jsdom": "^25.2.3",
     "jest-environment-node": "^25.2.3",
     "jest-extended": "^0.11.2",
     "js-yaml": "^3.13.1",
