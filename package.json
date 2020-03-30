@@ -57,7 +57,7 @@
     "clean-webpack-plugin": "3.0.0",
     "css-loader": "^3.2.0",
     "csv-loader": "^3.0.2",
-    "cypress": "^3.4.1",
+    "cypress": "^4.3.0",
     "diagnostics": "^2.0.2",
     "dotenv": "8.2.0",
     "duplicate-package-checker-webpack-plugin": "^3.0.0",
