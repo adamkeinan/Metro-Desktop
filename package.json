@@ -92,7 +92,7 @@
     "jest-config": "^24.9.0",
     "jest-environment-enzyme": "^7.1.0",
     "jest-environment-jsdom": "^24.9.0",
-    "jest-environment-node": "^24.9.0",
+    "jest-environment-node": "^25.5.0",
     "jest-extended": "^0.11.2",
     "js-yaml": "^3.13.1",
     "jsreport-version-control": "^1.2.3",
