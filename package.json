@@ -115,7 +115,7 @@
     "regenerator-transform": "^0.14.1",
     "sass-loader": "^7.2.0",
     "schema-utils": "2.4.0",
-    "style-loader": "0.23.1",
+    "style-loader": "1.2.1",
     "tiny-worker": "^2.2.0",
     "url-loader": "2.3.0",
     "webpack": "4.41.0",
