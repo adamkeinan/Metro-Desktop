@@ -94,7 +94,7 @@
     "jest-environment-jsdom": "^24.9.0",
     "jest-environment-node": "^24.9.0",
     "jest-extended": "^0.11.2",
-    "js-yaml": "^3.13.1",
+    "js-yaml": "^3.14.0",
     "jsreport-version-control": "^1.2.3",
     "json-loader": "0.5.7",
     "json5-loader": "3.0.0",
